@@ -1,5 +1,5 @@
 <template>
-  <nav class="test" id="left-bar">
+  <nav class="nav-container" id="left-bar">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link :to="{name: 'breweries'}">Breweries</router-link>
       <router-link :to="{name: 'beerList'}">All Beers</router-link>
@@ -14,6 +14,14 @@ export default {
 </script>
 
 <style>
+/* .test {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+} */
+
   #left-bar{
   display: flex;
   justify-content: flex-start;

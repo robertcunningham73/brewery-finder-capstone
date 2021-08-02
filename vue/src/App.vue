@@ -2,8 +2,10 @@
   <div class="container" id="app">
      <div id="nav"> 
       <nav-bar />
-     <router-view />
+    
      </div>
+      <router-view />
+    
   </div>
 </template>
 
@@ -15,10 +17,21 @@ export default {
 }
 </script>
 <style>
+  /* #right-bar {
+    grid-area: right-display;
+    text-align: center;
+  } */
 
+  .nav-container {
+    grid-area: left-display;
+    text-align: center;
+  }
   
-  .test{
+  .container{
+    display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto;
+    grid-template-areas: 
+        "left-display right-display";
+    
   }
 </style>
