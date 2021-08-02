@@ -5,6 +5,10 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import Breweries from '../views/Breweries.vue'
+import Brewery from '../views/Brewery.vue'
+import Beer from '../views/Beer.vue'
+import BeerList from '../views/BeerList.vue'
 
 Vue.use(Router)
 
