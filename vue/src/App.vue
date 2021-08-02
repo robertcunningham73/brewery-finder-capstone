@@ -14,3 +14,11 @@ export default {
   
 }
 </script>
+<style>
+  .nav-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-basis: 15%;
+}
+</style>
