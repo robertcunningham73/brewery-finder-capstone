@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <div class="container" id="app">
+     <div id="nav"> 
       <nav-bar />
-    </div>
-    <router-view />
+     <router-view />
+     </div>
   </div>
 </template>
 
@@ -15,10 +15,10 @@ export default {
 }
 </script>
 <style>
-  .nav-container{
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  flex-basis: 15%;
-}
+
+  
+  .test{
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+  }
 </style>
