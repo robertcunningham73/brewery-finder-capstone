@@ -1,4 +1,5 @@
 <template>
+<div class="content">
 <div class="brewery-list">
   <!-- <table>
     <thead>
@@ -16,6 +17,7 @@
   <div v-for="brewery in breweries" v-bind:key="brewery.breweryId">
     <router-link :to="{ name: 'brewery', params:{id: brewery.breweryId}}">{{ brewery.name}}</router-link>
   </div>
+</div>
 </div>
   
 </template>

@@ -31,16 +31,16 @@ export default {
   }
 
   #nav {
-    height: 50%;
+    height: 100%;
     width: 20%;
     position: fixed;
-    left: 1;
-    top: 1;
+    left: 0;
+    top: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     overflow-x: hidden;
     background-color: rgb(255,243,176);
-    border-radius: 15px;
+    border-top-right-radius: 15px;
     border: transparent;
     z-index: 1;
       }

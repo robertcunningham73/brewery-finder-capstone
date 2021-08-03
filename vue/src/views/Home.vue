@@ -13,16 +13,22 @@ export default {
 };
 </script>
 <style>
-  #right-bar{
+  /* #right-bar{
     height: 100%;
     width: 100%;
     position: absolute;
     right: 0;
     top:0;
     text-align: center;
-  }
+  } */
 
   .content{
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top:0;
+    text-align: center;
   }
 </style>
