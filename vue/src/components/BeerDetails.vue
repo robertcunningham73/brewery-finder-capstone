@@ -1,5 +1,5 @@
 <template>
-  <div class="beer-details">
+  <main class="beer-details" >
 <h1>
   {{beer.name}}
 </h1>
@@ -9,14 +9,16 @@
 </h4>
 
 <h4>
-  ABV {{beer.abv}}
+  ABV {{beer.abv}} | Type {{beer.beerType}}
 </h4>
 
 <h3>
   Description: {{beer.description}}
 </h3>
-
-  </div>
+<div v-for="review in reviews" v-bind:key="review.reviewId">
+  {{beer.reviews}}
+</div>
+  </main>
 </template>
 
 <script>
@@ -35,7 +37,8 @@ export default {
         abv: 0.0,
         description: "",
         beerType: "",
-        active: false
+        active: false,
+        reviews: []
     }
   }
   },
@@ -43,6 +46,9 @@ export default {
     beerService.getBeer(this.$route.params.id).then(response =>{
       this.beer = response.data;
     })
+  },
+  methods: {
+    
   }
 }
 </script>

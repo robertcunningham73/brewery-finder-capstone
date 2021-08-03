@@ -38,9 +38,10 @@ export default new Vuex.Store({
       name: "",
       description: "",
       abv: 0.0,
-      beerType: ""
+      beerType: "",
+      reviews: []
     },
-    reviews: [],
+    
     review: {
       reviewId: 0,
       rating: 0,

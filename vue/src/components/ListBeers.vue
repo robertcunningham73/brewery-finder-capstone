@@ -1,6 +1,7 @@
 <template>
 <div class="content">
   <div class="list-beers">
+    <h1>All Beers</h1>
     <div v-for="beer in beerList" v-bind:key="beer.id">
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}</router-link>
     </div>
