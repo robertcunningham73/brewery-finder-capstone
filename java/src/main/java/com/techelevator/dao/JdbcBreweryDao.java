@@ -3,11 +3,12 @@ package com.techelevator.dao;
 import com.techelevator.model.Brewery;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO is @Service necessary here like in JdbcUserDao?
+@Service
 public class JdbcBreweryDao implements BreweryDao{
 
     private JdbcTemplate jdbcTemplate;
@@ -67,7 +68,7 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setCity(rowSet.getString("brewery_city"));
         brewery.setState(rowSet.getString("brewery_state"));
         brewery.setZip(rowSet.getInt("brewery_zip"));
-        brewery.setPhone(rowSet.getInt("brewery_phone"));
+        brewery.setPhone(rowSet.getString("brewery_phone"));
         brewery.setEmail(rowSet.getString("brewery_email"));
         brewery.setHistory(rowSet.getString("brewery_history"));
         brewery.setActive(rowSet.getBoolean("active"));

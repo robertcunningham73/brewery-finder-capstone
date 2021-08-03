@@ -8,19 +8,22 @@ public class Brewery {
     private String city;
     private String state;
     private int zip;
-    private int phone;
+    private String phone;
     private String email;
     private String history;
     private boolean active;
 
     public Brewery() { };
 
-    public Brewery(String name, String address, String city, String state, int zip, boolean active) {
+    public Brewery(String name, String address, String city, String state, int zip, String phone, String email, String history, boolean active) {
         this.name = name;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.phone = phone;
+        this.email = email;
+        this.history = history;
         this.active = active;
     }
 
@@ -70,11 +73,11 @@ public class Brewery {
         this.zip = zip;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
