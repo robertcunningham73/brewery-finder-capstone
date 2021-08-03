@@ -1,22 +1,20 @@
 <template>
   <div class="beer-details">
 <h1>
-  {{this.$store.state.beer.name}}
+  {{beer.name}}
 </h1>
 
 <h4>
-  {{this.$store.state.beer.type}}
+  {{beer.type}}
 </h4>
 
 <h4>
-  {{this.$store.state.beer.abv}}
+  {{beer.abv}}
 </h4>
 
 <h3>
-  {{this.$store.state.beer.description}}
+  {{beer.description}}
 </h3>
-
-
 
   </div>
 </template>
@@ -29,11 +27,22 @@ export default {
   props: {
     beerId: Number
   }, 
+  data(){
+    return{
+      beer:{
+        beerId: 0,
+        name: "",
+        abv: 0.0,
+        description: "",
+        beerType: "",
+        active: false
+    }
+  }
+  },
   created() {
-    beerService.getBeer(this.beerId)
-    .then()
-
-    //NEED TO BE COMPLETED
+    beerService.getBeer(this.$route.params.id).then(response =>{
+      this.beer = response.data;
+    })
   }
 }
 </script>
