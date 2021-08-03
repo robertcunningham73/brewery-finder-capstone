@@ -1,14 +1,16 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Beer;
+
 import java.util.List;
 
 public interface BeerDao {
 
-    List<BeerDao> getAllBeers();
+    List<Beer> getAllBeers();
 
-    BeerDao getBeerById(int beerId);
+    Beer getBeerById(int beerId);
 
-    BeerDao getBeerByName(String name);
+    Beer getBeerByName(String name);
 
     int findIdByName(String name);
 }

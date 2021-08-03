@@ -42,7 +42,7 @@ CREATE TABLE beer(
   beer_id serial,
   beer_name varchar(50) NOT NULL,
   beer_description varchar(255) NOT NULL,
-  beer_abv int NOT NULL,
+  beer_abv numeric(3, 1) NOT NULL,
   beer_type varchar(50) NOT NULL,
   PRIMARY KEY(beer_id)
 );
