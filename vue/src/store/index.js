@@ -39,7 +39,15 @@ export default new Vuex.Store({
       description: "",
       abv: 0.0,
       beerType: ""
-      //TODO add average rating
+    },
+    reviews: [],
+    review: {
+      reviewId: 0,
+      rating: 0,
+      reviewBody: "",
+      userId: 0,
+      username: "",
+      title: ""
     },
     token: currentToken || '',
     user: currentUser || {}

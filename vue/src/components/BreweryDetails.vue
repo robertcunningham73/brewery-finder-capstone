@@ -1,7 +1,6 @@
 <template>
   <div class="brewery-details">
-    <h1>{{ this.$store.state.activeBrewery }}</h1>
-      
+    <h1>{{brewery.name}}</h1>
   </div>
 </template>
 
@@ -10,10 +9,9 @@ import beerService from '@/services/BeerService.js';
 
 export default {
 name: "brewery-details",
-props: {
-  breweryId: Number
-},
-  /* data(){
+
+
+   data(){
     return {
       brewery: {
         breweryId: 0,
@@ -28,13 +26,15 @@ props: {
         active: true
       }
     }
-  }, */
+  }, 
   created(){
-    beerService.getBrewery(this.breweryId).then(response => {
-      this.$store.commit("SET_ACTIVE_BREWERY", response.data);
-  });
+    beerService.getBrewery(this.$route.params.id).then(response => {
+      this.brewery = response.data;
+    });
+  }
 }
-}
+
+
 </script>
 
 <style>

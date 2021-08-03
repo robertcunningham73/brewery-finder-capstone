@@ -1,6 +1,6 @@
 <template>
   <div>
-    <brewery-details v-bind:breweryId="parseInt($route.param.id)"/>
+    <brewery-details v-bind:breweryId="parseInt($route.params.breweryId)"/>
   </div>
 </template>
 

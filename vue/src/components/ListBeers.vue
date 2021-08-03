@@ -1,18 +1,9 @@
 <template>
   <div class="list-beers">
     <!-- Might want to make a grid view rather than use a table -->
-    <table>
-    <thead>
-      <tr>
-        <th>All Beers</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="beer in this.$store.state.beerList" v-bind:key="beer.id"></tr>
+    
+      <div v-for="beer in beerList" v-bind:key="beer.id"></div>
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.id}}" >{{ beer.name }}</router-link>
-    </tbody>
-  </table> 
-
   </div>
 </template>
 
@@ -21,14 +12,16 @@ import beerService from "@/services/BeerService.js";
 
 export default {
   name: 'beer-list',
-  methods: {
-    getBeerList(){
-      beerService.getBeerList().then(response => {
-        this.$store.commit("SET_BEERLIST", response.data);
-      });
+  data(){
+    return {
+      beerList: []
     }
+  },
+  created(){
+    beerService.getBeerList().then(response => {
+        this.beerList = response.data;
+  });
   }
-
 }
 </script>
 
