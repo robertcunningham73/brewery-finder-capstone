@@ -29,12 +29,21 @@ export default {
     return {
       breweries: [],
     };
-  },
+  }, 
+  /* methods: {
+    getBreweries(){
+      beerService.getBreweries().then(response => {
+        this.$store.commit("SET_BREWERIES", response.data);
+      });
+    }
+  }, */
   created(){
     beerService.getBreweries().then(response => {
       this.breweries = response.data;
-    });
-  }
+    }); 
+    /* this.getBreweries();
+  } */
+}
 }
 </script>
 
