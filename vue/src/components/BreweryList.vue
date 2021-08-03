@@ -17,7 +17,17 @@
 </template>
 
 <script>
+import beerService from "@/services/BeerService.js";
+
 export default {
+  name: 'breweries',
+  methods: {
+    getBreweries(){
+      beerService.getBreweries().then(response => {
+        this.$store.commit("SET_BREWERIES", response.data);
+      });
+    }
+  }
 
 }
 </script>
