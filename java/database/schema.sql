@@ -27,14 +27,14 @@ CREATE TABLE users (
 CREATE TABLE breweries(
   brewery_id serial,
   brewery_name varchar(50) NOT NULL,
-  brewery_address varchar(50) NOT NULL,
-  brewery_city varchar(50) NOT NULL,
-  brewery_state varchar(2) NOT NULL,
-  brewery_zip int NOT NULL,
-  brewery_phone int,
+  brewery_address varchar(50),
+  brewery_city varchar(50),
+  brewery_state varchar(2),
+  brewery_zip varchar(5),
+  brewery_phone varchar(14),
   brewery_email varchar(100),
   brewery_history varchar(255),
-  brewery_status boolean NOT NULL,
+  active boolean,
   PRIMARY KEY(brewery_id)
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE beer(
 CREATE TABLE beer_inventory(
   brewery_id int,
   beer_id int,
-  beer_status boolean NOT NULL,
+  active boolean NOT NULL,
   PRIMARY KEY(brewery_id, beer_id),
   FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id),
   FOREIGN KEY(beer_id) REFERENCES beer(beer_id)
