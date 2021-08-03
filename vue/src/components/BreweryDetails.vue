@@ -1,6 +1,7 @@
 <template>
   <div class="brewery-details">
     <h1>{{brewery.name}}</h1>
+    <h3>{{brewery.address}} {{brewery.city}}, {{brewery.state}}</h3>
   </div>
 </template>
 

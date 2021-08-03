@@ -9,11 +9,11 @@
 </h4>
 
 <h4>
-  {{beer.abv}}
+  ABV {{beer.abv}}
 </h4>
 
 <h3>
-  {{beer.description}}
+  Description: {{beer.description}}
 </h3>
 
   </div>

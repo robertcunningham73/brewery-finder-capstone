@@ -1,9 +1,10 @@
 <template>
+<div class="content">
   <div class="list-beers">
-    <!-- Might want to make a grid view rather than use a table -->
-    
-      <div v-for="beer in beerList" v-bind:key="beer.id"></div>
-      <router-link v-bind:to="{ name: 'beer', params:{id: beer.id}}" >{{ beer.name }}</router-link>
+    <div v-for="beer in beerList" v-bind:key="beer.id">
+      <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}</router-link>
+    </div>
+  </div>
   </div>
 </template>
 
