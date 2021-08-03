@@ -39,7 +39,7 @@ export default {
     padding-top: 20px;
     padding-bottom: 20px;
     overflow-x: hidden;
-    background-color: rgb(255,243,176);
+    background: linear-gradient(#183A37, #335c67);
     border-top-right-radius: 15px;
     border: transparent;
     z-index: 1;
