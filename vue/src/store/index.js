@@ -18,6 +18,28 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    breweries: [],
+    activeBrewery: {
+      breweryId: 0,
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: 0,
+      phone: "",
+      email: "",
+      history: "",
+      active: false
+    },
+    beerList: [],
+    beer: {
+      beerId: 0,
+      name: "",
+      description: "",
+      abv: 0.0,
+      beerType: ""
+      //TODO add average rating
+    },
     token: currentToken || '',
     user: currentUser || {}
   },
