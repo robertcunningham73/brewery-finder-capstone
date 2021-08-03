@@ -2,10 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BreweryDao;
 import com.techelevator.model.Brewery;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,8 @@ public class BreweryController {
     public List<Brewery> list() {
         return breweryDao.getAllBreweries();
     }
+
+    @RequestMapping(path="/breweries/{id}", method = RequestMethod.GET)
+    public Brewery get(@PathVariable int id) { return breweryDao.getBreweryById(id); }
 
 }

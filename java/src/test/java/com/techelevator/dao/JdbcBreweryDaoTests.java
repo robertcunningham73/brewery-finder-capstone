@@ -25,11 +25,10 @@ public class JdbcBreweryDaoTests extends FinalCapstoneDaoTests{
     @Test
     public void getAllBreweriesTest() {
         List<Brewery> breweries = sut.getAllBreweries();
-        int expected = 2;
+        int expected = 4;
 
         int result = breweries.size();
 
-        System.out.println(breweries.get(1).getPhone());
         Assert.assertEquals(expected, result);
     }
 }
