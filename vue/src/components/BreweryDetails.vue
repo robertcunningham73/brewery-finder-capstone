@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="brewery-details">
+    <h1>{{this.$store.state.activeBrewery.name}}</h1>
       
   </div>
 </template>

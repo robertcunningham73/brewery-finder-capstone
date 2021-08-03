@@ -7,8 +7,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.id"></tr>
-      <router-link v-bind:to="{ name: 'brewery', params:{id: brewery.id}}" >{{ brewery.name }}</router-link>
+        <tr v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.id"></tr>
+      <td>
+        <router-link v-bind:to="{ name: 'brewery', params:{id: brewery.id}}" >{{ brewery.name }}</router-link>
+      </td>
     </tbody>
   </table> 
 
@@ -27,6 +29,9 @@ export default {
         this.$store.commit("SET_BREWERIES", response.data);
       });
     }
+  },
+  created(){
+    this.getBreweries();
   }
 
 }
