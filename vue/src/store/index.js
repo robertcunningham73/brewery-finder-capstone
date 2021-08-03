@@ -30,6 +30,7 @@ export default new Vuex.Store({
       email: "",
       history: "",
       active: false
+      //TODO add images, hours of operation, brewers and beerList
     },
     beerList: [],
     beer: {
