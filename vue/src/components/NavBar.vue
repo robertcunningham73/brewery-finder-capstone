@@ -14,13 +14,6 @@ export default {
 </script>
 
 <style>
-/* .test {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-} */
 
   #left-bar{
   display: flex;
@@ -28,5 +21,6 @@ export default {
   flex-direction: column;
   flex-basis: 15%;
   max-width: 15%;
+  
 }
 </style>

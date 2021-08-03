@@ -16,10 +16,6 @@ export default {
 }
 </script>
 <style>
-  /* #right-bar {
-    grid-area: right-display;
-    text-align: center;
-  } */
 
   .nav-container {
     grid-area: left-display;
@@ -31,6 +27,21 @@ export default {
     grid-template-columns: 1fr 3fr;
     grid-template-areas: 
         "left-display right-display";
-    
+    text-align: center;
   }
+
+  #nav {
+    height: 50%;
+    width: 20%;
+    position: fixed;
+    left: 1;
+    top: 1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    background-color: rgb(255,243,176);
+    border-radius: 15px;
+    border: transparent;
+    z-index: 1;
+      }
 </style>

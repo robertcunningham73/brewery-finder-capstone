@@ -14,10 +14,15 @@ export default {
 </script>
 <style>
   #right-bar{
-    display: flex;
-    align-self: center;
-    flex: 1 0 auto;
-    justify-content: center;
-    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top:0;
+    text-align: center;
+  }
+
+  .content{
+    background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
   }
 </style>
