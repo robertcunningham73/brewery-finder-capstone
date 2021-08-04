@@ -1,8 +1,8 @@
 <template>
 <div class = "content" id="right-bar">
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>Brewery Finder</h1>
+    <p>Your One Stop Resource To Find Your Favorite Brewery And Beers</p>
   </div>
 </div>
 </template>
