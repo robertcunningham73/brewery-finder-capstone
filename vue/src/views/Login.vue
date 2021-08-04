@@ -76,3 +76,18 @@ export default {
   }
 };
 </script>
+
+<style>
+  button{
+  background-color: #335c67;
+  border: none;
+  color: #EFD6AC;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  }
+
+  
+</style>

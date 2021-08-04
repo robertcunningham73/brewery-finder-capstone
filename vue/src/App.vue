@@ -1,7 +1,7 @@
 <template>
-  <div class="container1" id="app">
-      <nav-bar class="nav1"/>
-      <router-view class="content1"/>
+  <div class="app-container" id="app">
+      <nav-bar class="nav-bar"/>
+      <router-view class="page-content"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@1,500&family=Montserrat&display=swap');
 
-  html {
+   html {
     height: 100%;
   }
 
@@ -25,16 +25,17 @@ export default {
     margin: 0;
     border: 0;
     font-family: 'Montserrat', sans-serif;
+    color: #183A37;
   }
 
-  .container1 {
+  .app-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
   }
 
-  .nav1 {
+  .nav-bar {
     width: 170px;
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
@@ -42,15 +43,17 @@ export default {
     
   }
 
-  .content1 {
+  .page-content {
     padding-top: 25px;
     flex: 1 0 auto;
     text-align: center;
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
+    margin-left: 10em;
     }
 
     h1{
       font-family: 'Lobster', cursive;
+      font-size: 48px;
     }
 
   /* .nav-container {

@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-container" id="left-bar">
+  <nav class="nav-links" id="left-bar">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link :to="{name: 'breweries'}">Breweries</router-link>
       <router-link :to="{name: 'beerList'}">All Beers</router-link>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-
+ 
 }
 </script>
 
@@ -22,11 +22,17 @@ export default {
   flex-direction: column;
   height: 100%;
   }
+
+  .nav-links a{
+    color: #EFD6AC;
+  }
   
   a {
     height: 60px;
-    color: white;
+    color: #183A37;
     font-size: 26px;
   }
+
+  
 
 </style>

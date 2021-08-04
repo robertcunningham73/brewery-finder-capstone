@@ -2,7 +2,7 @@
 <div class = "content" id="right-bar">
   <div class="home">
     <h1>Brewery Finder</h1>
-    <p>Your One Stop Resource To Find Your Favorite Brewery And Beers</p>
+    <p><b><em>Your One Stop Resource To Find Your Favorite Brewery And Beers</em></b></p>
   </div>
 </div>
 </template>

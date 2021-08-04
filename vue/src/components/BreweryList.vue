@@ -28,5 +28,7 @@ export default {
 </script>
 
 <style>
-
+.brewery-list a{ 
+  color: #183A37;
+}
 </style>
