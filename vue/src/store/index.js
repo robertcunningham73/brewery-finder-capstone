@@ -75,6 +75,12 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_BREWERY(state, data){
       state.activeBrewery = data;
+    },
+    SET_ACTIVE_BEER(state, data){
+      state.beer = data;
+    },
+    SET_BEER_LIST(state, data){
+      state.beerList = data;
     }
   }
 })

@@ -2,7 +2,7 @@
 <div class="content">
   <div class="list-beers">
     <h1>All Beers</h1>
-    <div v-for="beer in beerList" v-bind:key="beer.id">
+    <div v-for="beer in this.$store.state.beerList" v-bind:key="beer.id">
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}</router-link>
     </div>
   </div>
@@ -14,15 +14,15 @@ import beerService from "@/services/BeerService.js";
 
 export default {
   name: 'beer-list',
-  data(){
-    return {
-      beerList: []
-    }
+  methods: {
+    getBeerList(){
+    beerService.getBeerList().then(response => {
+      this.$store.commit("SET_BEER_LIST", response.data);
+    });
+  }
   },
   created(){
-    beerService.getBeerList().then(response => {
-        this.beerList = response.data;
-  });
+    this.getBeerList();
   }
 }
 </script>
