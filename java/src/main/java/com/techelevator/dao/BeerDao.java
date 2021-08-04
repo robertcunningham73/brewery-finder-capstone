@@ -13,4 +13,6 @@ public interface BeerDao {
     Beer getBeerByName(String name);
 
     int findIdByName(String name);
+
+    List<Beer> getBeersByBreweryId(int breweryId);
 }

@@ -50,15 +50,16 @@ CREATE TABLE beer(
 CREATE TABLE beer_inventory(
   brewery_id int,
   beer_id int,
-  active boolean NOT NULL,
+  active boolean,
   PRIMARY KEY(brewery_id, beer_id),
   FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id),
   FOREIGN KEY(beer_id) REFERENCES beer(beer_id)
 );
 
 CREATE TABLE beer_reviews(
-  review_id serial,
   beer_id int NOT NULL,
+  review_id serial,
+  review_title varchar(50),
   beer_rating int,
   beer_review varchar(255),
   PRIMARY KEY(review_id),
