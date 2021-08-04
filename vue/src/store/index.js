@@ -47,8 +47,7 @@ export default new Vuex.Store({
       rating: 0,
       reviewBody: "",
       userId: 0,
-      username: "",
-      title: ""
+      username: ""
     },
     token: currentToken || '',
     user: currentUser || {}
