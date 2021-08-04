@@ -16,9 +16,7 @@
   Description: {{this.$store.state.beer.description}}
 </h3>
 <img v-bind:src="this.$store.state.beer.imagePath" alt="this.$store.state.beer.name" />
-<!-- <div v-for="review in reviews" v-bind:key="review.reviewId">
-  {{this.$store.state.beer.reviews}}
-</div> -->
+
   </main>
 </template>
 

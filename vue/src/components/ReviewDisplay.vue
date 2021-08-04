@@ -1,5 +1,8 @@
 <template>
   <div class="review-display">
+    <h4>{{ review.username }}</h4>
+    <h3>{{review.rating}}</h3>
+    <h3>{{review.reveiwBody}}</h3>
   </div>
 </template>
 
@@ -7,9 +10,8 @@
 
 
 export default {
-  components: {
-    
-  }
+  name: 'review-display',
+  props: ['review']
 }
 </script>
 

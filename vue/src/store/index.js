@@ -18,6 +18,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    filter: 0,
     breweries: [],
     activeBrewery: {
       breweryId: 0,
