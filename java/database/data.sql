@@ -1,20 +1,27 @@
-INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Brewery A', 'Address A', 'City A', 'A', '11111', '111-111-1111', 'A@brewery.com', 'Brewery A History', true);
-INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Brewery B', 'Address B', 'City B', 'B', '22222', '222-222-2222', 'B@brewery.com', 'Brewery B History', true);
-INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Brewery C', 'Address C', 'City C', 'C', '33333', '333-333-3333', 'C@brewery.com', 'Brewery C History', true);
-INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Brewery D', 'Address D', 'City D', 'D', '44444', '444-444-4444', 'D@brewery.com', 'Brewery D History', true);
+INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Ben''s Brewery', '923 Main Street', 'Philadelphia', 'PA', '19032', '111-111-1111', 'Bensbrewery@email.com', 'History of Ben''s brewery', true);
+INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Bobby''s Brewery', '293 Broad Street', 'Anaheim', 'CA', '78392', '222-222-2222', 'Bobbysbrewer@email.com', 'History of Bobby''s brewery', true);
+INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Kaleb''s Brewery', '14 Hay Road', 'Houston', 'TX', '38394', '333-333-3333', 'Kalebsbrewer@email.com', 'History of Kaleb''s brewery', true);
+INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Michele''s Brewery', '35 Beach Street', 'Orlando', 'FL', '49384', '444-444-4444', 'Michelesbrewer@email.com', 'History of Michele''s brewery', true);
 
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Beer A', 'Description A', '1.1', 'Type A');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Beer B', 'Description B', '2.2', 'Type B');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Beer C', 'Description C', '3.3', 'Type C');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Beer D', 'Description D', '4.4', 'Type D');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Devil''s IPA', 'An IPA inspired by the Devil', '7.7', 'IPA');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Canadian Lager', 'Tastes like maple syrup!', '5.1', 'Lager');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Special Wit', 'A special Wit', '4.2', 'Wit');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen');
 
 INSERT INTO beer_inventory VALUES (1, 1);
-INSERT INTO beer_inventory VALUES (2, 1);
 INSERT INTO beer_inventory VALUES (2, 2);
-INSERT INTO beer_inventory VALUES (3, 1);
-INSERT INTO beer_inventory VALUES (3, 2);
 INSERT INTO beer_inventory VALUES (3, 3);
-INSERT INTO beer_inventory VALUES (4, 1);
-INSERT INTO beer_inventory VALUES (4, 2);
-INSERT INTO beer_inventory VALUES (4, 3);
 INSERT INTO beer_inventory VALUES (4, 4);
+
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 5, 'Greating tasting beer');
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 4, 'Good beer');
+INSERT INTO beer_reviews (beer_id, beer_rating) VALUES (1, 3);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 5, 'Greating tasting beer');
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 4, 'Good beer');
+INSERT INTO beer_reviews (beer_id, beer_rating) VALUES (2, 3);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 5, 'Greating tasting beer');
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 4, 'Good beer');
+INSERT INTO beer_reviews (beer_id, beer_rating) VALUES (3, 3);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 5, 'Greating tasting beer');
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 4, 'Good beer');
+INSERT INTO beer_reviews (beer_id, beer_rating) VALUES (4, 3);

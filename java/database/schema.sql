@@ -59,7 +59,6 @@ CREATE TABLE beer_inventory(
 CREATE TABLE beer_reviews(
   beer_id int NOT NULL,
   review_id serial,
-  review_title varchar(50),
   beer_rating int,
   beer_review varchar(255),
   PRIMARY KEY(review_id),
