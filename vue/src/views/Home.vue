@@ -22,7 +22,7 @@ export default {
     text-align: center;
   } */
 
-  .content{
+  /* .content{
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
     height: 100%;
     width: 100%;
@@ -30,5 +30,5 @@ export default {
     right: 0;
     top:0;
     text-align: center;
-  }
+  } */
 </style>

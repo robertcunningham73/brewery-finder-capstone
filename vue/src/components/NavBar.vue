@@ -18,9 +18,15 @@ export default {
   #left-bar{
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
-  flex-basis: 15%;
-  max-width: 15%;
+  height: 100%;
+  }
   
-}
+  a {
+    height: 60px;
+    color: white;
+    font-size: 26px;
+  }
+
 </style>
