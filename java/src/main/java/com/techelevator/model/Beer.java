@@ -7,6 +7,7 @@ public class Beer {
     private String description;
     private double abv;
     private String beerType;
+    private String imagePath;
 
     public Beer() { };
 
@@ -54,4 +55,8 @@ public class Beer {
     public void setBeerType(String beerType) {
         this.beerType = beerType;
     }
+
+    public String getImagePath() { return imagePath; }
+
+    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
 }

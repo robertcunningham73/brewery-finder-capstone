@@ -3,10 +3,10 @@ INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_stat
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Kaleb''s Brewery', '14 Hay Road', 'Houston', 'TX', '38394', '333-333-3333', 'Kalebsbrewer@email.com', 'History of Kaleb''s brewery', true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Michele''s Brewery', '35 Beach Street', 'Orlando', 'FL', '49384', '444-444-4444', 'Michelesbrewer@email.com', 'History of Michele''s brewery', true);
 
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Devil''s IPA', 'An IPA inspired by the Devil', '7.7', 'IPA');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Canadian Lager', 'Tastes like maple syrup!', '5.1', 'Lager');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Special Wit', 'A special Wit', '4.2', 'Wit');
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Devil''s IPA', 'An IPA inspired by the Devil', '7.7', 'IPA', '../assets/IPA.jpg');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Canadian Lager', 'Tastes like maple syrup!', '5.1', 'Lager', '../assets/lager.jpg');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Special Wit', 'A special Wit', '4.2', 'Wit', '../assets/belgianwitbiersmall.jpg');
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen', '../assets/Hefeweizen_Glass.jpg');
 
 INSERT INTO beer_inventory VALUES (1, 1);
 INSERT INTO beer_inventory VALUES (2, 2);
