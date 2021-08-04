@@ -19,11 +19,12 @@ import beerService from '@/services/BeerService.js';
 
 export default {
 name: "brewery-details",
-  data(){
-    return {
-      beerList: []
-    }
-  }, 
+data(){
+  return {
+    beerList: []
+  }
+},
+  
   created(){
     beerService.getBeerByBrewery(this.$route.params.id).then(response =>{
       this.beerList = response.data;

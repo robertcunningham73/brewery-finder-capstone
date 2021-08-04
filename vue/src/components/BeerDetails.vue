@@ -15,9 +15,9 @@
 <h3>
   Description: {{this.$store.state.beer.description}}
 </h3>
-<div v-for="review in reviews" v-bind:key="review.reviewId">
+<!-- <div v-for="review in reviews" v-bind:key="review.reviewId">
   {{this.$store.state.beer.reviews}}
-</div>
+</div> -->
   </main>
 </template>
 
@@ -29,9 +29,6 @@ export default {
   props: {
     beerId: Number
   }, 
-  methods: {
-
-  },
   created() {
     beerService.getBeer(this.$route.params.id).then(response =>{
       this.$store.commit("SET_ACTIVE_BEER", response.data);
