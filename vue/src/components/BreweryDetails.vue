@@ -5,11 +5,12 @@
     <div id="history"><h2>History</h2>
     <h3>{{this.$store.state.activeBrewery.history}}</h3>
     </div>
+    <div class="beer-list" v-for="beer in beerList" v-bind:key="beer.beerId">
+      <h2>Brewery's Available Beers:</h2>
+      <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}">{{ beer.name }}</router-link>
+    </div>
     <div id="contact-info"><h2>Contact US:</h2>
     <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
-    </div>
-    <div class="beer-list" v-for="beer in beerList" v-bind:key="beer.beerId">
-      <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}></router-link>
     </div>
   </div>
 </template>
