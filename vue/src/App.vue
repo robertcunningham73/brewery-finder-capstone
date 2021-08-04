@@ -13,6 +13,8 @@ export default {
 }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@1,500&family=Montserrat&display=swap');
 
   html {
     height: 100%;
@@ -22,6 +24,7 @@ export default {
     height: 100%;
     margin: 0;
     border: 0;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .container1 {
@@ -44,6 +47,10 @@ export default {
     flex: 1 0 auto;
     text-align: center;
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
+    }
+
+    h1{
+      font-family: 'Lobster', cursive;
     }
 
   /* .nav-container {
