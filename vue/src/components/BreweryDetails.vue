@@ -9,7 +9,8 @@
       <h2>Brewery's Available Beers:</h2>
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}">{{ beer.name }}</router-link>
     </div>
-    <div id="contact-info"><h2>Contact US:</h2>
+    <div class="brewery-hours"><h2>Hours of Operation: </h2> </div>
+    <div id="contact-info"><h2>Contact Us:</h2>
     <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
     </div>
   </div>
