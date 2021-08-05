@@ -54,7 +54,7 @@ export default {
         reviews: this.beer.reviews, 
         imagePath: this.beer.imagePath
       }
-      beerService.addReview(beer)
+      beerService.updateBeer(beer)
       .then(response => {
         if(response.status == 200){
           this.$router.push(`/beer-list/${beer.beerId}`)

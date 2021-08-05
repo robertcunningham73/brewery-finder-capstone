@@ -20,7 +20,7 @@ export default{
     getBeerByBrewery(breweryId){
         return http.get(`/breweries/${breweryId}/beer`);
     },
-    addReview(beer) {
+    updateBeer(beer) {
         return http.put(`/beer-list/${beer.beerId}`, beer);
     },
     

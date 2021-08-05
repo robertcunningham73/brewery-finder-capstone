@@ -17,9 +17,6 @@
 </h3>
 <div class= "img-beer">
 <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
-<!-- <div v-for="review in reviews" v-bind:key="review.reviewId">
-  {{this.$store.state.beer.reviews}}
-</div> -->
 </div>
   </main>
 </template>

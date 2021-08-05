@@ -30,8 +30,9 @@ export default new Vuex.Store({
       phone: "",
       email: "",
       history: "",
-      active: false
-      //TODO add images, hours of operation, brewers and beerList
+      active: false,
+      brewerId: 0
+      //TODO add images, hours of operation, brewers
     },
     beerList: [],
     beer: {
@@ -41,7 +42,8 @@ export default new Vuex.Store({
       abv: 0.0,
       beerType: "",
       reviews: [],
-      imagePath: ""
+      imagePath: "",
+      active: false
     },
     
     review: {
