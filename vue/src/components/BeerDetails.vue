@@ -15,10 +15,12 @@
 <h3>
   Description: {{this.$store.state.beer.description}}
 </h3>
+<div class= "img-beer">
 <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
 <!-- <div v-for="review in reviews" v-bind:key="review.reviewId">
   {{this.$store.state.beer.reviews}}
 </div> -->
+</div>
   </main>
 </template>
 
@@ -38,7 +40,19 @@ export default {
   
 }
 </script>
-
-<style>
+<style scoped>
+ .img-beer{
+  height:  400px;
+  width: 400px;
+  display: flex;
+  align-content: center;
+  margin: 0 auto;
+ 
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+ 
+}
 
 </style>
