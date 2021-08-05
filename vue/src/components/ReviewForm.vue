@@ -1,10 +1,6 @@
 <template>
-  <div class="review-form" v-bind:key="review.id">
+  <div class="review-form" >
    <form v-on:submit.prevent="addNewReview">
-    <div class="form-element">
-      <label for="reviewer">Name:</label>
-      <input id="reviewer" type="text" v-model="newReview.reviewer" />
-    </div>
     <div class="form-element" >
       <label for="rating">Rating:</label>
       <select id="rating" v-model.number="newReview.rating">
@@ -28,7 +24,7 @@
 </template>
 
 <script>
-
+import beerService from '../services/BeerService.js'
 
 export default {
   name: "add-review",
@@ -44,15 +40,31 @@ export default {
   },  
   methods: {
     addNewReview() {
-      this.newReview.username = this.$store.state.currentuser.username;
-      this.newReview.userId = this.$store.state.currentuser.userId;
-       this.beer.reviews.push(this.newReview);
-       resetForm();
+      this.newReview.username = this.$store.state.user.username;
+      this.newReview.userId = this.$store.state.user.id;
+      this.$store.state.beer.reviews.push(this.newReview);
+      this.resetForm();
+      //TODO: set up add
+      const beer = {
+        beerId: this.beer.beerId, 
+        name: this.beer.name, 
+        description: this.beer.description,
+        abv: this.beer.abv, 
+        beerType: this.beer.beerType,
+        reviews: this.beer.reviews, 
+        imagePath: this.beer.imagePath
+      }
+      beerService.addReview(beer)
+      .then(response => {
+        if(response.status == 200){
+          this.$router.push(`/beer-list/${beer.beerId}`)
+        }
+      });
     },
       
     resetForm() {
       this.newReview = {};
-    }
+    },
   }
 }
 </script>
