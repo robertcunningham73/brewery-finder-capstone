@@ -23,4 +23,9 @@ public class BeerController {
 
     @RequestMapping(path="/breweries/{id}/beer", method = RequestMethod.GET)
     public List<Beer> listByBrewery(@PathVariable int id) { return beerDao.getBeersByBreweryId(id); }
+
+    @RequestMapping(path = "/beer-list/{id}", method = RequestMethod.PUT)
+    public void update(@RequestBody Beer beer, @PathVariable int id) {
+        beerDao.update(beer);
+    }
 }
