@@ -93,9 +93,12 @@ public class JdbcBeerDao implements BeerDao{
         String sql = "UPDATE beer SET beer_name = ?, beer_description = ?, beer_abv = ?, beer_type = ?, beer_image = ? WHERE beer_id = ?;";
         jdbcTemplate.update(sql, beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getImagePath(), beer.getBeerId());
 
+        //this is currently set to add a new beer review, not update
         for(Review review : beer.getReviews()) {
-            String sqlReviews = "UPDATE beer_reviews SET beer_rating = ?, beer_review = ? WHERE review_id = ?;";
-            jdbcTemplate.update(sqlReviews, review.getRating(), review.getReviewBody(), review.getReviewId());
+            if (review.getReviewId() == 0) {
+                String sqlReviews = "INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (?, ?, ?);";
+                jdbcTemplate.update(sqlReviews, beer.getBeerId(), review.getRating(), review.getReviewBody());
+            }
         }
 
     }

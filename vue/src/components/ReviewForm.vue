@@ -45,7 +45,7 @@ export default {
       this.$store.state.beer.reviews.push(this.newReview);
       this.resetForm();
       //TODO: set up add
-      const beer = {
+      /* const beer = {
         beerId: this.beer.beerId, 
         name: this.beer.name, 
         description: this.beer.description,
@@ -53,11 +53,11 @@ export default {
         beerType: this.beer.beerType,
         reviews: this.beer.reviews, 
         imagePath: this.beer.imagePath
-      }
-      beerService.updateBeer(beer)
+      } */
+      beerService.updateBeer(this.$store.state.beer)
       .then(response => {
         if(response.status == 200){
-          this.$router.push(`/beer-list/${beer.beerId}`)
+          this.$router.push(`/beer-list/${this.$store.state.beer.beerId}`)
         }
       });
     },
