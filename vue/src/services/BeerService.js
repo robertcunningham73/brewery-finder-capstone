@@ -19,5 +19,9 @@ export default{
     },
     getBeerByBrewery(breweryId){
         return http.get(`/breweries/${breweryId}/beer`);
-    }
+    },
+    /* addReview(beer) {
+        return http.put(`/beer-list/${beerId}`, beer);
+    }, */
+    
 }

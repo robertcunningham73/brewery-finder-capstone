@@ -1,6 +1,19 @@
 <template>
   <div class="review-list">
-    <review-display />
+    <a
+      id="show-review-button"
+      href="#"
+      v-on:click.prevent="showReviews = true"
+      v-if="showReviews === false"
+      >Show Reviews</a
+    >
+    <a
+      id="hide-review-button"
+      href="#"
+      v-on:click.prevent="showReviews = false"
+      v-if="showReviews === true"
+      >Hide Reviews</a>
+      <review-display v-if="showReviews === true" />
   </div>
 </template>
 
@@ -12,18 +25,13 @@ export default {
   components:{
     ReviewDisplay
   },
-  computed: {
-    filteredReviews(){
-      const beer = this.$store.state.beerList.find(
-        b => b.beerId == this.$store.state.beer
-      );
-      const reviewsFilter = this.$store.state.filter;
-      return beer.reviews.filter(review => {
-        return reviewsFilter === 0 ? true : reviewsFilter === review.rating;
-      });
+  data(){
+    return{
+      showReviews: false
     }
   }
-}
+  }
+
 </script>
 
 <style>
