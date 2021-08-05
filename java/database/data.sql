@@ -8,10 +8,10 @@ INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) 
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Special Wit', 'A special Wit', '4.2', 'Wit', 'belgianwitbiersmall.jpg');
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen', 'Hefeweizen_Glass.jpg');
 
-INSERT INTO beer_inventory VALUES (1, 1);
-INSERT INTO beer_inventory VALUES (2, 2);
-INSERT INTO beer_inventory VALUES (3, 3);
-INSERT INTO beer_inventory VALUES (4, 4);
+INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (1, 1);
+INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (2, 2);
+INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (3, 3);
+INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (4, 4);
 
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 5, 'Greating tasting beer');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 4, 'Good beer');
@@ -26,6 +26,7 @@ INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 5, 'Grea
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 4, 'Good beer');
 INSERT INTO beer_reviews (beer_id, beer_rating) VALUES (4, 3);
 
+-- Ignore this section
 INSERT INTO user_reviews (user_id, review_id) VALUES (1, 1);
 INSERT INTO user_reviews (user_id, review_id) VALUES (1, 2);
 INSERT INTO user_reviews (user_id, review_id) VALUES (1, 3);
