@@ -88,6 +88,18 @@ public class JdbcBeerDao implements BeerDao{
         return reviewList;
     }
 
+    @Override
+    public void update(Beer beer) {
+        String sql = "UPDATE beer SET beer_name = ?, beer_description = ?, beer_abv = ?, beer_type = ?, beer_image = ? WHERE beer_id = ?;";
+        jdbcTemplate.update(sql, beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getImagePath(), beer.getBeerId());
+
+        for(Review review : beer.getReviews()) {
+            String sqlReviews = "UPDATE beer_reviews SET beer_rating = ?, beer_review = ? WHERE review_id = ?;";
+            jdbcTemplate.update(sqlReviews, review.getRating(), review.getReviewBody(), review.getReviewId());
+        }
+
+    }
+
     private Beer mapRowToBeer(SqlRowSet rowSet) {
         Beer beer = new Beer();
         beer.setBeerId(rowSet.getInt("beer_id"));
