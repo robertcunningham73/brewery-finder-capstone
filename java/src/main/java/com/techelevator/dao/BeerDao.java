@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Beer;
+import com.techelevator.model.Review;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface BeerDao {
     int findIdByName(String name);
 
     List<Beer> getBeersByBreweryId(int breweryId);
+
+    public List<Review> getReviewsByBeerId(int beerId);
 }

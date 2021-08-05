@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Beer {
 
     private int beerId;
@@ -8,6 +10,7 @@ public class Beer {
     private double abv;
     private String beerType;
     private String imagePath;
+    private List<Review> reviews;
 
     public Beer() { };
 
@@ -59,4 +62,8 @@ public class Beer {
     public String getImagePath() { return imagePath; }
 
     public void setImagePath(String imagePath) { this.imagePath = imagePath; }
+
+    public List<Review> getReviews() { return reviews; }
+
+    public void setReviews(List<Review> reviews) { this.reviews = reviews; }
 }
