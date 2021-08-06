@@ -13,9 +13,9 @@ export default {
 };
 </script>
 <style>
-  /* #right-bar{
+   /*#right-bar{
     height: 100%;
-    width: 100%;
+    width: 600px;
     position: absolute;
     right: 0;
     top:0;
