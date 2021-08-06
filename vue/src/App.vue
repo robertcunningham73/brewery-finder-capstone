@@ -32,11 +32,11 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .nav-bar {
-    width: 170px;
+    width: 160px;
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
     position: fixed;
