@@ -17,12 +17,6 @@ INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) 
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen', 'Hefeweizen_Glass.jpg');
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Witches Brew', 'Magical', '3.3', 'IPA', 'IPA.jpg');
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Ocean Delight', 'Refreshing', '7.0','Wit', 'belgianwitbiersmall.jpg' );
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
-INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
-
 
 INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (1, 1);
 INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (2, 2);
@@ -31,27 +25,26 @@ INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (4, 4);
 
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 5, 'Greating tasting beer');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 2, 'Okay');
-INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 4);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (1, 4, 'Better than average');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 1, 'Too sweet for me');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 3, 'Average tasting lager');
-INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 2);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (2, 2, 'I''ll pass on this one next time');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 4, 'This Wit has earned the special title!');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 2, 'Not the worst Wit I''ve had, but far from the best.');
-INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 5);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (3, 5, 'Best beer I''ve had');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 4, 'Absolutely delicious');
 INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 2, 'Not bad');
-INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 1);
+INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (4, 1, 'Horrible!');
 
--- Ignore this section
 INSERT INTO user_reviews (user_id, review_id) VALUES (1, 1);
-INSERT INTO user_reviews (user_id, review_id) VALUES (1, 2);
+INSERT INTO user_reviews (user_id, review_id) VALUES (2, 2);
 INSERT INTO user_reviews (user_id, review_id) VALUES (1, 3);
-INSERT INTO user_reviews (user_id, review_id) VALUES (1, 7);
-INSERT INTO user_reviews (user_id, review_id) VALUES (1, 8);
-INSERT INTO user_reviews (user_id, review_id) VALUES (1, 9);
 INSERT INTO user_reviews (user_id, review_id) VALUES (2, 4);
-INSERT INTO user_reviews (user_id, review_id) VALUES (2, 5);
+INSERT INTO user_reviews (user_id, review_id) VALUES (1, 5);
 INSERT INTO user_reviews (user_id, review_id) VALUES (2, 6);
+INSERT INTO user_reviews (user_id, review_id) VALUES (1, 7);
+INSERT INTO user_reviews (user_id, review_id) VALUES (2, 8);
+INSERT INTO user_reviews (user_id, review_id) VALUES (1, 9);
 INSERT INTO user_reviews (user_id, review_id) VALUES (2, 10);
-INSERT INTO user_reviews (user_id, review_id) VALUES (2, 11);
+INSERT INTO user_reviews (user_id, review_id) VALUES (1, 11);
 INSERT INTO user_reviews (user_id, review_id) VALUES (2, 12);
