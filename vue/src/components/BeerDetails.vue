@@ -1,34 +1,34 @@
 <template>
   <main class="beer-details" >
-    <div>
+    <div class="edit-beer-button">
       <a
         id="show-edit-beer-button"
         href="#"
         v-on:click.prevent="showEditBeerForm = true"
-        v-if="showEditForm === false && this.$store.state.user.id === this.$store.state.brewery.brewerId"
+        v-show="showEditBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Edit Beer</a>
       <a
         id="hide-edit-beer-button"
         href="#"
         v-on:click.prevent="showEditBeerForm = false"
-        v-if="showReviews === true && this.$store.state.user.id === this.$store.state.brewery.brewerId"
+        v-show="showEditBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Hide Edit Beer Form</a>
       </div>
-      <div>
+      <div >
         <edit-beer v-show="showEditBeerForm === true"/>
       </div>
-      <div>
+      <div class="add-beer-button">
       <a
         id="show-add-beer-button"
         href="#"
         v-on:click.prevent="showAddBeerForm = true"
-        v-if="showEditForm === false && this.$store.state.user.id === this.$store.state.brewery.brewerId"
+        v-show="showAddBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Add Beer</a>
       <a
         id="hide-add-beer-button"
         href="#"
         v-on:click.prevent="showAddBeerForm = false"
-        v-if="showReviews === true && this.$store.state.user.id === this.$store.state.brewery.brewerId"
+        v-show="showAddBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Hide Add Beer Form</a>
       </div>
       <div>
@@ -67,14 +67,19 @@ export default {
   props: {
     beerId: Number
   }, 
+  data(){
+    return{
+      showEditBeerForm : false,
+      showAddBeerForm : false,
+      
+    }  
+  }, 
   created() {
     beerService.getBeer(this.$route.params.id).then(response =>{
       this.$store.commit("SET_ACTIVE_BEER", response.data);
     })
   },
-  methods:{
-
-  } 
+   
 }
 </script>
 <style scoped>
