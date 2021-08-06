@@ -2,7 +2,8 @@
   <nav class="nav-links" id="left-bar">
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link :to="{name: 'breweries'}">Breweries</router-link>
-      <router-link :to="{name: 'beerList'}">All Beers</router-link>
+      <!-- TODO: place a v-show on All Beers so it doesn't show to a Brewer -->
+      <router-link :to="{name: 'beerList'}" v-show="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
   </nav>
 </template>

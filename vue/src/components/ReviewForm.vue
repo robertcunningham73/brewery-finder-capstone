@@ -45,26 +45,31 @@ export default {
       this.$store.state.beer.reviews.push(this.newReview);
       this.resetForm();
       //TODO: set up add
-      /* const beer = {
-        beerId: this.beer.beerId, 
-        name: this.beer.name, 
-        description: this.beer.description,
-        abv: this.beer.abv, 
-        beerType: this.beer.beerType,
-        reviews: this.beer.reviews, 
-        imagePath: this.beer.imagePath
-      } */
-      beerService.updateBeer(this.$store.state.beer)
+      const beer = {
+        beerId: this.$store.state.beer.beerId, 
+        name: this.$store.state.beer.name, 
+        description: this.$store.state.beer.description,
+        abv: this.$store.state.beer.abv, 
+        beerType: this.$store.state.beer.beerType,
+        reviews: this.$store.state.beer.reviews, 
+        imagePath: this.$store.state.beer.imagePath
+      } 
+      beerService.updateBeer(beer)
       .then(response => {
         if(response.status == 200){
-          this.$router.push(`/beer-list/${this.$store.state.beer.beerId}`)
+          //TODO: create Mutation that adds review to reviews store collection
+          this.$store.commit("SET_ACTIVE_BEER", response.data);
+          this.$store.commit("SET_BEER_LIST", response.data);
+          //this.$router.push(`/beer-list/${this.$store.state.beer.beerId}`);
         }
       });
+      
     },
       
     resetForm() {
       this.newReview = {};
     },
+    
   }
 }
 </script>
