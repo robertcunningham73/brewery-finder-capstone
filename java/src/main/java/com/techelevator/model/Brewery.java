@@ -11,11 +11,13 @@ public class Brewery {
     private String phone;
     private String email;
     private String history;
+    private int brewerId;
     private boolean active;
 
     public Brewery() { };
 
-    public Brewery(String name, String address, String city, String state, int zip, String phone, String email, String history, boolean active) {
+    public Brewery(int breweryId, String name, String address, String city, String state, int zip, String phone, String email, String history, int brewerId, boolean active) {
+        this.breweryId = breweryId;
         this.name = name;
         this.address = address;
         this.city = city;
@@ -24,6 +26,7 @@ public class Brewery {
         this.phone = phone;
         this.email = email;
         this.history = history;
+        this.brewerId = brewerId;
         this.active = active;
     }
 
@@ -95,6 +98,14 @@ public class Brewery {
 
     public void setHistory(String history) {
         this.history = history;
+    }
+
+    public int getBrewerId() {
+        return brewerId;
+    }
+
+    public void setBrewerId(int brewerId) {
+        this.brewerId = brewerId;
     }
 
     public boolean isActive() {

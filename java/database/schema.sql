@@ -34,8 +34,10 @@ CREATE TABLE breweries(
   brewery_phone varchar(14),
   brewery_email varchar(100),
   brewery_history varchar(255),
+  brewer_id int,
   active boolean,
-  PRIMARY KEY(brewery_id)
+  PRIMARY KEY(brewery_id),
+  FOREIGN KEY(brewer_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE beer(
@@ -84,6 +86,6 @@ CREATE TABLE user_brewery_favorites(
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-
+INSERT INTO users (username,password_hash,role) VALUES ('brewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_BREWER');
 
 COMMIT TRANSACTION;

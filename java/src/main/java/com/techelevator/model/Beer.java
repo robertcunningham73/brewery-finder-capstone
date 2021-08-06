@@ -14,11 +14,14 @@ public class Beer {
 
     public Beer() { };
 
-    public Beer(String name, String description, double abv, String beerType) {
+    public Beer(int beerId, String name, String description, double abv, String beerType, String imagePath, List<Review> reviews) {
+        this.beerId = beerId;
         this.name = name;
         this.description = description;
         this.abv = abv;
         this.beerType = beerType;
+        this.imagePath = imagePath;
+        this.reviews = reviews;
     }
 
     public int getBeerId() {

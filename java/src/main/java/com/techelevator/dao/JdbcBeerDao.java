@@ -76,9 +76,11 @@ public class JdbcBeerDao implements BeerDao{
     @Override
     public List<Review> getReviewsByBeerId(int beerId) {
         List<Review> reviewList = new ArrayList<>();
-        String sql = "SELECT br.review_id, br.beer_rating, br.beer_review, u.user_id, u.username FROM beer_reviews br " +
+        /*String sql = "SELECT br.review_id, br.beer_rating, br.beer_review, u.user_id, u.username FROM beer_reviews br " +
                 "JOIN user_reviews ur ON br.review_id = ur.review_id JOIN users u ON ur.user_id = u.user_id " +
-                "WHERE br.beer_id = ?;";
+                "WHERE br.beer_id = ?;";*/
+
+        String sql = "SELECT review_id, beer_rating, beer_review FROM beer_reviews WHERE beer_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beerId);
         while(results.next()) {
@@ -119,8 +121,8 @@ public class JdbcBeerDao implements BeerDao{
         review.setReviewId(rowSet.getInt("review_id"));
         review.setRating(rowSet.getInt("beer_rating"));
         review.setReviewBody(rowSet.getString("beer_review"));
-        review.setUserId(rowSet.getInt("user_id"));
-        review.setUsername(rowSet.getString("username"));
+        //review.setUserId(rowSet.getInt("user_id"));
+        //review.setUsername(rowSet.getString("username"));
         return review;
     }
 }

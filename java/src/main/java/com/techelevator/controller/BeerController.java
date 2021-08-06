@@ -2,7 +2,6 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BeerDao;
 import com.techelevator.model.Beer;
-import com.techelevator.model.Brewery;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
