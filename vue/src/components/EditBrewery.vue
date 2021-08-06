@@ -1,46 +1,46 @@
 <template>
-<form v-on:submit.prevent="updateBrewery">
-  <div class="edit-brewery-name">
-    <label for="brewery-name">Brewery Name: </label>
-    <input type="text" v-model="updatedBrewery.name" />
-  </div>
-  <div class="edit-brewery-address">
-    <label for="brewery-address">Street Address: </label>
-    <input type="text" v-model="updatedBrewery.address" />
-  </div>
-  <div class="edit-brewery-city">
-    <label for="brewery-city">City: </label>
-    <input type="text" v-model="updatedBrewery.city" />
-  </div>
-  <div class="edit-brewery-state">
-    <label for="brewery-state">State Initials:</label>
-    <input type="text" v-model="updatedBrewery.state" />
-  </div>
-  <div class="edit-brewery-zip">
-    <label for="brewery-zip">Zip: </label>
-    <input type="text" v-model.number="updatedBrewery.zip" />
-  </div>
-  <div class="edit-brewery-phone-number">
-    <label for="brewery-phone">Phone Number: </label>
-    <input type="text" v-model="updatedBrewery.phone" />
-  </div>
-  <div class="edit-brewery-email">
-    <label for="brewery-name">Email Address: </label>
-    <input type="text" v-model="updatedBrewery.email" />
-  </div>
-  <div class="edit-brewery-history">
-    <label for="brewery-history">History: </label>
-    <input type="text" v-model="updatedBrewery.history" />
-  </div>
-  <div class="brewery-activation-status">
-      <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updatedBrewery.active = false">Deactivate brewery</button>
-      <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updatedBrewery.active = true">Activate brewery</button>
-  </div>
-  <div class="actions">
-      <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
-      <button>Submit</button>
+    <form v-on:submit.prevent="updateBrewery">
+     <div class="form-element">
+        <label for="name">Brewery Name: </label>
+        <textarea type="text" v-model="updatedBrewery.name" ></textarea>
     </div>
-</form>
+    <!-- <div class="edit-brewery-address">
+        <label for="address">Street Address: </label>
+        <textarea type="text" v-model="updatedBrewery.address" />
+    </div>
+    <div class="edit-brewery-city">
+        <label for="city">City: </label>
+        <textarea type="text" v-model="updatedBrewery.city" />
+    </div>
+    <div class="edit-brewery-state">
+        <label for="state">State Initials:</label>
+        <textarea type="text" v-model="updatedBrewery.state" />
+    </div> 
+    <div class="edit-brewery-zip">
+        <label for="zip">Zip: </label>
+        <textarea type="text" v-model="updatedBrewery.zip" />
+    </div>
+    <div class="edit-brewery-phone-number">
+        <label for="phone">Phone Number: </label>
+        <textarea type="text" v-model="updatedBrewery.phone" />
+    </div>
+    <div class="edit-brewery-email">
+        <label for="email">Email Address: </label>
+        <textarea type="text" v-model="updatedBrewery.email" />
+    </div>
+    <div class="edit-brewery-history">
+        <label for="history">History: </label>
+        <textarea type="text" v-model="updatedBrewery.history" />
+    </div> -->
+    <div class="brewery-activation-status">
+        <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updatedBrewery.active = false">Deactivate brewery</button>
+        <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updatedBrewery.active = true">Activate brewery</button>
+    </div>
+    <div class="actions">
+        <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
+        <button>Submit</button>
+        </div>
+    </form>
 </template>
 
 <script>
@@ -56,7 +56,7 @@ export default {
                 address: "",
                 city: "",
                 state: "",
-                zip: 0,
+                zip: "",
                 phone: "",
                 email: "",
                 history: "",
