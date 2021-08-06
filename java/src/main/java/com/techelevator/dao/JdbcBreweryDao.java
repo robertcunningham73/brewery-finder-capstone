@@ -60,6 +60,13 @@ public class JdbcBreweryDao implements BreweryDao{
         //TODO implement try/catch for NullPointerEx?
     }
 
+    @Override
+    public void updateBrewery(Brewery brewery) {
+        String sql = "UPDATE breweries SET brewery_name = ?, brewery_address = ?, brewery_city = ?, " +
+                "brewery_state = ?, brewery_zip = ?, brewery_phone = ?, brewery_email = ?, " +
+                "brewery_history = ?, brewer_id = ?, active = ?;";
+    }
+
     private Brewery mapRowToBrewery(SqlRowSet rowSet) {
         Brewery brewery = new Brewery();
         brewery.setBreweryId(rowSet.getInt("brewery_id"));
