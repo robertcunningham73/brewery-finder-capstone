@@ -2,7 +2,7 @@
     <form v-on:submit.prevent="updateBrewery">
      <div class="form-element">
         <label for="name">Brewery Name: </label>
-        <textarea type="text" v-model="updatedBrewery.name" ></textarea>
+        <input type="text" id="name" />
     </div>
     <!-- <div class="edit-brewery-address">
         <label for="address">Street Address: </label>
@@ -91,6 +91,7 @@ export default {
             if(this.updatedBrewery.history == ""){
                 this.updatedBrewery.history = this.$tore.state.activeBrewery.history;
             }
+            this.updatedBrewery.name = document.getElementbyId("name");
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
                 if(response.status == 200){
