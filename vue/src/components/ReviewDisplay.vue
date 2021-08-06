@@ -1,10 +1,10 @@
 <template>
   <div class="review-display">
-    <table>
+    <table id="rd-table">
       <thead>
-        <th>Rating</th>
+        <th id="rating-container">Rating</th>
         <th></th>
-        <th>Review: </th>
+        <th id="review-container">Review: </th>
       </thead>
       <tbody>
         <review-table-row 
@@ -31,5 +31,9 @@ export default {
 </script>
 
 <style>
+.review-display{
+  display:flex;
+  justify-content: center;
+}
 
 </style>
