@@ -4,7 +4,7 @@ INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_stat
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, brewer_id, active) VALUES ('Tap Brewery', '35 Beach Street', 'Orlando', 'FL', '49384', '444-444-4444', 'Tapbrewery@email.com', 'History of Tap Brewery', 3, true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Freedom Brewery', '2244 Independence Blvd', 'Kansas City','MO', '64030', '555-555-5555', 'Freedombrewery@email.com', 'History of Freedom Brewery', true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Silver Mine Brewery', '10 Mine Lane', 'Red Lodge', 'MT', '59068', '666-666-6666', 'SilverBrewery@email.com', 'History of Silver Brewery', true);
-INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Poor Richard Brewery', '4554 Sococo Street', 'Valley Forge', 'PA', '19460', '777-777-7777', 'BadRichbrewery@email.com', 'History Of Bad Rich Brewery', true);
+INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Poor Mice Brewery', '4554 Sococo Street', 'Valley Forge', 'PA', '19460', '777-777-7777', 'Poormice@email.com', 'History Of Poor Mice Brews', true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Scarlet Brewery', '183 Labrador Lane', 'Hershey', 'PA', '17017', '888-888-8888', 'Scarletbrewery@email.com', 'History of Scarlet Brewery', true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Good Dog Brewery', '22 Park Lane', 'Kemmerer', 'WY', '83101', '999-999-9999', 'Gooddog@email.com', 'History of Good Dog Brewery', true);
 INSERT INTO breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, brewery_phone, brewery_email, brewery_history, active) VALUES ('Linden Lane Brewery', '101 Linden Lane', 'Linden', 'MI', '48451', '123-555-5555', 'LindenBrewery@email.com', 'History of LL Brewery', true);
@@ -17,6 +17,11 @@ INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) 
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Hefeweizen', 'Delicious', '4.1', 'Hefeweizen', 'Hefeweizen_Glass.jpg');
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Witches Brew', 'Magical', '3.3', 'IPA', 'IPA.jpg');
 INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ('Ocean Delight', 'Refreshing', '7.0','Wit', 'belgianwitbiersmall.jpg' );
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
+INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES ( );
 
 
 INSERT INTO beer_inventory (brewery_id, beer_id) VALUES (1, 1);
