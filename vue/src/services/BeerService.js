@@ -20,11 +20,14 @@ export default{
     getBeerByBrewery(breweryId){
         return http.get(`/breweries/${breweryId}/beer`);
     },
-    updateBeer(beer) {
-        return http.put(`/beer-list/${beer.beerId}`, beer);
+    updateBeer(beer, breweryId) {
+        return http.put(`/beer-list/${beer.beerId}`, beer, breweryId);
     },
     updateBrewery(brewery){
         return http.put(`/breweries/${brewery.breweryId}`, brewery);
+    },
+    addBeer(beer, breweryId){
+        return http.post(`/beer-list/${breweryId}/beer`, beer);
     }
     
 }
