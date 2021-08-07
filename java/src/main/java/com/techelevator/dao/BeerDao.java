@@ -19,5 +19,5 @@ public interface BeerDao {
 
     public List<Review> getReviewsByBeerId(int beerId);
 
-    public void update(Beer beer);
+    public void updateBeer(Beer beer, int breweryId, int beerId);
 }

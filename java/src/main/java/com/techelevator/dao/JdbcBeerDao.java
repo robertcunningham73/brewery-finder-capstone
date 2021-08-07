@@ -90,12 +90,15 @@ public class JdbcBeerDao implements BeerDao{
     }
 
     @Override
-    public void update(Beer beer) {
+    public void updateBeer(Beer beer, int breweryId, int beerId) {
         String sql = "UPDATE beer SET beer_name = ?, beer_description = ?, beer_abv = ?, beer_type = ?, beer_image = ? WHERE beer_id = ?;";
-        jdbcTemplate.update(sql, beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getImagePath(), beer.getBeerId());
+        jdbcTemplate.update(sql, beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getImagePath(), beerId);
+
+        String sqlBeerInventory = "UPDATE beer_inventory SET active = ? WHERE brewery_id = ? AND beer_id = ?;";
+        jdbcTemplate.update(sqlBeerInventory, beer.isActive(), breweryId, beerId);
 
         //when updating beer, if new review is present, insert into reviews table
-        for(Review review : beer.getReviews()) {
+        for (Review review : beer.getReviews()) {
             if (review.getReviewId() == 0) {
                 String sqlReviews = "INSERT INTO beer_reviews (beer_id, beer_rating, beer_review) VALUES (?, ?, ?) RETURNING review_id;";
                 Integer insertedId = jdbcTemplate.queryForObject(sqlReviews, Integer.class, beer.getBeerId(), review.getRating(), review.getReviewBody());
@@ -103,8 +106,8 @@ public class JdbcBeerDao implements BeerDao{
                 jdbcTemplate.update(sqlUserReviews, review.getUserId(), insertedId);
             }
         }
-
     }
+
 
     private Beer mapRowToBeer(SqlRowSet rowSet) {
         Beer beer = new Beer();

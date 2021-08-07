@@ -48,13 +48,18 @@ public class JdbcBeerDaoTests extends FinalCapstoneDaoTests{
         beer.setBeerType("test");
         beer.setImagePath("test");
         beer.setReviews(reviewList);
+        beer.setActive(false);
 
-        sut.update(beer);
+        //sut.updateBeer(beer, brewery);
 
         String expected = "test";
         String result = sut.getBeerById(2).getDescription();
 
+        boolean expectedActive = false;
+        boolean resultActive = sut.getBeerById(2).isActive();
+
         Assert.assertEquals(expected, result);
+        Assert.assertEquals(expectedActive, resultActive);
 
     }
 }
