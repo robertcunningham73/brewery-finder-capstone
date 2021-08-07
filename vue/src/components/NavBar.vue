@@ -1,8 +1,8 @@
 <template>
   <nav class="nav-links" id="left-bar">
-    <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-    <router-link :to="{name: 'breweries'}">Breweries</router-link> 
-    <router-link :to="{name: 'beerList'}" v-show="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
+    <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>
+    <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link> 
+    <router-link :to="{name: 'beerList'}" v-if="$store.state.token != ''">All Beers</router-link>
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
   </nav>
 </template>
