@@ -28,7 +28,7 @@ import beerService from '../services/BeerService';
 
 
 export default {
-    name: "edit-brewery",
+    name: "add-brewery",
     data(){
         return{
             newBeer: {

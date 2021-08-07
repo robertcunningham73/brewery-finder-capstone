@@ -14,7 +14,7 @@
     </div>
     <div class="edit-beer-type">
         <label for="beer-type">Beer Type:</label>
-        <input type="text" v-model="updatedBeer.type" />
+        <input type="text" v-model="updatedBeer.beerType" />
     </div> 
     <div class="beer-activation-status">
         <button v-if="this.$store.state.beer.active == true" v-on:click="updatedBeer.active = false">Deactivate brewery</button>
@@ -41,14 +41,16 @@ export default {
                 description: "",
                 abv: 0.0,
                 active: true,
-                beerType: ""
+                beerType: "",
+                imagePath: ""
             }
         };
     },
     methods: {
         updateBeer(){
-             this.updatedBeer.beerId = this.$store.state.beer.beerId;
-             if(this.updatedBeer.name == ""){
+            this.updatedBeer.imagePath = this.$store.state.beer.imagePath;
+            this.updatedBeer.beerId = this.$store.state.beer.beerId;
+            if(this.updatedBeer.name == ""){
                 this.updatedBeer.name = this.$store.state.beer.name;
             }
             if(this.updatedBeer == ""){
