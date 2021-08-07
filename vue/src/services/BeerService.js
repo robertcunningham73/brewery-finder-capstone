@@ -28,6 +28,9 @@ export default{
     },
     addBeer(beer, breweryId){
         return http.post(`/beer-list/${breweryId}/beer`, beer);
+    },
+    addBrewery(brewery){
+        return http.post('/breweries', brewery)
     }
     
 }
