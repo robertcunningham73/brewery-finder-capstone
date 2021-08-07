@@ -21,7 +21,7 @@ export default{
         return http.get(`/breweries/${breweryId}/beer`);
     },
     updateBeer(beer, breweryId) {
-        return http.put(`/beer-list/${beer.beerId}`, beer, breweryId);
+        return http.put(`/beer-list/${breweryId}/${beer.beerId}`, beer);
     },
     updateBrewery(brewery){
         return http.put(`/breweries/${brewery.breweryId}`, brewery);

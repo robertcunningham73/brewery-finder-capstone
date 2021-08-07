@@ -54,7 +54,7 @@ export default {
         reviews: this.$store.state.beer.reviews, 
         imagePath: this.$store.state.beer.imagePath
       } 
-      beerService.updateBeer(beer)
+      beerService.updateBeer(beer, this.$store.state.activeBrewery.breweryId)
       .then(response => {
         if(response.status == 200){
           //TODO: create Mutation that adds review to reviews store collection
