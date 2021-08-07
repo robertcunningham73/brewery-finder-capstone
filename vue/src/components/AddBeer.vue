@@ -14,7 +14,11 @@
     </div>
     <div class="add-beer-type">
         <label for="beer-type">Beer Type:</label>
-        <input type="text" v-model="newBeer.type" />
+        <input type="text" v-model="newBeer.beerType" />
+    </div> 
+    <div class="add-image-path">
+        <label for="image-path">Image Path:</label>
+        <input type="text" v-model="newBeer.imagePath" />
     </div> 
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
@@ -37,7 +41,8 @@ export default {
                 description: "",
                 abv: 0.0,
                 active: true,
-                beerType: ""
+                beerType: "",
+                imagePath: ""
             }
         };
     },

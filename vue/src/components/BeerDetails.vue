@@ -17,23 +17,7 @@
       <div >
         <edit-beer v-show="showEditBeerForm === true"/>
       </div>
-      <div class="add-beer-button">
-      <a
-        id="show-add-beer-button"
-        href="#"
-        v-on:click.prevent="showAddBeerForm = true"
-        v-show="showAddBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Add Beer</a>
-      <a
-        id="hide-add-beer-button"
-        href="#"
-        v-on:click.prevent="showAddBeerForm = false"
-        v-show="showAddBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Hide Add Beer Form</a>
-      </div>
-      <div>
-        <add-beer v-show="showAddBeerForm === true"/>
-      </div>
+      
      <h1>
       {{this.$store.state.beer.name}}
     </h1>
@@ -58,10 +42,9 @@
 <script>
 import beerService from "@/services/BeerService.js";
 import EditBeer from "./EditBeer.vue";
-import AddBeer from './AddBeer.vue';
 
 export default {
-  components: { EditBeer, AddBeer },
+  components: { EditBeer },
   name: 
     "beer-details", 
   props: {

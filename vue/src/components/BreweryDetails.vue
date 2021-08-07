@@ -1,6 +1,6 @@
 <template>
   <div class="brewery-details">
-    <div>
+    <div class="edit-brewery-button">
       <a
         id="show-edit-brewery-button"
         href="#"
@@ -13,10 +13,28 @@
         v-on:click.prevent="showEditBreweryForm = false"
         v-if="showEditBreweryForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Hide Edit Brewery Form</a>
-      </div>
-      <div>
-        <edit-brewery class="edit-brewery-form" v-show="showEditBreweryForm === true"/>
-      </div>
+    </div>
+    <div>
+      <edit-brewery class="edit-brewery-form" v-show="showEditBreweryForm === true"/>
+    </div>
+    <div class="add-beer-button">
+      <a
+        id="show-add-beer-button"
+        href="#"
+        v-on:click.prevent="showAddBeerForm = true"
+        v-show="showAddBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
+        >Add Beer</a>
+      <a
+        id="hide-add-beer-button"
+        href="#"
+        v-on:click.prevent="showAddBeerForm = false"
+        v-show="showAddBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
+        >Hide Add Beer Form</a>
+    </div>
+    <div>
+      <add-beer v-show="showAddBeerForm === true"/>
+    </div> 
+      
     <div id="name">
       <h1>{{this.$store.state.activeBrewery.name}}</h1> 
     </div>
@@ -51,13 +69,15 @@
 <script>
 import beerService from '@/services/BeerService.js';
 import EditBrewery from './EditBrewery.vue';
+import AddBeer from './AddBeer.vue';
 
 export default {
-  components: { EditBrewery },
+  components: { EditBrewery,  AddBeer},
   name: "brewery-details",
   data(){
    return{
-     showEditBreweryForm: false
+     showEditBreweryForm: false,
+     showAddBeerForm: false
    }
   },
   
