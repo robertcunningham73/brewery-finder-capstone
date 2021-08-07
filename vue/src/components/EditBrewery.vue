@@ -1,37 +1,37 @@
 <template>
-    <form v-on:submit.prevent="updateBrewery">
+    <form v-on:submit="updateBrewery">
      <div class="form-element">
         <label for="name">Brewery Name: </label>
-        <input type="text" id="name" />
+        <input type="text" v-model="updatedBrewery.name" />
     </div>
-    <!-- <div class="edit-brewery-address">
+    <div class="edit-brewery-address">
         <label for="address">Street Address: </label>
-        <textarea type="text" v-model="updatedBrewery.address" />
+        <input type="text" v-model="updatedBrewery.address" />
     </div>
     <div class="edit-brewery-city">
         <label for="city">City: </label>
-        <textarea type="text" v-model="updatedBrewery.city" />
+        <input type="text" v-model="updatedBrewery.city" />
     </div>
     <div class="edit-brewery-state">
         <label for="state">State Initials:</label>
-        <textarea type="text" v-model="updatedBrewery.state" />
+        <input type="text" v-model="updatedBrewery.state" />
     </div> 
     <div class="edit-brewery-zip">
         <label for="zip">Zip: </label>
-        <textarea type="text" v-model="updatedBrewery.zip" />
+        <input type="text" v-model="updatedBrewery.zip" />
     </div>
     <div class="edit-brewery-phone-number">
         <label for="phone">Phone Number: </label>
-        <textarea type="text" v-model="updatedBrewery.phone" />
+        <input type="text" v-model="updatedBrewery.phone" />
     </div>
     <div class="edit-brewery-email">
         <label for="email">Email Address: </label>
-        <textarea type="text" v-model="updatedBrewery.email" />
+        <input type="text" v-model="updatedBrewery.email" />
     </div>
     <div class="edit-brewery-history">
         <label for="history">History: </label>
         <textarea type="text" v-model="updatedBrewery.history" />
-    </div> -->
+    </div>
     <div class="brewery-activation-status">
         <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updatedBrewery.active = false">Deactivate brewery</button>
         <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updatedBrewery.active = true">Activate brewery</button>
@@ -48,26 +48,29 @@ import beerService from '../services/BeerService';
 
 
 export default {
+    name: "edit-brewery",
     data(){
         return{
             updatedBrewery: {
-                breweryId: this.store.state.activeBrewery.breweryId,
+                breweryId: 0,
                 name: "",
                 address: "",
                 city: "",
                 state: "",
-                zip: "",
+                zip: 0,
                 phone: "",
                 email: "",
                 history: "",
-                active: false,
-                brewerId: this.$store.state.activeBrewery.brewerId
+                active: true,
+                brewerId: 0
             }
-        }
+        };
     },
     methods: {
         updateBrewery(){
-            if(this.updatedBrewery.name == ""){
+            this.updatedBrewery.breweryId = this.$store.state.activeBrewery.breweryId;
+            this.updatedBrewery.brewerId = this.$store.state.activeBrewery.brewerId;
+             if(this.updatedBrewery.name == ""){
                 this.updatedBrewery.name = this.$store.state.activeBrewery.name;
             }
             if(this.updatedBrewery.address == ""){
@@ -77,21 +80,20 @@ export default {
                 this.updatedBrewery.city = this.$store.state.activeBrewery.city;
             }
             if(this.updatedBrewery.state == ""){
-                this.updatedBrewery.state = this.$tore.state.activeBrewery.state;
+                this.updatedBrewery.state = this.$store.state.activeBrewery.state;
             }
             if(this.updatedBrewery.zip == 0){
-                this.updatedBrewery.zip = this.$tore.state.activeBrewery.zip;
+                this.updatedBrewery.zip = this.$store.state.activeBrewery.zip;
             }
             if(this.updatedBrewery.phone == ""){
-                this.updatedBrewery.phone = this.$tore.state.activeBrewery.phone;
+                this.updatedBrewery.phone = this.$store.state.activeBrewery.phone;
             }
             if(this.updatedBrewery.email == ""){
-                this.updatedBrewery.email = this.$tore.state.activeBrewery.email;
+                this.updatedBrewery.email = this.$store.state.activeBrewery.email;
             }
             if(this.updatedBrewery.history == ""){
-                this.updatedBrewery.history = this.$tore.state.activeBrewery.history;
-            }
-            this.updatedBrewery.name = document.getElementbyId("name");
+                this.updatedBrewery.history = this.$store.state.activeBrewery.history;
+            } 
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
                 if(response.status == 200){

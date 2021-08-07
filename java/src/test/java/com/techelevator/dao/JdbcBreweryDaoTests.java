@@ -31,4 +31,16 @@ public class JdbcBreweryDaoTests extends FinalCapstoneDaoTests{
 
         Assert.assertEquals(expected, result);
     }
+
+    @Test
+    public void updateBreweryTest() {
+        Brewery brewery = new Brewery(1, "test", "test address",  "test city", "te",
+                99999, "999-999-9999", "test@test.com", "test history", 3, false);
+        String expected = "test history";
+
+        sut.updateBrewery(brewery);
+        String result = sut.getBreweryById(1).getHistory();
+
+        Assert.assertEquals(expected, result);
+    }
 }
