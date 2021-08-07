@@ -33,8 +33,8 @@
         <textarea type="text" v-model="updatedBrewery.history" />
     </div>
     <div class="brewery-activation-status">
-        <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updatedBrewery.active = false">Deactivate brewery</button>
-        <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updatedBrewery.active = true">Activate brewery</button>
+        <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updateState">Deactivate brewery</button>
+        <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updateState">Activate brewery</button>
     </div>
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
@@ -105,6 +105,13 @@ export default {
         resetForm() {
             this.updatedBrewery = {};
             this.$parent.showEditBreweryForm = false;
+        },
+        updateState(){
+            if(this.$store.state.beer.active == true){
+            this.$store.state.beer.active = false;
+          }else{
+            this.$store.state.bee.active = true;
+          }
         }
     }
 }

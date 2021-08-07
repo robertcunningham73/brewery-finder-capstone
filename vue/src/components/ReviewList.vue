@@ -25,7 +25,7 @@
         id="show-form-button"
         href="#"
         v-on:click.prevent="showForm = true"
-        v-if="showForm === false"
+        v-if="showForm === false && this.$store.state.user.authorities[0].name == 'ROLE_USER'"
         >Add Review</a>
       </div>
       <div class="add-review-form">

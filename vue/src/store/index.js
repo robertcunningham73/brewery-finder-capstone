@@ -43,7 +43,7 @@ export default new Vuex.Store({
       beerType: "",
       reviews: [],
       imagePath: "",
-      active: false
+      active: true
     },
     
     review: {
