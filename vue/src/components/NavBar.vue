@@ -1,16 +1,20 @@
 <template>
-  <nav class="nav-links" id="left-bar">
+  <nav class="nav-bar" id="left-bar">
     <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>
-    <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link> 
-    <router-link :to="{name: 'beerList'}" v-if="$store.state.token != ''">All Beers</router-link>
+    <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
+    <div class="all-beers-button" v-if="$store.state.token != ''">
+      <router-link :to="{name: 'beerList'}" v-if="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
+    </div>
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
   </nav>
 </template>
 
 <script>
 export default {
- 
+  
 }
+ 
+
 </script>
 
 <style>
@@ -23,7 +27,7 @@ export default {
   height: 100%;
   }
 
-  .nav-links a{
+  .nav-bar a{
     color: #EFD6AC;
   }
   
@@ -33,6 +37,10 @@ export default {
     font-size: 26px;
   } 
 
-  
+  div.all-beers-button{
+    height: 60px;
+    color: #183A37;
+    font-size: 26px;
+  }
 
 </style>

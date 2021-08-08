@@ -30,7 +30,7 @@ export default new Vuex.Store({
       phone: "",
       email: "",
       history: "",
-      active: false,
+      active: true,
       brewerId: 0
       //TODO add images, hours of operation, brewers
     },
