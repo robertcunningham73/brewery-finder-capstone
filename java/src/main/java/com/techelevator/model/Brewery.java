@@ -13,6 +13,7 @@ public class Brewery {
     private String history;
     private int brewerId;
     private boolean active;
+    private String hours;
 
     public Brewery() { };
 
@@ -115,4 +116,8 @@ public class Brewery {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    public String getHours() { return hours; }
+
+    public void setHours(String hours) { this.hours = hours; }
 }
