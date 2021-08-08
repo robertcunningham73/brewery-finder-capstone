@@ -32,6 +32,36 @@
         <label for="history">History: </label>
         <textarea type="text" v-model="updatedBrewery.history" />
     </div>
+    <div class="edit-brewery-hours">
+        <label for="monday-open">Monday Open: </label>
+        <input type="time" v-model="hoursArray[0]"/>
+        <label for="monday-close">Monday close: </label>
+        <input type="time" v-model="hoursArray[1]"/>
+        <label for="tuesday-open">Tuesday Open: </label>
+        <input type="time" v-model="hoursArray[2]"/>
+        <label for="tuesday-close">Tuesday Close: </label>
+        <input type="time" v-model="hoursArray[3]"/>
+        <label for="wednesday-open">Wednesday Open: </label>
+        <input type="time" v-model="hoursArray[4]"/>
+        <label for="wednesday-close">Wednesday Close: </label>
+        <input type="time" v-model="hoursArray[5]"/>
+        <label for="thurday-open">Thursday Open: </label>
+        <input type="time" v-model="hoursArray[6]"/>
+        <label for="thursday-close">Thurday Close: </label>
+        <input type="time" v-model="hoursArray[7]"/>
+        <label for="friday-open">Friday Open: </label>
+        <input type="time" v-model="hoursArray[8]"/>
+        <label for="friday-close">Friday Close: </label>
+        <input type="time" v-model="hoursArray[9]"/>
+        <label for="saturday-open">Saturday Open: </label>
+        <input type="time" v-model="hoursArray[10]"/>
+        <label for="saturday-close">Saturday Close: </label>
+        <input type="time" v-model="hoursArray[11]"/>
+        <label for="sunday-open">Sunday Open: </label>
+        <input type="time" v-model="hoursArray[12]"/>
+        <label for="monday-open">Sunday Close: </label>
+        <input type="time" v-model="hoursArray[13]"/>
+    </div>
     <div class="brewery-activation-status">
         <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updateState">Deactivate brewery</button>
         <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updateState">Activate brewery</button>
@@ -39,7 +69,8 @@
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
         <button>Submit</button>
-        </div>
+    </div>
+    
     </form>
 </template>
 
@@ -62,12 +93,15 @@ export default {
                 email: "",
                 history: "",
                 active: true,
-                brewerId: 0
-            }
+                brewerId: 0,
+                hours: ""
+            },
+            hoursArray: []
         };
     },
     methods: {
         updateBrewery(){
+            this.updatedBrewery.hours = this.hoursArray.toString;
             this.updatedBrewery.breweryId = this.$store.state.activeBrewery.breweryId;
             this.updatedBrewery.brewerId = this.$store.state.activeBrewery.brewerId;
              if(this.updatedBrewery.name == ""){

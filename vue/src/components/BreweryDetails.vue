@@ -59,6 +59,13 @@
     <div class="brewery-hours">
       <h2>Hours of Operation: </h2> 
       <!-- TODO: add hours of operation -->
+      <h5>Monday: {{printMondayHours()}}</h5>
+      <h5>Tuesday: {{printTuesdayHours()}}</h5>
+      <h5>Wednesday: {{printWednesdayHours()}}</h5>
+      <h5>Thursday: {{printThursdayHours()}}</h5>
+      <h5>Friday: {{printFridayHours()}}</h5>
+      <h5>Saturday: {{printSaturdayHours()}}</h5>
+      <h5>Sunday: {{printSundayHours()}}</h5>
     </div>
     <div id="contact-info"><h2>Contact Us:</h2>
       <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
@@ -77,7 +84,8 @@ export default {
   data(){
    return{
      showEditBreweryForm: false,
-     showAddBeerForm: false
+     showAddBeerForm: false,
+     hoursArray: []
    }
   },
   
@@ -88,6 +96,75 @@ export default {
     beerService.getBrewery(this.$route.params.id).then(response => {
       this.$store.commit("SET_ACTIVE_BREWERY", response.data);
     });
+    document.splitHoursString();
+  },
+  methods: {
+    printMondayHours(){
+      let mondayHours = '';
+      if(this.hoursArray[0] == '' || this.hoursArray[1] == ''){
+        mondayHours = 'Closed'
+      }else{
+        mondayHours = this.hoursArray[0] + ' - ' + this.hoursArray[1];
+      }
+      return mondayHours;
+    },
+     printTuesdayHours(){
+      let tuesdayHours = '';
+      if(this.hoursArray[2] == '' || this.hoursArray[3] == ''){
+        tuesdayHours = 'Closed'
+      }else{
+        tuesdayHours = this.hoursArray[2] + ' - ' + this.hoursArray[3];
+      }
+      return tuesdayHours;
+    },
+    printWednesdayHours(){
+      let wednesdayHours = '';
+      if(this.hoursArray[4] == '' || this.hoursArray[5] == ''){
+        wednesdayHours = 'Closed'
+      }else{
+        wednesdayHours = this.hoursArray[4] + ' - ' + this.hoursArray[5];
+      }
+      return wednesdayHours;
+    },
+    printThursdayHours(){
+      let thursdayHours = '';
+      if(this.hoursArray[6] == '' || this.hoursArray[7] == ''){
+        thursdayHours = 'Closed'
+      }else{
+        thursdayHours = this.hoursArray[6] + ' - ' + this.hoursArray[7];
+      }
+      return thursdayHours;
+    },
+    printFridayHours(){
+      let fridayHours = '';
+      if(this.hoursArray[8] == '' || this.hoursArray[9] == ''){
+        fridayHours = 'Closed'
+      }else{
+        fridayHours = this.hoursArray[8] + ' - ' + this.hoursArray[9];
+      }
+      return fridayHours;
+    },
+    printSaturdayHours(){
+      let saturdayHours = '';
+      if(this.hoursArray[10] == '' || this.hoursArray[11] == ''){
+        saturdayHours = 'Closed'
+      }else{
+        saturdayHours = this.hoursArray[10] + ' - ' + this.hoursArray[11];
+      }
+      return saturdayHours;
+    },
+    printSundayHours(){
+      let sundayHours = '';
+      if(this.hoursArray[12] == '' || this.hoursArray[13] == ''){
+        sundayHours = 'Closed'
+      }else{
+        sundayHours = this.hoursArray[12] + ' - ' + this.hoursArray[13];
+      }
+      return sundayHours;
+    },
+    splitHoursString(){
+      this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+    } 
   }
 }
 
