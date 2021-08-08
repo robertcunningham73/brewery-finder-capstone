@@ -56,6 +56,12 @@ export default {
       font-size: 48px;
     }
 
+    img {
+      max-width: 100%;
+    }
+
+  
+
   /* .nav-container {
     grid-area: left-display;
     text-align: center;
