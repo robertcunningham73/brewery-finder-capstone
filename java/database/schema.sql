@@ -33,6 +33,7 @@ CREATE TABLE breweries(
   brewery_zip varchar(5),
   brewery_phone varchar(14),
   brewery_email varchar(100),
+  brewery_hours varchar(100),
   brewery_history varchar(255),
   brewer_id int,
   active boolean,
