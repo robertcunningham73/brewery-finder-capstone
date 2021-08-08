@@ -108,6 +108,14 @@ public class JdbcBeerDao implements BeerDao{
         }
     }
 
+    @Override
+    public void addBeer(Beer beer, int breweryId) {
+        String sql = "INSERT INTO beer (beer_name, beer_description, beer_abv, beer_type, beer_image) VALUES (?, ?, ?, ?, ?) RETURNING beer_id;";
+        Integer insertedId =  jdbcTemplate.queryForObject(sql, Integer.class, beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getImagePath());
+        String sqlBeerInventory = "INSERT INTO beer_inventory (brewery_id, beer_id, active) VALUES (?, ?, ?);";
+        jdbcTemplate.update(sqlBeerInventory, breweryId, insertedId, beer.isActive());
+    }
+
 
     private Beer mapRowToBeer(SqlRowSet rowSet) {
         Beer beer = new Beer();
