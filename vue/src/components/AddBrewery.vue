@@ -38,9 +38,9 @@
     </div>
     <div class="set-brewery-hours">
         <label for="monday-open">Monday Open: </label>
-        <input type="time" v-model="hoursArray[0]"/>
+        <input type="time" v-model="this.hoursArray[0]"/>
         <label for="monday-close">Monday close: </label>
-        <input type="time" v-model="hoursArray[1]"/>
+        <input type="time" v-model="this.hoursArray[1]"/>
         <label for="tuesday-open">Tuesday Open: </label>
         <input type="time" v-model="hoursArray[2]"/>
         <label for="tuesday-close">Tuesday Close: </label>
