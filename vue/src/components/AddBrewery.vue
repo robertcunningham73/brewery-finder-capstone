@@ -100,7 +100,7 @@ export default {
     },
     methods: {
         addBrewery(){
-            this.newBrewery.hours = this.hoursArray.toString;
+            this.newBrewery.hours = this.hoursArray.toString();
             beerService.addBrewery(this.newBrewery)
             .then(response => {
                 if(response.status == 200){

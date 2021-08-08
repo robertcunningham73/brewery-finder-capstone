@@ -34,9 +34,9 @@
     </div>
     <div class="edit-brewery-hours">
         <label for="monday-open">Monday Open: </label>
-        <input type="time" v-model="hoursArray[0]"/>
+        <input type="time" v-model="this.hoursArray[0]"/>
         <label for="monday-close">Monday close: </label>
-        <input type="time" v-model="hoursArray[1]"/>
+        <input type="time" v-model="this.hoursArray[1]"/>
         <label for="tuesday-open">Tuesday Open: </label>
         <input type="time" v-model="hoursArray[2]"/>
         <label for="tuesday-close">Tuesday Close: </label>
@@ -101,7 +101,7 @@ export default {
     },
     methods: {
         updateBrewery(){
-            this.updatedBrewery.hours = this.hoursArray.toString;
+            this.updatedBrewery.hours = this.hoursArray.toString();
             this.updatedBrewery.breweryId = this.$store.state.activeBrewery.breweryId;
             this.updatedBrewery.brewerId = this.$store.state.activeBrewery.brewerId;
              if(this.updatedBrewery.name == ""){
