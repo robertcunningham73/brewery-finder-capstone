@@ -14,7 +14,9 @@
         v-if="showReviews === true"
         >Hide Reviews</a>
       </div>
+      <div class="rating-display">{{ averageRating }} Average Rating:</div>
       <div class="review-display">
+        
         <review-display v-if="showReviews === true" />
       </div>
     
@@ -23,7 +25,7 @@
         id="show-form-button"
         href="#"
         v-on:click.prevent="showForm = true"
-        v-if="showForm === false"
+        v-if="showForm === false && this.$store.state.user.authorities[0].name == 'ROLE_USER'"
         >Add Review</a>
       </div>
       <div class="add-review-form">
@@ -47,6 +49,16 @@ export default {
     return{
       showReviews: false,
       showForm: false
+    }
+  },
+  //TODO create avg rating method
+  computed: {
+    averageRating() {
+      const reviews = this.$store.state.beer.reviews;
+      let sum = reviews.reduce((currentSum, review) => {
+        return currentSum + review.rating;
+      }, 0);
+      return (sum / reviews.length).toFixed(2);
     }
   }
   }

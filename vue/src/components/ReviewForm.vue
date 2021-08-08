@@ -16,7 +16,7 @@
       <textarea id="review" v-model="newReview.reviewBody"></textarea>
     </div>
     <div class="actions">
-      <button v-on:click.prevent="resetForm" type="cancel">Cancel</button>
+      <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
       <button>Submit</button>
     </div>
   </form>
@@ -54,13 +54,12 @@ export default {
         reviews: this.$store.state.beer.reviews, 
         imagePath: this.$store.state.beer.imagePath
       } 
-      beerService.updateBeer(beer)
+      beerService.updateBeer(beer, this.$store.state.activeBrewery.breweryId)
       .then(response => {
         if(response.status == 200){
           //TODO: create Mutation that adds review to reviews store collection
           this.$store.commit("SET_ACTIVE_BEER", response.data);
           this.$store.commit("SET_BEER_LIST", response.data);
-          //this.$router.push(`/beer-list/${this.$store.state.beer.beerId}`);
         }
       });
       
@@ -68,6 +67,7 @@ export default {
       
     resetForm() {
       this.newReview = {};
+      this.$parent.showForm = false;
     },
     
   }

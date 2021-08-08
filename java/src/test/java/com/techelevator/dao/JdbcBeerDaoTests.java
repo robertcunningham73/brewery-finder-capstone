@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Beer;
+import com.techelevator.model.Brewery;
 import com.techelevator.model.Review;
 import org.junit.Assert;
 import org.junit.Before;
@@ -48,13 +49,39 @@ public class JdbcBeerDaoTests extends FinalCapstoneDaoTests{
         beer.setBeerType("test");
         beer.setImagePath("test");
         beer.setReviews(reviewList);
+        beer.setActive(false);
 
-        sut.update(beer);
+        //sut.updateBeer(beer, brewery);
 
         String expected = "test";
         String result = sut.getBeerById(2).getDescription();
 
-        Assert.assertEquals(expected, result);
+        boolean expectedActive = false;
+        boolean resultActive = sut.getBeerById(2).isActive();
 
+        Assert.assertEquals(expected, result);
+        Assert.assertEquals(expectedActive, resultActive);
+    }
+
+    @Test
+    public void addBeerTest() {
+        Beer beer = new Beer();
+        beer.setName("add beer test");
+        beer.setDescription("add beer test");
+        beer.setAbv(0.0);
+        beer.setBeerType("add beer test");
+        beer.setActive(false);
+
+        Brewery brewery = new Brewery();
+        brewery.setBreweryId(1);
+
+        int expected = sut.getAllBeers().size() + 1;
+        int expectedInventory = sut.getBeersByBreweryId(brewery.getBreweryId()).size() + 1;
+        sut.addBeer(beer, brewery.getBreweryId());
+
+        int result = sut.getAllBeers().size();
+        int resultInventory = sut.getBeersByBreweryId(brewery.getBreweryId()).size();
+        Assert.assertEquals(expected, result);
+        Assert.assertEquals(expectedInventory, resultInventory);
     }
 }

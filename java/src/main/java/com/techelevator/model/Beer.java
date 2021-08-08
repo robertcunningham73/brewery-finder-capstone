@@ -11,10 +11,11 @@ public class Beer {
     private String beerType;
     private String imagePath;
     private List<Review> reviews;
+    private boolean active;
 
     public Beer() { };
 
-    public Beer(int beerId, String name, String description, double abv, String beerType, String imagePath, List<Review> reviews) {
+    public Beer(int beerId, String name, String description, double abv, String beerType, String imagePath, List<Review> reviews, boolean active) {
         this.beerId = beerId;
         this.name = name;
         this.description = description;
@@ -22,6 +23,7 @@ public class Beer {
         this.beerType = beerType;
         this.imagePath = imagePath;
         this.reviews = reviews;
+        this.active = active;
     }
 
     public int getBeerId() {
@@ -69,4 +71,8 @@ public class Beer {
     public List<Review> getReviews() { return reviews; }
 
     public void setReviews(List<Review> reviews) { this.reviews = reviews; }
+
+    public boolean isActive() { return active; }
+
+    public void setActive(boolean active) { this.active = active; }
 }

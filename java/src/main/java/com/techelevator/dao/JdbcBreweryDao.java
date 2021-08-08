@@ -55,9 +55,29 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
+    public void addBrewery(Brewery brewery) {
+        String sql = "INSERT into breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, " +
+                "brewery_phone, brewery_email, brewery_hours, brewery_history, brewer_id, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(), brewery.getCity(), brewery.getState(),
+                brewery.getZip(), brewery.getPhone(), brewery.getEmail(), brewery.getHours(), brewery.getHistory(), brewery.getBrewerId(),
+                brewery.isActive());
+
+    }
+
+    @Override
     public int findIdByName(String name) {
         return jdbcTemplate.queryForObject("SELECT brewery_id FROM breweries WHERE brewery_name = ?", int.class, name);
         //TODO implement try/catch for NullPointerEx?
+    }
+
+    @Override
+    public void updateBrewery(Brewery brewery) {
+        String sql = "UPDATE breweries SET brewery_name = ?, brewery_address = ?, brewery_city = ?, brewery_state = ?, " +
+                "brewery_zip = ?, brewery_phone = ?, brewery_email = ?, brewery_hours = ?, brewery_history = ?, brewer_id = ?, active = ? " +
+                "WHERE brewery_id = ?;";
+        jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(), brewery.getCity(), brewery.getState(),
+                brewery.getZip(), brewery.getPhone(), brewery.getEmail(), brewery.getHours(), brewery.getHistory(), brewery.getBrewerId(),
+                brewery.isActive(), brewery.getBreweryId());
     }
 
     private Brewery mapRowToBrewery(SqlRowSet rowSet) {
@@ -70,6 +90,7 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setZip(rowSet.getInt("brewery_zip"));
         brewery.setPhone(rowSet.getString("brewery_phone"));
         brewery.setEmail(rowSet.getString("brewery_email"));
+        brewery.setHours(rowSet.getString("brewery_hours"));
         brewery.setHistory(rowSet.getString("brewery_history"));
         brewery.setBrewerId(rowSet.getInt("brewer_id"));
         brewery.setActive(rowSet.getBoolean("active"));

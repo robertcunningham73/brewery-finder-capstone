@@ -1,7 +1,5 @@
 package com.techelevator.model;
 
-import javax.print.DocFlavor;
-
 public class Review {
 
     private int reviewId;

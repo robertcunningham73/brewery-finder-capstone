@@ -36,7 +36,7 @@ export default {
   }
 
   .nav-bar {
-    width: 160px;
+    width: 200px;
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
     position: fixed;
