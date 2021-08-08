@@ -96,7 +96,7 @@ export default {
     beerService.getBrewery(this.$route.params.id).then(response => {
       this.$store.commit("SET_ACTIVE_BREWERY", response.data);
     });
-    this.hoursArray = document.splitHoursString();
+    this.hoursArray = document.splitHoursString(this.$store.state.ActiveBrewery.hours);
   },
   methods: {
     printMondayHours(){
@@ -162,8 +162,8 @@ export default {
       }
       return sundayHours;
     },
-    splitHoursString(){
-      this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+    splitHoursString(hours){
+      hours.split(",");
     } 
   }
 }
