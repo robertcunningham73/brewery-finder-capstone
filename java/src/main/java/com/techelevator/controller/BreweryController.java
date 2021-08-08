@@ -27,4 +27,7 @@ public class BreweryController {
     @RequestMapping(path="/breweries/{id}", method = RequestMethod.PUT)
     public void update(@RequestBody Brewery brewery, @PathVariable int id) { breweryDao.updateBrewery(brewery); }
 
+    @RequestMapping(path="/breweries", method = RequestMethod.POST)
+    public void add(@RequestBody Brewery brewery) { breweryDao.addBrewery(brewery); }
+
 }

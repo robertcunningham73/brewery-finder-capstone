@@ -17,7 +17,7 @@ public class Brewery {
 
     public Brewery() { };
 
-    public Brewery(int breweryId, String name, String address, String city, String state, int zip, String phone, String email, String history, int brewerId, boolean active) {
+    public Brewery(int breweryId, String name, String address, String city, String state, int zip, String phone, String email, String hours, String history, int brewerId, boolean active) {
         this.breweryId = breweryId;
         this.name = name;
         this.address = address;
@@ -26,6 +26,7 @@ public class Brewery {
         this.zip = zip;
         this.phone = phone;
         this.email = email;
+        this.hours = hours;
         this.history = history;
         this.brewerId = brewerId;
         this.active = active;

@@ -15,4 +15,6 @@ public interface BreweryDao {
     int findIdByName(String name);
 
     public void updateBrewery(Brewery brewery);
+
+    public void addBrewery(Brewery brewery);
 }
