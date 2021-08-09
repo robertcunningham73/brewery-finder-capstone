@@ -15,12 +15,10 @@
           v-if="showReviews === true"
           ><br>Hide Reviews</a>
         </div>
-        <div class="rating-display"> <br> Average Rating: {{ averageRating }}</div>
+        <div class="rating-display">Average Rating: {{ averageRating }}</div>
         <div class="review-display">
-          
           <review-display v-if="showReviews === true" />
         </div>
-      
       <div>
         <a
           id="show-form-button"
@@ -53,14 +51,17 @@ export default {
       showForm: false
     }
   },
-  //TODO create avg rating method
   computed: {
     averageRating() {
       const reviews = this.$store.state.beer.reviews;
       let sum = reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
       }, 0);
-      return (sum / reviews.length).toFixed(2);
+      if (reviews.length > 0) {
+        return (sum / reviews.length).toFixed(2) + " / 5";
+      } else {
+        return "No ratings available yet";
+      }
     }
   }
   }
