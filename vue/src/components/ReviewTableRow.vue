@@ -1,16 +1,16 @@
-<template>
+/* <template>
   <div class="card">
      <h3 nowrap>{{ review.username }}</h3>
     <h4>{{ review.rating }}</h4>
     <h5>{{ review.reviewBody }}</h5>
-</template>
+</template> */
 
 <template>
-  <!-- <tr>
+  <tr>
     <td>{{ review.rating }}</td>
     <td nowrap>{{ review.username }}</td>
     <td>{{ review.reviewBody }}</td>
-  </tr> -->
+  </tr> 
 </template> 
 
 <script>
