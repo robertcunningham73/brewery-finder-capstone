@@ -52,7 +52,7 @@
     </div>
     <div class="beer-list" >
       <h2>Brewery's Available Beers:</h2>
-      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId" v-show="beer.active == true">
+      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId">
       <router-link  v-bind:to="{ name: 'beer', params:{id: beer.beerId}}">{{ beer.name }}</router-link>
       </div>
     </div>
@@ -161,10 +161,7 @@ export default {
         sundayHours = this.hoursArray[12] + ' - ' + this.hoursArray[13];
       }
       return sundayHours;
-    },
-    splitHoursString(hours){
-      hours.split(",");
-    } 
+    }
   }
 }
 

@@ -46,6 +46,13 @@ export default {
             }
         };
     },
+    created(){
+        beerService.getBeer(this.$route.params.id).then(response =>{
+      this.$store.commit("SET_ACTIVE_BEER", response.data);
+      this.updatedBeer = this.$store.state.beer;
+    })
+        
+    },
     methods: {
         updateBeer(){
             this.updatedBeer.imagePath = this.$store.state.beer.imagePath;
