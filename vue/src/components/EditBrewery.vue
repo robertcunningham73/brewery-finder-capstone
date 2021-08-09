@@ -99,6 +99,10 @@ export default {
             hoursArray: []
         };
     },
+    created() {
+        this.updatedBrewery = this.$store.state.activeBrewery;
+        this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+    },
     methods: {
         updateBrewery(){
             this.updatedBrewery.hours = this.hoursArray.toString();
