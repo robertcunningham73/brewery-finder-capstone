@@ -5,7 +5,9 @@
     <div class="all-beers-button" v-if="$store.state.token != ''">
       <router-link :to="{name: 'beerList'}" v-if="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
     </div>
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    <div id="logout">
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </div> 
   </nav>
 </template>
 
@@ -57,4 +59,7 @@ export default {
     font-size: 26px;
   }
 
+#left-bar#logout{
+  justify-content: flex-end;
+}
 </style>
