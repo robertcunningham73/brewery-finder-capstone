@@ -31,9 +31,10 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      /><br>
       <button type="submit">Sign in</button>
+      <router-link :to="{ name: 'register' }"><br>Need an account?</router-link>
+      
     </form>
   </div>
 </div>
@@ -91,6 +92,11 @@ export default {
 
   .form-control{
     border-radius: 10px;
+  }
+
+  label{
+    padding-top: 10px;
+    
   }
 
   
