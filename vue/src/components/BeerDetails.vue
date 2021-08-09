@@ -17,22 +17,15 @@
       <div >
         <edit-beer v-show="showEditBeerForm === true"/>
       </div>
-      
      <h1>
       {{this.$store.state.beer.name}}
     </h1>
-    
-
     <h4>
-      ABV {{this.$store.state.beer.abv}} | Type {{this.$store.state.beer.beerType}}
+      ABV: {{this.$store.state.beer.abv}} | Type: {{this.$store.state.beer.beerType}}
     </h4>
-      
-    
-    <h3>
+      <h3>
       Description: {{this.$store.state.beer.description}}
     </h3>
-      
-
     <div class= "img-beer">
     <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
     </div>
