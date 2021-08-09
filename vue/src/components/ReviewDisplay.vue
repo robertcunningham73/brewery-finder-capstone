@@ -1,24 +1,24 @@
 <template>
-
-  <div class="review-display">
-    <table id="rd-table">
-      <thead>
-        <th id="rating-container">Rating</th>
-        <th></th>
-        <th id="review-container">Review</th>
-      </thead>
-      <tbody>
-        <review-table-row 
-        v-for="review in this.$store.state.beer.reviews"
-        v-bind:key="review.reviewId"
-        v-bind:review="review"/>
-        <tr v-show="this.$store.state.beer.reviews.length == 0">
-          <td colspan="3">There are no reviews</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="review-content">
+    <div id="review-display">
+      <table id="rd-table"><br>
+        <thead>
+          <th></th>
+          <th id="rating-container"><br>Rating</th>
+          <th id="review-container"><br>Review</th>
+        </thead>
+        <tbody>
+          <review-table-row 
+          v-for="review in this.$store.state.beer.reviews"
+          v-bind:key="review.reviewId"
+          v-bind:review="review"/>
+          <tr v-show="this.$store.state.beer.reviews.length == 0">
+            <td colspan="3">There are no reviews</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
 </template>
 
 
@@ -41,13 +41,19 @@ export default {
 }
 
 table, td{
-  border: 2px solid #183A37;
+  border-bottom: 2px solid #183A37;
   border-collapse: collapse;
-  padding: 5px;
-}
-
-td{
   padding: 5px 10px;
 }
+
+/* .review-content{
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+#review-form{
+  margin-right: 20%;
+} */
 
 </style>
