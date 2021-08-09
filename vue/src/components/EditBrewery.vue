@@ -39,12 +39,9 @@
         
         <label for="monday-close">Monday close: </label>
         <input type="time" v-model="hoursArray[1]"/>
-        <a
-        class="day-closed"
-        href="#"
-        v-on:click.prevent="monOpen = false"
-        v-show="monOpen === true"
-        >Monday Closed</a>
+        <button
+        v-on:click.prevent="hoursArray[0] = 0, hoursArray[1] = 0"
+        >Monday Closed</button>
         <label for="tuesday-open">Tuesday Open: </label>
         <input type="time" v-model="hoursArray[2]"/>
         <label for="tuesday-close">Tuesday Close: </label>
@@ -140,24 +137,22 @@ export default {
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-            monOpen: true,
-            tuesOpen: true,
-            wedOpen: true,
-            thursOpen: true,
-            friOpen: true,
-            satOpen: true,
-            sunOpen: true
+            hoursArray: []
         };
     },
-   /*  created() {
-        this.updatedBrewery = this.$store.state.activeBrewery;
-        this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+   created() {
+       beerService.getBrewery(this.$route.params.id).then(response => {
+      this.$store.commit("SET_ACTIVE_BREWERY", response.data);
+      this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+      this.updatedBrewery = this.$store.state.activeBrewery;
+    });
         
-    }, */
+
+        
+    }, 
     methods: {
         updateBrewery(){
-            const breweryHours = this.$store.state.activeBrewery.hours.split(",");
+            /* const breweryHours = this.$store.state.activeBrewery.hours.split(",");
             for(let i = 0; i < this.hoursArray.length(); i++){
                 if(this.hoursArray[i] == 25){
                     this.hoursArray[i] = breweryHours[i];
@@ -217,7 +212,7 @@ export default {
             if(this.sunOpen == false){
                 this.hoursArray[12] = 0;
                 this.hoursArray[13] = 0;
-            }
+            } */
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
                 if(response.status == 200){
@@ -234,7 +229,7 @@ export default {
             if(this.$store.state.beer.active == true){
             this.$store.state.beer.active = false;
           }else{
-            this.$store.state.bee.active = true;
+            this.$store.state.beer.active = true;
           }
         }
     }
