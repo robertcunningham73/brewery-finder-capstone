@@ -1,7 +1,8 @@
 <template>
     <form v-on:submit="updateBrewery">
+        <h2>(Leave Fields Empty To Have Data Remain The Same)</h2>
      <div class="form-element">
-        <label for="name">Brewery Name: </label>
+         <label for="name">Brewery Name: </label>
         <input type="text" v-model="updatedBrewery.name" />
     </div>
     <div class="edit-brewery-address">
@@ -34,9 +35,9 @@
     </div>
     <div class="edit-brewery-hours">
         <label for="monday-open">Monday Open: </label>
-        <input type="time" v-model="this.hoursArray[0]"/>
-        <label for="monday-close">Monday close: </label>
-        <input type="time" v-model="this.hoursArray[1]"/>
+        <input type="time" v-model="hoursArray[0]" nowrap/>
+        
+        <input type="time" v-model="hoursArray[1]"/>
         <label for="tuesday-open">Tuesday Open: </label>
         <input type="time" v-model="hoursArray[2]"/>
         <label for="tuesday-close">Tuesday Close: </label>
@@ -96,13 +97,21 @@ export default {
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: []
+            hoursArray: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            monOpen: true,
+            tuesOpen: true,
+            wedOpen: true,
+            thursOpen: true,
+            friOpen: true,
+            satOpen: true,
+            sunOpen: true
         };
     },
-    created() {
+   /*  created() {
         this.updatedBrewery = this.$store.state.activeBrewery;
         this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
-    },
+        
+    }, */
     methods: {
         updateBrewery(){
             this.updatedBrewery.hours = this.hoursArray.toString();

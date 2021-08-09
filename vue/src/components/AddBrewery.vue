@@ -95,7 +95,7 @@ export default {
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: []
+            hoursArray: [14]
         };
     },
     methods: {

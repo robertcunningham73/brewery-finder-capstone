@@ -101,7 +101,7 @@ export default {
   methods: {
     printMondayHours(){
       let mondayHours = '';
-      if(this.hoursArray[0] == null || this.hoursArray[1] == null){
+      if(this.hoursArray[0] == 0 || this.hoursArray[1] == 0){
         mondayHours = 'Closed'
       }else{
         mondayHours = this.hoursArray[0] + ' - ' + this.hoursArray[1];
@@ -110,7 +110,7 @@ export default {
     },
      printTuesdayHours(){
       let tuesdayHours = '';
-      if(this.hoursArray[2] == null || this.hoursArray[3] == null){
+      if(this.hoursArray[2] == 0 || this.hoursArray[3] == 0){
         tuesdayHours = 'Closed'
       }else{
         tuesdayHours = this.hoursArray[2] + ' - ' + this.hoursArray[3];
@@ -119,7 +119,7 @@ export default {
     },
     printWednesdayHours(){
       let wednesdayHours = '';
-      if(this.hoursArray[4] == null || this.hoursArray[5] == null){
+      if(this.hoursArray[4] == 0 || this.hoursArray[5] == 0){
         wednesdayHours = 'Closed'
       }else{
         wednesdayHours = this.hoursArray[4] + ' - ' + this.hoursArray[5];
@@ -128,7 +128,7 @@ export default {
     },
     printThursdayHours(){
       let thursdayHours = '';
-      if(this.hoursArray[6] == null || this.hoursArray[7] == null){
+      if(this.hoursArray[6] == 0 || this.hoursArray[7] == 0){
         thursdayHours = 'Closed'
       }else{
         thursdayHours = this.hoursArray[6] + ' - ' + this.hoursArray[7];
@@ -137,7 +137,7 @@ export default {
     },
     printFridayHours(){
       let fridayHours = '';
-      if(this.hoursArray[8] == null || this.hoursArray[9] == null){
+      if(this.hoursArray[8] == 0 || this.hoursArray[9] == 0){
         fridayHours = 'Closed'
       }else{
         fridayHours = this.hoursArray[8] + ' - ' + this.hoursArray[9];
@@ -146,7 +146,7 @@ export default {
     },
     printSaturdayHours(){
       let saturdayHours = '';
-      if(this.hoursArray[10] == null || this.hoursArray[11] == null){
+      if(this.hoursArray[10] == 0 || this.hoursArray[11] == 0){
         saturdayHours = 'Closed'
       }else{
         saturdayHours = this.hoursArray[10] + ' - ' + this.hoursArray[11];
@@ -155,7 +155,7 @@ export default {
     },
     printSundayHours(){
       let sundayHours = '';
-      if(this.hoursArray[12] == null|| this.hoursArray[13] == null){
+      if(this.hoursArray[12] == 0 || this.hoursArray[13] == 0){
         sundayHours = 'Closed'
       }else{
         sundayHours = this.hoursArray[12] + ' - ' + this.hoursArray[13];
