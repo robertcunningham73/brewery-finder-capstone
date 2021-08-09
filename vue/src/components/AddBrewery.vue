@@ -36,7 +36,7 @@
         <label for="history">History: </label>
         <textarea type="text" v-model="newBrewery.history" />
     </div>
-    <div class="set-brewery-hours">
+    <!-- <div class="set-brewery-hours">
         <label for="monday-open">Monday Open: </label>
         <input type="time" v-model="this.hoursArray[0]"/>
         <label for="monday-close">Monday close: </label>
@@ -65,7 +65,7 @@
         <input type="time" v-model="hoursArray[12]"/>
         <label for="monday-open">Sunday Close: </label>
         <input type="time" v-model="hoursArray[13]"/>
-    </div>
+    </div> -->
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
         <button>Submit</button>
@@ -91,11 +91,11 @@ export default {
                 phone: "",
                 email: "",
                 history: "",
-                active: true,
+                active: false,
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: [14]
+            hoursArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         };
     },
     methods: {

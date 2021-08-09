@@ -37,31 +37,71 @@
         <label for="monday-open">Monday Open: </label>
         <input type="time" v-model="hoursArray[0]" nowrap/>
         
+        <label for="monday-close">Monday close: </label>
         <input type="time" v-model="hoursArray[1]"/>
+        <button
+        v-on:click.prevent="hoursArray[0] = 0, hoursArray[1] = 0"
+        >Monday Closed</button>
         <label for="tuesday-open">Tuesday Open: </label>
         <input type="time" v-model="hoursArray[2]"/>
         <label for="tuesday-close">Tuesday Close: </label>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="tuesOpen = false"
+        v-show="tuesOpen === true"
+        >Tuesday Closed</a>
         <input type="time" v-model="hoursArray[3]"/>
         <label for="wednesday-open">Wednesday Open: </label>
         <input type="time" v-model="hoursArray[4]"/>
         <label for="wednesday-close">Wednesday Close: </label>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="wedOpen = false"
+        v-show="wedOpen === true"
+        >Wednesday Closed</a>
         <input type="time" v-model="hoursArray[5]"/>
         <label for="thurday-open">Thursday Open: </label>
         <input type="time" v-model="hoursArray[6]"/>
         <label for="thursday-close">Thurday Close: </label>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="thursOpen = false"
+        v-show="thursOpen === true"
+        >Thursday Closed</a>
         <input type="time" v-model="hoursArray[7]"/>
         <label for="friday-open">Friday Open: </label>
         <input type="time" v-model="hoursArray[8]"/>
         <label for="friday-close">Friday Close: </label>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="friOpen = false"
+        v-show="friOpen === true"
+        >Friday Closed</a>
         <input type="time" v-model="hoursArray[9]"/>
         <label for="saturday-open">Saturday Open: </label>
         <input type="time" v-model="hoursArray[10]"/>
         <label for="saturday-close">Saturday Close: </label>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="satOpen = false"
+        v-show="satOpen === true"
+        >Saturday Closed</a>
         <input type="time" v-model="hoursArray[11]"/>
         <label for="sunday-open">Sunday Open: </label>
         <input type="time" v-model="hoursArray[12]"/>
         <label for="monday-open">Sunday Close: </label>
         <input type="time" v-model="hoursArray[13]"/>
+        <a
+        class="day-closed"
+        href="#"
+        v-on:click.prevent="sunOpen = false"
+        v-show="sunOpen === true"
+        >Sunday Closed</a>
     </div>
     <div class="brewery-activation-status">
         <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updateState">Deactivate brewery</button>
@@ -97,23 +137,27 @@ export default {
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            monOpen: true,
-            tuesOpen: true,
-            wedOpen: true,
-            thursOpen: true,
-            friOpen: true,
-            satOpen: true,
-            sunOpen: true
+            hoursArray: []
         };
     },
-   /*  created() {
-        this.updatedBrewery = this.$store.state.activeBrewery;
-        this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+   created() {
+       beerService.getBrewery(this.$route.params.id).then(response => {
+      this.$store.commit("SET_ACTIVE_BREWERY", response.data);
+      this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+      this.updatedBrewery = this.$store.state.activeBrewery;
+    });
         
-    }, */
+
+        
+    }, 
     methods: {
         updateBrewery(){
+            /* const breweryHours = this.$store.state.activeBrewery.hours.split(",");
+            for(let i = 0; i < this.hoursArray.length(); i++){
+                if(this.hoursArray[i] == 25){
+                    this.hoursArray[i] = breweryHours[i];
+                }
+            }
             this.updatedBrewery.hours = this.hoursArray.toString();
             this.updatedBrewery.breweryId = this.$store.state.activeBrewery.breweryId;
             this.updatedBrewery.brewerId = this.$store.state.activeBrewery.brewerId;
@@ -141,6 +185,34 @@ export default {
             if(this.updatedBrewery.history == ""){
                 this.updatedBrewery.history = this.$store.state.activeBrewery.history;
             } 
+            if(this.monOpen == false){
+                this.hoursArray[0] = 0;
+                this.hoursArray[1] = 0;
+            }
+            if(this.tuesOpen == false){
+                this.hoursArray[2] = 0;
+                this.hoursArray[3] = 0;
+            }
+            if(this.wedOpen == false){
+                this.hoursArray[4] = 0;
+                this.hoursArray[5] = 0;
+            }
+            if(this.thursOpen == false){
+                this.hoursArray[6] = 0;
+                this.hoursArray[7] = 0;
+            }
+            if(this.friOpen == false){
+                this.hoursArray[8] = 0;
+                this.hoursArray[9] = 0;
+            }
+            if(this.satOpen == false){
+                this.hoursArray[10] = 0;
+                this.hoursArray[11] = 0;
+            }
+            if(this.sunOpen == false){
+                this.hoursArray[12] = 0;
+                this.hoursArray[13] = 0;
+            } */
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
                 if(response.status == 200){
@@ -157,7 +229,7 @@ export default {
             if(this.$store.state.beer.active == true){
             this.$store.state.beer.active = false;
           }else{
-            this.$store.state.bee.active = true;
+            this.$store.state.beer.active = true;
           }
         }
     }
