@@ -1,13 +1,17 @@
 <template>
   <nav class="nav-bar" id="left-bar">
-    <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>
-    <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
+    <div id="nav-logo">
+      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/BF-Logo.png`)"/></router-link>
+    </div>
+    <div id="nav-text">
+      <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
     <div class="all-beers-button" v-if="$store.state.token != ''">
       <router-link :to="{name: 'beerList'}" v-if="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
     </div>
     <div id="logout">
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div> 
+    </div>
   </nav>
 </template>
 
@@ -34,7 +38,7 @@ export default {
     padding: 0px 24px;
   }
 
-  .nav-bar a:hover{
+  #nav-text a:hover{
     background-color: #EFD6AC;
     color: #183A37;
   }
@@ -59,7 +63,18 @@ export default {
     font-size: 26px;
   }
 
-#left-bar#logout{
-  justify-content: flex-end;
+/* .nav-bar #logout{
+  display: flex;
+  align-content: flex-end;
+} */
+
+#nav-logo{
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  height: 200px;
+  width: 200px;
+  padding-bottom: 0;
 }
+
 </style>

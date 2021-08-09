@@ -3,7 +3,7 @@
     <div id="review-form" >
     <form v-on:submit.prevent="addNewReview">
       <div class="form-element" >
-        <label for="rating"><br>Rating:</label>
+        <label for="rating"><br>Rating</label>
         <select id="rating" v-model.number="newReview.rating">
           <option value="1">1</option>
           <option value="2">2</option>

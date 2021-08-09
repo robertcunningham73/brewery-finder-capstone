@@ -14,7 +14,7 @@ export default {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@1,500&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
    html {
     height: 100%;
@@ -40,6 +40,7 @@ export default {
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
     position: fixed;
+    font-family: 'Major Mono Display', monospace;
   }
 
   .page-content {
@@ -51,7 +52,7 @@ export default {
     }
 
     h1{
-      font-family: 'Lobster', cursive;
+      font-family: 'Major Mono Display', monospace;
       font-size: 48px;
     }
 
