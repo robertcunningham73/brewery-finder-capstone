@@ -18,6 +18,7 @@
       </tbody>
     </table>
   </div>
+
 </template>
 
 
@@ -35,7 +36,8 @@ export default {
 <style>
 .review-display{
   display:flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 table, td{
