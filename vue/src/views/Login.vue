@@ -89,5 +89,9 @@ export default {
   border-radius: 10px;
   }
 
+  .form-control{
+    border-radius: 10px;
+  }
+
   
 </style>

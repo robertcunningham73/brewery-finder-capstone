@@ -1,10 +1,11 @@
 <template>
+
   <div class="review-display">
     <table id="rd-table">
       <thead>
         <th id="rating-container">Rating</th>
         <th></th>
-        <th id="review-container">Review: </th>
+        <th id="review-container">Review</th>
       </thead>
       <tbody>
         <review-table-row 
@@ -18,6 +19,7 @@
     </table>
   </div>
 </template>
+
 
 <script>
 import ReviewTableRow from './ReviewTableRow.vue'
@@ -34,6 +36,16 @@ export default {
 .review-display{
   display:flex;
   justify-content: center;
+}
+
+table, td{
+  border: 2px solid #183A37;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+td{
+  padding: 5px 10px;
 }
 
 </style>

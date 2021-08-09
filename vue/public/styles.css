@@ -1,0 +1,22 @@
+@media screen and (max-width: 600px){
+    #left-bar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+            }
+    .page-content {
+        padding-top: 25px;
+        flex: 1 0 auto;
+        text-align: center;
+        background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
+        margin-top: 10em;
+                }
+    .nav-bar {
+        width: 100%;
+        padding-top: 25px;
+        background: linear-gradient(#183A37, #335c67);
+        position: fixed;
+        }
+}

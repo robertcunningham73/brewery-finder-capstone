@@ -29,6 +29,12 @@ export default {
 
   .nav-bar a{
     color: #EFD6AC;
+    padding: 0px 24px;
+  }
+
+  .nav-bar a:hover{
+    background-color: #EFD6AC;
+    color: #183A37;
   }
   
   a {
@@ -36,6 +42,14 @@ export default {
     color: #183A37;
     font-size: 26px;
   } 
+
+  a:link{
+    text-decoration: none;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
 
   div.all-beers-button{
     height: 60px;

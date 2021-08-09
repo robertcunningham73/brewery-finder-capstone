@@ -40,7 +40,6 @@ export default {
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
     position: fixed;
-    
   }
 
   .page-content {
@@ -57,7 +56,8 @@ export default {
     }
 
     img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
     }
 
   
