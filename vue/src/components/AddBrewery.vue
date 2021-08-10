@@ -1,7 +1,7 @@
 <template>
     <form v-on:submit="addBrewery">
      <div class="new-brewery-name">
-        <label for="name">Brewery Name: </label>
+        <label for="name">Brewery Name (Required): </label>
         <input type="text" v-model="newBrewery.name" />
     </div>
     <div class="new-brewery-address">
@@ -29,43 +29,13 @@
         <input type="text" v-model="newBrewery.email" />
     </div>
     <div class="set-brewerId">
-        <label for="email">Brewer ID: </label>
+        <label for="email">Brewer ID (Required): </label>
         <input type="text" v-model="newBrewery.brewerId" />
     </div>
     <div class="new-brewery-history">
         <label for="history">History: </label>
         <textarea type="text" v-model="newBrewery.history" />
     </div>
-    <!-- <div class="set-brewery-hours">
-        <label for="monday-open">Monday Open: </label>
-        <input type="time" v-model="this.hoursArray[0]"/>
-        <label for="monday-close">Monday close: </label>
-        <input type="time" v-model="this.hoursArray[1]"/>
-        <label for="tuesday-open">Tuesday Open: </label>
-        <input type="time" v-model="hoursArray[2]"/>
-        <label for="tuesday-close">Tuesday Close: </label>
-        <input type="time" v-model="hoursArray[3]"/>
-        <label for="wednesday-open">Wednesday Open: </label>
-        <input type="time" v-model="hoursArray[4]"/>
-        <label for="wednesday-close">Wednesday Close: </label>
-        <input type="time" v-model="hoursArray[5]"/>
-        <label for="thurday-open">Thursday Open: </label>
-        <input type="time" v-model="hoursArray[6]"/>
-        <label for="thursday-close">Thurday Close: </label>
-        <input type="time" v-model="hoursArray[7]"/>
-        <label for="friday-open">Friday Open: </label>
-        <input type="time" v-model="hoursArray[8]"/>
-        <label for="friday-close">Friday Close: </label>
-        <input type="time" v-model="hoursArray[9]"/>
-        <label for="saturday-open">Saturday Open: </label>
-        <input type="time" v-model="hoursArray[10]"/>
-        <label for="saturday-close">Saturday Close: </label>
-        <input type="time" v-model="hoursArray[11]"/>
-        <label for="sunday-open">Sunday Open: </label>
-        <input type="time" v-model="hoursArray[12]"/>
-        <label for="monday-open">Sunday Close: </label>
-        <input type="time" v-model="hoursArray[13]"/>
-    </div> -->
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
         <button>Submit</button>
@@ -84,13 +54,13 @@ export default {
             newBrewery: {
                 breweryId: 0,
                 name: "",
-                address: "",
-                city: "",
-                state: "",
-                zip: 0,
-                phone: "",
-                email: "",
-                history: "",
+                address: "Street Address",
+                city: "City Name",
+                state: "ZZ",
+                zip: "99999",
+                phone: "Phone Number",
+                email: "Email Address",
+                history: "Input brewery's history here.",
                 active: false,
                 brewerId: 0,
                 hours: ""
@@ -111,8 +81,7 @@ export default {
         },
         resetForm() {
             this.newBrewery = {};
-        }
-        
+        }  
     }
 }
 </script>

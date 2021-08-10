@@ -33,11 +33,11 @@ export default {
         return{
             newBeer: {
                 beerId: 0,
-                name: "",
-                description: "",
+                name: "Beer Name",
+                description: "Beer Description",
                 abv: 0.0,
-                active: true,
-                beerType: "",
+                active: false,
+                beerType: "Beer Type",
                 imagePath: "beers.jpg"
             }
         };

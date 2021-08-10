@@ -66,6 +66,7 @@ export default {
   align-content: center;
   justify-content: center;
   margin: 0 auto;
+  padding-bottom: 15px;
  
 }
 img{
