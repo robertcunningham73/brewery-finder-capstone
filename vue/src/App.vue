@@ -14,7 +14,7 @@ export default {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
 
    html {
     height: 100%;
@@ -32,27 +32,27 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .nav-bar {
     width: 200px;
     padding-top: 25px;
     background: linear-gradient(#183A37, #335c67);
-    position: fixed;
-    font-family: 'Major Mono Display', monospace;
+    /* position: fixed; */
+    font-family: 'Gravitas One', cursive;
   }
 
   .page-content {
     padding-top: 25px;
-    flex: 1 0 auto;
+    /* flex: 1 0 auto; */
     text-align: center;
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
-    margin-left: 10em;
+    /* margin-left: 10em; */
     }
 
     h1{
-      font-family: 'Major Mono Display', monospace;
+      font-family: 'Gravitas One', cursive;
       font-size: 48px;
     }
 
@@ -60,6 +60,21 @@ export default {
       width: 100%;
       height: auto;
     }
+
+    @media screen and (max-width: 600px){
+      .app-container {
+       display: flex;
+        flex-direction: column;
+      }
+      .nav-bar{
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+      }
+
+    
+    }
+
 
   
 
