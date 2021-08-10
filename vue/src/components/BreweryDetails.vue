@@ -34,13 +34,14 @@
     <div>
       <add-beer v-show="showAddBeerForm === true"/>
     </div> 
-      
+    
     <div id="name">
       <h1>{{this.$store.state.activeBrewery.name}}</h1> 
     </div>
     <div id="location">
-      <h3>{{this.$store.state.activeBrewery.address}} 
-        {{this.$store.state.activeBrewery.city}}, 
+      <h3>{{this.$store.state.activeBrewery.address}}</h3>
+      <h3>
+        {{this.$store.state.activeBrewery.city}}
         {{this.$store.state.activeBrewery.state}}, 
         {{this.$store.state.activeBrewery.zip}}
       </h3>
@@ -52,20 +53,19 @@
     </div>
     <div class="beer-list" >
       <h2>Brewery's Available Beers:</h2>
-      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId">
+      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId" v-show="(beer.active && $store.state.user.authorities[0].name == 'ROLE_USER') || $store.state.user.authorities[0].name != 'ROLE_USER'">
       <router-link  v-bind:to="{ name: 'beer', params:{id: beer.beerId}}">{{ beer.name }}</router-link>
       </div>
     </div>
     <div class="brewery-hours">
       <h2>Hours of Operation: </h2> 
-      <!-- TODO: add hours of operation -->
-      <h5>Monday: {{printMondayHours()}}</h5>
-      <h5>Tuesday: {{printTuesdayHours()}}</h5>
-      <h5>Wednesday: {{printWednesdayHours()}}</h5>
-      <h5>Thursday: {{printThursdayHours()}}</h5>
-      <h5>Friday: {{printFridayHours()}}</h5>
-      <h5>Saturday: {{printSaturdayHours()}}</h5>
-      <h5>Sunday: {{printSundayHours()}}</h5>
+      <p>Monday: {{printMondayHours()}}</p>
+      <p>Tuesday: {{printTuesdayHours()}}</p>
+      <p>Wednesday: {{printWednesdayHours()}}</p>
+      <p>Thursday: {{printThursdayHours()}}</p>
+      <p>Friday: {{printFridayHours()}}</p>
+      <p>Saturday: {{printSaturdayHours()}}</p>
+      <p>Sunday: {{printSundayHours()}}</p>
     </div>
     <div id="contact-info"><h2>Contact Us:</h2>
       <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
@@ -99,6 +99,13 @@ export default {
     });
   },
   methods: {
+    showBeer() {
+        if (!this.$store.state.beer.active && this.$store.state.user.authorities[0].name == 'ROLE_USER') {
+          return false;
+        } else {
+          return true;
+        }
+    },
     printMondayHours(){
       let mondayHours = '';
       if(this.hoursArray[0] == 0 || this.hoursArray[1] == 0){

@@ -85,7 +85,7 @@ export default {
           if(this.$store.state.beer.active == true){
             this.$store.state.beer.active = false;
           }else{
-            this.$store.state.bee.active = true;
+            this.$store.state.beer.active = true;
           }
         }
     }
