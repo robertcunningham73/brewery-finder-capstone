@@ -23,14 +23,15 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
   #left-bar{
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
+  z-index: 1;
   }
 
   .nav-bar a{
@@ -78,5 +79,11 @@ export default {
   left: 20px;
 }
 
+@media screen and (max-width: 600px){
+  #left-bar{
+    display: flex;
+    flex-direction: row;
+  }
+}
 
 </style>
