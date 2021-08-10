@@ -6,11 +6,11 @@
         v-on:click="showEditBeerForm = true"
         v-show="showEditBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Edit Beer</button>
-      <a
+      <button
         id="hide-edit-beer-button"
         v-on:click.prevent="showEditBeerForm = false"
         v-show="showEditBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Hide Edit Beer Form</a>
+        >Hide Edit Beer Form</button>
       </div>
       <div >
         <edit-beer v-show="showEditBeerForm === true"/>

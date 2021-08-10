@@ -31,6 +31,9 @@ export default{
     },
     addBrewery(brewery){
         return http.post('/breweries', brewery)
+    },
+    deleteBreweryImage(breweryId, imagePath){
+        return http.delete(`/breweries/${breweryId}/${imagePath}`)
     }
     
 }
