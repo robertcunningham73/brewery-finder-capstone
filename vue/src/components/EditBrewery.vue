@@ -146,7 +146,8 @@ export default {
             showThursClose: true,
             showFriClose: true,
             showSatClose: true,
-            showSunClose: true
+            showSunClose: true,
+            imageArray: []
         };
     },
    created() {

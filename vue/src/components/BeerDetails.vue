@@ -27,7 +27,7 @@
       Description: {{this.$store.state.beer.description}}
     </h3>
     <div class= "img-beer">
-    <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
+      <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
     </div>
   </main>
 </template>

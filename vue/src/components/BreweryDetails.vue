@@ -1,18 +1,16 @@
 <template>
   <div class="brewery-details">
     <div class="edit-brewery-button">
-      <a
+      <button
         id="show-edit-brewery-button"
-        href="#"
         v-on:click.prevent="showEditBreweryForm = true"
         v-if="showEditBreweryForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Edit Brewery</a>
-      <a
+        >Edit Brewery</button>
+      <button
         id="hide-edit-beer-button"
-        href="#"
         v-on:click.prevent="showEditBreweryForm = false"
         v-if="showEditBreweryForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Hide Edit Brewery Form</a>
+        >Hide Edit Brewery Form</button>
     </div>
     <div>
       <edit-brewery class="edit-brewery-form" v-show="showEditBreweryForm === true"/>
@@ -70,6 +68,9 @@
     <div id="contact-info"><h2>Contact Us:</h2>
       <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
     </div>
+    <div class=brewery-images v-for="image in this.$store.state.brewery.images" v-bind:key="image.path">
+      <img :src="require(`@/assets/${image}`)" alt="brewery-images" />
+    </div>
   </div>
 </template>
 
@@ -96,6 +97,7 @@ export default {
     beerService.getBrewery(this.$route.params.id).then(response => {
       this.$store.commit("SET_ACTIVE_BREWERY", response.data);
       this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+      
     });
   },
   methods: {

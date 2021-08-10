@@ -33,8 +33,11 @@ export default new Vuex.Store({
       active: true,
       brewerId: 0,
       hours: "",
-      imagePath: ""
+      images: []
       
+    },
+    image: {
+      path: ""
     },
     beerList: [],
     beer: {
