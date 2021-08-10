@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Brewery {
 
     private int breweryId;
@@ -12,14 +14,14 @@ public class Brewery {
     private String email;
     private String history;
     private String hours;
-    private String images;
+    private List<BreweryImages> images;
     private int brewerId;
     private boolean active;
 
     public Brewery() { };
 
     public Brewery(int breweryId, String name, String address, String city, String state, String zip, String phone,
-                   String email, String history, String hours, String images, int brewerId, boolean active) {
+                   String email, String history, String hours, List<BreweryImages> images, int brewerId, boolean active) {
         this.breweryId = breweryId;
         this.name = name;
         this.address = address;
@@ -75,9 +77,9 @@ public class Brewery {
 
     public void setHours(String hours) { this.hours = hours; }
 
-    public String getImages() { return images; }
+    public List<BreweryImages> getImages() { return images; }
 
-    public void setImages(String images) { this.images = images; }
+    public void setImages(List<BreweryImages> images) { this.images = images; }
 
     public int getBrewerId() { return brewerId; }
 

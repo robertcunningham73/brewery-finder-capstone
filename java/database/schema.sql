@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS beer CASCADE;
 DROP TABLE IF EXISTS beer_inventory CASCADE;
 DROP TABLE IF EXISTS beer_reviews CASCADE;
 DROP TABLE IF EXISTS user_reviews CASCADE;
-DROP TABLE IF EXISTS user_brewery_favorites CASCADE;
+DROP TABLE IF EXISTS brewery_images CASCADE;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -77,11 +77,9 @@ CREATE TABLE user_reviews(
   FOREIGN KEY(review_id) REFERENCES beer_reviews(review_id)
 );
 
-CREATE TABLE user_brewery_favorites(
-  user_id int,
+CREATE TABLE brewery_images(
   brewery_id int,
-  PRIMARY KEY(user_id, brewery_id),
-  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  brewery_image varchar(255),
   FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
 

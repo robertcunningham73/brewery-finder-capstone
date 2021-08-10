@@ -79,7 +79,7 @@ public class JdbcBeerDao implements BeerDao{
 
         String sql = "SELECT br.review_id, br.beer_rating, br.beer_review, u.user_id, u.username FROM beer_reviews br " +
                 "JOIN user_reviews ur ON br.review_id = ur.review_id " +
-                "JOIN users u ON ur.user_id = u.user_id WHERE br.beer_id = ?";
+                "JOIN users u ON ur.user_id = u.user_id WHERE br.beer_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beerId);
         while(results.next()) {

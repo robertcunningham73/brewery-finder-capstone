@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Brewery;
+import com.techelevator.model.BreweryImages;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class JdbcBreweryDao implements BreweryDao{
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Brewery brewery = mapRowToBrewery(results);
+            brewery.setImages(getImagesByBreweryId(brewery.getBreweryId()));
             breweries.add(brewery);
         }
         return breweries;
@@ -30,18 +32,19 @@ public class JdbcBreweryDao implements BreweryDao{
 
     @Override
     public Brewery getBreweryById(int breweryId) {
-        Brewery brewery = new Brewery();
-        String sql = "Select * FROM breweries WHERE brewery_id = ?";
+        String sql = "Select * FROM breweries b JOIN brewery_images bi ON b.brewery_id = bi.brewery_id WHERE bi.brewery_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
         if(results.next()) {
-            return mapRowToBrewery(results);
+            Brewery brewery = mapRowToBrewery(results);
+            brewery.setImages(getImagesByBreweryId(breweryId));
+            return brewery;
         } else {
             throw new RuntimeException("breweryId " + breweryId + " was not found.");
         }
     }
 
-    @Override
+    /*@Override
     public Brewery getBreweryByName(String name) {
         Brewery brewery = new Brewery();
         String sql = "Select * FROM breweries WHERE brewery_name = ?";
@@ -52,7 +55,7 @@ public class JdbcBreweryDao implements BreweryDao{
         } else {
             throw new RuntimeException("breweryName " + name + " was not found.");
         }
-    }
+    }*/
 
     @Override
     public void addBrewery(Brewery brewery) {
@@ -64,10 +67,24 @@ public class JdbcBreweryDao implements BreweryDao{
 
     }
 
-    @Override
+    /*@Override
     public int findIdByName(String name) {
         return jdbcTemplate.queryForObject("SELECT brewery_id FROM breweries WHERE brewery_name = ?", int.class, name);
         //TODO implement try/catch for NullPointerEx?
+    }*/
+
+    @Override
+    public List<BreweryImages> getImagesByBreweryId(int breweryId) {
+        List<BreweryImages> imageList = new ArrayList<>();
+
+        String sql = "SELECT brewery_id, brewery_image FROM brewery_images WHERE brewery_id = ?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
+        while(results.next()) {
+            BreweryImages image = mapRowToBreweryImages(results);
+            imageList.add(image);
+        }
+        return imageList;
     }
 
     @Override
@@ -90,10 +107,17 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setZip(rowSet.getString("brewery_zip"));
         brewery.setPhone(rowSet.getString("brewery_phone"));
         brewery.setEmail(rowSet.getString("brewery_email"));
-        brewery.setHours(rowSet.getString("brewery_hours"));
         brewery.setHistory(rowSet.getString("brewery_history"));
+        brewery.setHours(rowSet.getString("brewery_hours"));
         brewery.setBrewerId(rowSet.getInt("brewer_id"));
         brewery.setActive(rowSet.getBoolean("active"));
         return brewery;
+    }
+
+    private BreweryImages mapRowToBreweryImages(SqlRowSet rowSet) {
+        BreweryImages images = new BreweryImages();
+        images.setBreweryId(rowSet.getInt("brewery_id"));
+        images.setImagePath(rowSet.getString("brewery_image"));
+        return images;
     }
 }
