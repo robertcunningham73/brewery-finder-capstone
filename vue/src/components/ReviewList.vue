@@ -54,17 +54,22 @@ export default {
   computed: {
     averageRating() {
       const reviews = this.$store.state.beer.reviews;
-      let sum = reviews.reduce((currentSum, review) => {
-        return currentSum + review.rating;
-      }, 0);
-      if (reviews.length > 0) {
-        return (sum / reviews.length).toFixed(2) + " / 5";
-      } else {
+      if (reviews) {
+          let sum = reviews.reduce((currentSum, review) => {
+          return currentSum + review.rating;
+        }, 0);
+        if (reviews.length > 0) {
+          return (sum / reviews.length).toFixed(2) + " / 5";
+        } else {
+          return "No ratings available yet";
+        }
+      } 
+      else {
         return "No ratings available yet";
       }
     }
   }
-  }
+}
 
 </script>
 

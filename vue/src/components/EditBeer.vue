@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit="updateBeer">
+    <form>
      <div class="edit-beer-name">
         <label for="name">Beer Name: </label>
         <input type="text" v-model="updatedBeer.name" />
@@ -22,7 +22,7 @@
     </div>
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
-        <button>Submit</button>
+        <button type="button" v-on:click="updateBeer">Submit</button>
         </div>
     </form>
 </template>
@@ -57,7 +57,7 @@ export default {
         updateBeer(){
             this.updatedBeer.imagePath = this.$store.state.beer.imagePath;
             this.updatedBeer.beerId = this.$store.state.beer.beerId;
-            if(this.updatedBeer.name == ""){
+            /* if(this.updatedBeer.name == ""){
                 this.updatedBeer.name = this.$store.state.beer.name;
             }
             if(this.updatedBeer == ""){
@@ -68,23 +68,22 @@ export default {
             }
             if(this.updatedBeer.beerType == ""){
                 this.updatedBeer.beerType = this.$store.state.beer.beerType;
-            }
+            } */
             beerService.updateBeer(this.updatedBeer, this.$store.state.activeBrewery.breweryId)
             .then(response => {
                 if(response.status == 200){
-                    this.$store.commit("SET_ACTIVE_BEER", response.data);
+                    this.$store.commit("SET_ACTIVE_BEER", this.updatedBeer);
                 }
             });
             this.resetForm();
         },
         resetForm() {
-            this.updatedBeer= {};
             this.$parent.showEditBeerForm = false;
         },
         updateState(){
           if(this.$store.state.beer.active == true){
             this.$store.state.beer.active = false;
-          }else{
+          } else {
             this.$store.state.beer.active = true;
           }
         }
