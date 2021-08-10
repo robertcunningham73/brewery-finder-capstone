@@ -87,7 +87,7 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setAddress(rowSet.getString("brewery_address"));
         brewery.setCity(rowSet.getString("brewery_city"));
         brewery.setState(rowSet.getString("brewery_state"));
-        brewery.setZip(rowSet.getInt("brewery_zip"));
+        brewery.setZip(rowSet.getString("brewery_zip"));
         brewery.setPhone(rowSet.getString("brewery_phone"));
         brewery.setEmail(rowSet.getString("brewery_email"));
         brewery.setHours(rowSet.getString("brewery_hours"));

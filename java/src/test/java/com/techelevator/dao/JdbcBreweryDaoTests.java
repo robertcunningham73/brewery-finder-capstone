@@ -34,8 +34,8 @@ public class JdbcBreweryDaoTests extends FinalCapstoneDaoTests{
 
     @Test
     public void updateBreweryTest() {
-        Brewery brewery = new Brewery(1, "test", "test address",  "test city", "te",
-                99999, "999-999-9999", "test@test.com", "test history", "", 3, false);
+        Brewery brewery = new Brewery(1, "test name", "test address", "test city", "TS", "99999", "999-999-9999",
+                "test email", "test history", "0,0,0,0,0,0,0,0,0,0,0,0,0,0", "IPA.jpg", 3, true);
         String expected = "test history";
 
         sut.updateBrewery(brewery);
@@ -51,7 +51,7 @@ public class JdbcBreweryDaoTests extends FinalCapstoneDaoTests{
         brewery.setAddress("addTest");
         brewery.setCity("addTest");
         brewery.setState("aT");
-        brewery.setZip(12345);
+        brewery.setZip("12345");
         brewery.setPhone("addTest");
         brewery.setEmail("addTest");
         brewery.setHours("addTest");

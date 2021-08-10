@@ -26,7 +26,7 @@ export default new Vuex.Store({
       address: "",
       city: "",
       state: "",
-      zip: 0,
+      zip: "",
       phone: "",
       email: "",
       history: "",

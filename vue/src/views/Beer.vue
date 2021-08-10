@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <beer-details />
+    <beer-details v-bind:beerId="this.beerId"/>
     <review-list />
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   components: {
     BeerDetails,
     ReviewList
+  },
+  computed: {
+    beerId() {
+      return parseInt(this.$route.params.id);
+    }
   }
 }
 </script>

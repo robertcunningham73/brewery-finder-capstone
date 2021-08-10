@@ -1,15 +1,13 @@
 <template>
   <main class="beer-details" >
     <div class="edit-beer-button">
-      <a
+      <button
         id="show-edit-beer-button"
-        href="#"
-        v-on:click.prevent="showEditBeerForm = true"
+        v-on:click="showEditBeerForm = true"
         v-show="showEditBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Edit Beer</a>
+        >Edit Beer</button>
       <a
         id="hide-edit-beer-button"
-        href="#"
         v-on:click.prevent="showEditBeerForm = false"
         v-show="showEditBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
         >Hide Edit Beer Form</a>
@@ -27,7 +25,7 @@
       Description: {{this.$store.state.beer.description}}
     </h3>
     <div class= "img-beer">
-    <img :src="require(`@/assets/${this.$store.state.beer.imagePath}`)" alt="this.$store.state.beer.name" />
+    <img :src="require(`@/assets/${imagePath}`)" alt="Picture of beer" />
     </div>
   </main>
 </template>
@@ -47,12 +45,14 @@ export default {
     return{
       showEditBeerForm : false,
       showAddBeerForm : false,
+      imagePath: "beers.jpg"
       
     }  
   }, 
   created() {
     beerService.getBeer(this.$route.params.id).then(response =>{
       this.$store.commit("SET_ACTIVE_BEER", response.data);
+      this.imagePath = this.$store.state.beer.imagePath;
     })
   },
    
