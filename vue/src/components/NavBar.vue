@@ -38,11 +38,6 @@ export default {
     color: #EFD6AC;
     padding: 0px 24px;
   }
-
-  /* #nav-text a:hover{
-    background-color: #EFD6AC;
-    color: #183A37;
-  } */
   
   a {
     height: 60px;
@@ -83,6 +78,13 @@ export default {
   #left-bar{
     display: flex;
     flex-direction: row;
+  }
+   #logout{
+     bottom: 10px;
+     left: 100px;
+  } 
+  #nav-text{
+    top:0;
   }
 }
 
