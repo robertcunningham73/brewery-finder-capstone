@@ -34,10 +34,6 @@ export default new Vuex.Store({
       brewerId: 0,
       hours: "",
       images: []
-      
-    },
-    image: {
-      path: ""
     },
     beerList: [],
     beer: {
@@ -50,7 +46,6 @@ export default new Vuex.Store({
       imagePath: "",
       active: true
     },
-    
     review: {
       reviewId: 0,
       rating: 0,
@@ -89,6 +84,9 @@ export default new Vuex.Store({
     },
     SET_BEER_LIST(state, data){
       state.beerList = data;
+    },
+    SET_ACTIVE_BREWERY_IMAGES(state, data) {
+      state.activeBrewery.images = data;
     }
   }
 })

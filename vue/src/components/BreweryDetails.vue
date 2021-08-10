@@ -16,23 +16,20 @@
       <edit-brewery class="edit-brewery-form" v-show="showEditBreweryForm === true"/>
     </div>
     <div class="add-beer-button">
-      <a
+      <button
         id="show-add-beer-button"
-        href="#"
         v-on:click.prevent="showAddBeerForm = true"
         v-show="showAddBeerForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Add Beer</a>
-      <a
+        >Add Beer</button>
+      <button
         id="hide-add-beer-button"
-        href="#"
         v-on:click.prevent="showAddBeerForm = false"
         v-show="showAddBeerForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
-        >Hide Add Beer Form</a>
+        >Hide Add Beer Form</button>
     </div>
     <div>
       <add-beer v-show="showAddBeerForm === true"/>
     </div> 
-    
     <div id="name">
       <h1>{{this.$store.state.activeBrewery.name}}</h1> 
     </div>
@@ -68,8 +65,9 @@
     <div id="contact-info"><h2>Contact Us:</h2>
       <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
     </div>
-    <div class=brewery-images v-for="image in this.$store.state.brewery.images" v-bind:key="image.path">
-      <img :src="require(`@/assets/${image}`)" alt="brewery-images" />
+    <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
+      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" />
+      <button @click="deleteImage(index)">Delete</button>
     </div>
   </div>
 </template>
@@ -86,16 +84,17 @@ export default {
    return{
      showEditBreweryForm: false,
      showAddBeerForm: false,
-     hoursArray: []
-   }
-  },
-  
+     hoursArray: [],
+     images: []
+     }
+   },
   created(){
     beerService.getBeerByBrewery(this.$route.params.id).then(response =>{
       this.$store.commit("SET_BEER_LIST", response.data);
     }); 
     beerService.getBrewery(this.$route.params.id).then(response => {
       this.$store.commit("SET_ACTIVE_BREWERY", response.data);
+      this.images = this.$store.state.activeBrewery.images;
       this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
       
     });
@@ -170,6 +169,10 @@ export default {
         sundayHours = this.hoursArray[12] + ' - ' + this.hoursArray[13];
       }
       return sundayHours;
+    },
+    deleteImage(index) {
+      this.images.splice(index, 1);
+      this.$store.commit("SET_ACTIVE_BREWERY_IMAGES", this.images);
     }
   }
 }
