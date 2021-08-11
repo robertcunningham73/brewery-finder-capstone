@@ -43,7 +43,7 @@ export default {
   .nav-bar {
     width: 200px;
     padding-top: 25px;
-    background: linear-gradient(#183A37, #335c67);
+    background: #183A37;
     /* position: fixed; */
     font-family: 'Gravitas One', cursive;
   }

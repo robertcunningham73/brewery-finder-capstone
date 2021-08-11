@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-bar" id="left-bar">
     <div id="nav-logo">
-      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-tan.png`)"/></router-link>
+      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
     </div>
     <div id="nav-text">
       <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
