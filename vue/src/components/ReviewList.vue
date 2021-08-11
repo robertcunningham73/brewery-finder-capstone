@@ -1,31 +1,31 @@
 <template>
   <div class="review-content">
+    <div class="rating-display">Average Rating: {{ averageRating }}</div>
     <div id="review-list">
       <div>
-        <a
+        <button
           id="show-review-button"
           href="#"
           v-on:click.prevent="showReviews = true"
           v-if="showReviews === false"
-          >Show Reviews</a>
-        <a
+          >Show Reviews</button>
+        <button
           id="hide-review-button"
           href="#"
           v-on:click.prevent="showReviews = false"
           v-if="showReviews === true"
-          ><br>Hide Reviews</a>
+          >Hide Reviews</button>
         </div>
-        <div class="rating-display">Average Rating: {{ averageRating }}</div>
         <div class="review-display">
           <review-display v-if="showReviews === true" />
         </div>
       <div>
-        <a
+        <button
           id="show-form-button"
           href="#"
           v-on:click.prevent="showForm = true"
           v-if="showForm === false && this.$store.state.user.authorities[0].name == 'ROLE_USER'"
-          ><br>Add Review</a>
+          >Add Review</button>
         </div>
         <div class="add-review-form">
           <review-form v-if="showForm === true"/>

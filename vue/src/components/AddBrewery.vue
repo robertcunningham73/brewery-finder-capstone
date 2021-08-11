@@ -29,8 +29,10 @@
         <input type="text" v-model="newBrewery.email" />
     </div>
     <div class="set-brewerId">
-        <label for="email">Brewer ID (Required): </label>
-        <input type="text" v-model="newBrewery.brewerId" />
+        <label for="brewer">Brewer (Required): </label>
+        <select v-model="newBrewery.brewerId">
+            <option v-for="user in users" :key="user.id" :value="user.id">{{user.username}}</option>
+        </select>
     </div>
     <div class="new-brewery-history">
         <label for="history">History: </label>
@@ -44,6 +46,7 @@
 </template>
 
 <script>
+import AuthService from '../services/AuthService';
 import beerService from '../services/BeerService';
 
 
@@ -65,8 +68,16 @@ export default {
                 brewerId: 0,
                 hours: ""
             },
-            hoursArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            hoursArray: [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            users: ""
         };
+    },
+    created() {
+        AuthService.getUsers().then(response => {
+            if(response.status == 200){
+                this.users = response.data;
+            }
+        });
     },
     methods: {
         addBrewery(){
