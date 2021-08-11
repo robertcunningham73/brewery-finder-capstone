@@ -54,14 +54,15 @@ export default {
         abv: this.$store.state.beer.abv, 
         beerType: this.$store.state.beer.beerType,
         reviews: this.$store.state.beer.reviews, 
-        imagePath: this.$store.state.beer.imagePath
+        imagePath: this.$store.state.beer.imagePath,
+        active: this.$store.state.beer.active
       } 
       beerService.updateBeer(beer, this.$store.state.activeBrewery.breweryId)
       .then(response => {
         if(response.status == 200){
           //TODO: create Mutation that adds review to reviews store collection
-          this.$store.commit("SET_ACTIVE_BEER", response.data);
-          this.$store.commit("SET_BEER_LIST", response.data);
+          this.$store.commit("SET_ACTIVE_BEER", beer);
+          //this.$store.commit("SET_BEER_LIST", response.data);
         }
       });
       

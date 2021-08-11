@@ -51,7 +51,7 @@
                 <input type="time" v-model="hoursArray[1]" />
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[0] = 0, hoursArray[1] = 0, showMonClose = false"
+                    v-on:click.prevent="hoursArray[0] = '0', hoursArray[1] = '0', showMonClose = false"
                     v-show="showMonClose == true"
                 >Mon Closed</button>
             </div>
@@ -62,7 +62,7 @@
                 <input type="time" v-model="hoursArray[3]"/>
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[2] = 0, hoursArray[3] = 0, showTuesClose = false"
+                    v-on:click.prevent="hoursArray[2] = '0', hoursArray[3] = '0', showTuesClose = false"
                     v-show="showTuesClose == true"
                 >Tue Closed</button>
             </div>
@@ -73,7 +73,7 @@
                 <input type="time" v-model="hoursArray[5]"/>
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[4] = 0, hoursArray[5] = 0, showWedClose = false"
+                    v-on:click.prevent="hoursArray[4] = '0', hoursArray[5] = '0', showWedClose = false"
                     v-show="showWedClose == true"
                 >Wed Closed</button>
             </div>
@@ -84,7 +84,7 @@
                 <input type="time" v-model="hoursArray[7]"/>
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[6] = 0, hoursArray[7] = 0, showThursClose = false"
+                    v-on:click.prevent="hoursArray[6] = '0', hoursArray[7] = '0', showThursClose = false"
                     v-show="showThursClose == true"
                 >Thu Closed</button>
             </div>
@@ -95,7 +95,7 @@
                 <input type="time" v-model="hoursArray[9]"/>
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[8] = 0, hoursArray[9] = 0, showFriClose = false"
+                    v-on:click.prevent="hoursArray[8] = '0', hoursArray[9] = '0', showFriClose = false"
                     v-show="showFriClose == true"
                 >Fri Closed</button>
             </div>
@@ -106,7 +106,7 @@
                 <input type="time" v-model="hoursArray[11]"/>
                 <button
                     class="closed-buttons"
-                    v-on:click.prevent="hoursArray[10] = 0, hoursArray[11] = 0, showSatClose = false"
+                    v-on:click.prevent="hoursArray[10] = '0', hoursArray[11] = '0', showSatClose = false"
                     v-show="showSatClose == true"
                 >Sat Closed</button>
             </div>
@@ -117,7 +117,7 @@
                 <input type="time" v-model="hoursArray[13]"/>
             <button
                 class="closed-buttons"
-                v-on:click.prevent="hoursArray[12] = 0, hoursArray[13] = 0, showSunClose = false"
+                v-on:click.prevent="hoursArray[12] = '0', hoursArray[13] = '0', showSunClose = false"
                 v-show="showSunClose == true"
                 >Sun Closed</button>
         </div>
