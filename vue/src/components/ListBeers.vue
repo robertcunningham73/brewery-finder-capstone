@@ -6,6 +6,9 @@
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}</router-link>
     </div>
   </div>
+   <div id="brewery-list-img">
+      <img :src="require(`@/assets/casks.jpg`)"/>
+    </div>
   </div>
 </template>
 

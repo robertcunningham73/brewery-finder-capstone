@@ -37,6 +37,9 @@
       <a href=""><br>Forgot password?</a>
       
     </form>
+    <div class ="img-beers">
+      <img :src="require(`@/assets/beers.jpg`)"/>
+     </div>
   </div>
 </div>
 </template>
