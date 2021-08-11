@@ -4,7 +4,7 @@
       <button
         id="show-edit-brewery-button"
         v-on:click.prevent="showEditBreweryForm = true"
-        v-if="showEditBreweryForm === false && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
+        v-if="showEditBreweryForm === false && (this.$store.state.user.id === this.$store.state.activeBrewery.brewerId || this.$store.state.user.authorities[0].name == 'ROLE_ADMIN')"
         >Edit Brewery</button>
       <button
         id="hide-edit-beer-button"
@@ -67,10 +67,10 @@
       <a :href="'mailto:' + this.$store.state.activeBrewery.email">{{this.$store.state.activeBrewery.email}}</a>
     </div>
     <!-- <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
-      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> -->
+      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
       <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
-    </div>
-  <!-- </div> -->
+    </div> -->
+  </div>
 </template>
 
 <script>

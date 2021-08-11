@@ -21,6 +21,8 @@ import com.techelevator.model.UserAlreadyExistsException;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -62,6 +64,9 @@ public class AuthenticationController {
             userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
         }
     }
+
+    @RequestMapping(value="/users", method = RequestMethod.GET)
+    public List<User> getAllUsers() { return userDao.findAll(); }
 
     /**
      * Object to return as body in JWT Authentication.
