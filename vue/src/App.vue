@@ -2,7 +2,12 @@
   <div class="app-container" id="app">
       <nav-bar class="nav-bar"/>
       <router-view class="page-content"/>
-  </div>
+
+  
+    <!-- <div class ="img-glasses">
+      <img :src="require(`@/assets/beers.jpg`)"/>
+     </div> -->
+     </div> 
 </template>
 
 <script>
@@ -27,14 +32,14 @@ export default {
     font-family: 'Montserrat', sans-serif;
     color: #183A37;
   }
-
+  
   .app-container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
   }
-
+  
   .nav-bar {
     width: 200px;
     padding-top: 25px;
@@ -75,7 +80,16 @@ export default {
     
     }
 
-
+/*   @media only screen and (min-width: 700px) {
+  .app-container {
+   display: flex;
+        flex-direction: column;
+         width: 200%;
+    height: 200%;
+    display: flex;
+    flex-direction: row;
+}
+} */
   
 
   /* .nav-container {

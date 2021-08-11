@@ -74,5 +74,18 @@ img{
   max-height: 100%;
  
 }
+/*trying to get page to enlarge*/
+ /*  @media only screen and (min-width: 700px) {
+    .app-container {
+        width: 150%;
+        height: 200px;
+      }
+      .nav-bar{
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+      }
+ 
+  } */
 
 </style>
