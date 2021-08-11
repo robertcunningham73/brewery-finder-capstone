@@ -12,14 +12,10 @@ public class BreweryController {
 
     private BreweryDao breweryDao;
 
-    public BreweryController(BreweryDao breweryDao) {
-        this.breweryDao = breweryDao;
-    }
+    public BreweryController(BreweryDao breweryDao) { this.breweryDao = breweryDao; }
 
     @RequestMapping(path="/breweries", method = RequestMethod.GET)
-    public List<Brewery> list() {
-        return breweryDao.getAllBreweries();
-    }
+    public List<Brewery> list() { return breweryDao.getAllBreweries(); }
 
     @RequestMapping(path="/breweries/{id}", method = RequestMethod.GET)
     public Brewery get(@PathVariable int id) { return breweryDao.getBreweryById(id); }
@@ -30,4 +26,6 @@ public class BreweryController {
     @RequestMapping(path="/breweries", method = RequestMethod.POST)
     public void add(@RequestBody Brewery brewery) { breweryDao.addBrewery(brewery); }
 
+    @RequestMapping(path="/breweries/{breweryId}/{imagePath}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("breweryId") int breweryId, @PathVariable("imagePath") String imagePath) { breweryDao.deleteImageFromBrewery(breweryId, imagePath); }
 }

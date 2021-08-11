@@ -32,30 +32,22 @@ public class JdbcBreweryDao implements BreweryDao{
 
     @Override
     public Brewery getBreweryById(int breweryId) {
-        String sql = "Select * FROM breweries b JOIN brewery_images bi ON b.brewery_id = bi.brewery_id WHERE bi.brewery_id = ?";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
-        if(results.next()) {
-            Brewery brewery = mapRowToBrewery(results);
-            brewery.setImages(getImagesByBreweryId(breweryId));
-            return brewery;
-        } else {
-            throw new RuntimeException("breweryId " + breweryId + " was not found.");
-        }
-    }
-
-    /*@Override
-    public Brewery getBreweryByName(String name) {
         Brewery brewery = new Brewery();
-        String sql = "Select * FROM breweries WHERE brewery_name = ?";
+            String sql = "Select * FROM breweries b JOIN brewery_images bi ON b.brewery_id = bi.brewery_id WHERE bi.brewery_id = ?";
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
-        if(results.next()) {
-            return mapRowToBrewery(results);
-        } else {
-            throw new RuntimeException("breweryName " + name + " was not found.");
-        }
-    }*/
+                if (results.next()) {
+                        brewery = mapRowToBrewery(results);
+                        brewery.setImages(getImagesByBreweryId(breweryId));
+                } else {
+                    String sqlElse = "SELECT * FROM breweries WHERE brewery_id = ?;";
+                    SqlRowSet resultsElse = jdbcTemplate.queryForRowSet(sqlElse, breweryId);
+                    if (resultsElse.next()) {
+                        brewery = mapRowToBrewery(resultsElse);
+                    }
+                }
+        return brewery;
+    }
 
     @Override
     public void addBrewery(Brewery brewery) {
@@ -66,12 +58,6 @@ public class JdbcBreweryDao implements BreweryDao{
                 brewery.isActive());
 
     }
-
-    /*@Override
-    public int findIdByName(String name) {
-        return jdbcTemplate.queryForObject("SELECT brewery_id FROM breweries WHERE brewery_name = ?", int.class, name);
-        //TODO implement try/catch for NullPointerEx?
-    }*/
 
     @Override
     public List<BreweryImages> getImagesByBreweryId(int breweryId) {
@@ -95,6 +81,12 @@ public class JdbcBreweryDao implements BreweryDao{
         jdbcTemplate.update(sql, brewery.getName(), brewery.getAddress(), brewery.getCity(), brewery.getState(),
                 brewery.getZip(), brewery.getPhone(), brewery.getEmail(), brewery.getHours(), brewery.getHistory(), brewery.getBrewerId(),
                 brewery.isActive(), brewery.getBreweryId());
+    }
+
+    @Override
+    public void deleteImageFromBrewery(int breweryId, String imagePath) {
+        String sql = "DELETE FROM brewery_images WHERE brewery_id = ? AND brewery_image = ?;";
+        jdbcTemplate.update(sql, breweryId, imagePath);
     }
 
     private Brewery mapRowToBrewery(SqlRowSet rowSet) {

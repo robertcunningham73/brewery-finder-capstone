@@ -20,4 +20,6 @@ public interface BreweryDao {
     public void addBrewery(Brewery brewery);
 
     public List<BreweryImages> getImagesByBreweryId(int breweryId);
+
+    public void deleteImageFromBrewery(int breweryId, String imagePath);
 }

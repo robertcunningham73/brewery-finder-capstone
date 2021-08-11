@@ -67,7 +67,7 @@
     </div>
     <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
       <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" />
-      <button @click="deleteImage(index)">Delete</button>
+      <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
     </div>
   </div>
 </template>
@@ -171,8 +171,12 @@ export default {
       return sundayHours;
     },
     deleteImage(index) {
-      this.images.splice(index, 1);
-      this.$store.commit("SET_ACTIVE_BREWERY_IMAGES", this.images);
+      beerService.deleteBreweryImage(this.$store.state.activeBrewery.breweryId, this.$store.state.activeBrewery.images[0].imagePath).then   (response => {
+        if (response.status == 200) {
+          this.images.splice(index, 1);
+          this.$store.commit("SET_ACTIVE_BREWERY_IMAGES", this.images);
+        }
+      });
     }
   }
 }
