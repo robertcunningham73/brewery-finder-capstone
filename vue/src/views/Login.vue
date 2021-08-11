@@ -36,6 +36,9 @@
       <router-link :to="{ name: 'register' }"><br>Need an account?</router-link>
       
     </form>
+    <div class ="img-beers">
+      <img :src="require(`@/assets/beers.jpg`)"/>
+     </div>
   </div>
 </div>
 </template>

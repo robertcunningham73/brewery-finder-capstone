@@ -4,6 +4,9 @@
     <h1>Brewery Finder</h1>
     <p><b><em>Your One Stop Resource To Find Your Favorite Brewery And Beers</em></b></p>
   </div>
+  <div class ="img-beers">
+      <img :src="require(`@/assets/beers.jpg`)"/>
+     </div>  
 </div>
 </template>
 

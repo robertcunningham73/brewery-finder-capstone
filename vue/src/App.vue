@@ -4,9 +4,9 @@
       <router-view class="page-content"/>
 
   
-    <!-- <div class ="img-glasses">
+   <!-- <div class ="img-beers">
       <img :src="require(`@/assets/beers.jpg`)"/>
-     </div> -->
+     </div>  -->
      </div> 
 </template>
 
