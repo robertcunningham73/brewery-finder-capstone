@@ -7,9 +7,9 @@
         v-if="showEditBreweryForm === false && (this.$store.state.user.id === this.$store.state.activeBrewery.brewerId || this.$store.state.user.authorities[0].name == 'ROLE_ADMIN')"
         >Edit Brewery</button>
       <button
-        id="hide-edit-beer-button"
+        id="hide-edit-brewery-button"
         v-on:click.prevent="showEditBreweryForm = false"
-        v-if="showEditBreweryForm === true && this.$store.state.user.id === this.$store.state.activeBrewery.brewerId"
+        v-if="showEditBreweryForm === true && (this.$store.state.user.id === this.$store.state.activeBrewery.brewerId || this.$store.state.user.authorities[0].name == 'ROLE_ADMIN')"
         >Hide Edit Brewery Form</button>
     </div>
     <div>
@@ -48,7 +48,7 @@
     </div>
     <div class="beer-list" >
       <h2>Brewery's Available Beers:</h2>
-      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId" v-show="(beer.active && $store.state.user.authorities[0].name == 'ROLE_USER') || $store.state.user.authorities[0].name != 'ROLE_USER'">
+      <div v-for="beer in this.$store.state.beerList"  v-bind:key="beer.beerId" v-show="beer.active || $store.state.user.id === $store.state.activeBrewery.brewerId">
       <router-link  v-bind:to="{ name: 'beer', params:{id: beer.beerId}}">{{ beer.name }}</router-link>
       </div>
     </div>
@@ -101,13 +101,13 @@ export default {
     });
   },
   methods: {
-    showBeer() {
+    /* showBeer() {
         if (!this.$store.state.beer.active && this.$store.state.user.authorities[0].name == 'ROLE_USER') {
           return false;
         } else {
           return true;
         }
-    },
+    }, */
     printMondayHours(){
       let mondayHours = '';
       if(this.hoursArray[0] == 0 || this.hoursArray[1] == 0){
