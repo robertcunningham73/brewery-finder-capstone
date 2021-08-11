@@ -60,9 +60,9 @@ export default {
 </script>
 <style scoped>
  .img-beer{
-  height:  400px;
-  width: 400px;
-  display: flex;
+  height:  200px;
+  width: 200px;
+  /* display: flex; */
   align-content: center;
   justify-content: center;
   margin: 0 auto;

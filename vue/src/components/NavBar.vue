@@ -4,12 +4,12 @@
       <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
     </div>
     <div id="nav-text">
-      <router-link :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
+      <router-link class="nav-router" :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
     <div class="all-beers-button" v-if="$store.state.token != ''">
-      <router-link :to="{name: 'beerList'}" v-if="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
+      <router-link class="nav-router" :to="{name: 'beerList'}" v-if="this.$store.state.user.authorities[0].name != 'ROLE_BREWER'">All Beers</router-link>
     </div>
     <div id="logout">
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link class="nav-router" id="logout-link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div> 
     </div>
   </nav>
@@ -60,9 +60,10 @@ export default {
 }
 
 #logout{
-  position: absolute;
+  /* position: absolute; */
   bottom: 50px;
   left: 20px;
+  padding-top: 400px;
 }
 
 @media screen and (max-width: 600px){
@@ -71,18 +72,25 @@ export default {
     flex-direction: row;
   }
    #logout{
-     bottom: 10px;
-     left: 100px;
+     display: flex;
+     justify-content: flex-start;
+     padding-top: 60px;
+     font-size: smaller;
+     /* bottom: 10px;
+     left: 100px; */
      /* stick to bottom of the viewport rather than bottom of the nav bar */
   } 
   #nav-text{
     top:0;
-    /* align text horizontally */
+    padding-left: 55px;
   }
   #nav-logo{
     height: 125px;
     width: 125px;
     display: block;
+  }
+  .nav-router{
+    font-size: 18px;
   }
 }
 

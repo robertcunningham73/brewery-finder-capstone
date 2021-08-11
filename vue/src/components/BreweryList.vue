@@ -61,13 +61,15 @@ export default {
   color: #183A37;
 }
 #brewery-list-img{
-  height:  300px;
-  width: 600px;
+  /* height:  300px;
+  width: 600px; */
+  height: 20vh;
+  width: 50vw;
   display: flex;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 

@@ -4,7 +4,7 @@
     <h1>Brewery Finder</h1>
     <p><b><em>Your One Stop Resource To Find Your Favorite Brewery And Beers</em></b></p>
   </div>
-  <div class ="img-beers">
+  <div class ="img-home">
       <img :src="require(`@/assets/beers.jpg`)"/>
      </div>  
 </div>
@@ -15,7 +15,17 @@ export default {
   name: "home"
 };
 </script>
-<style>
+<style scoped>
+.img-home{
+  height:  40vh;
+  width: 60vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-right: 15px;
+}
 
 /* .home{
   background-image: url("C:\Users\Student\workspace\phl-4-final-capstone-green-001\vue\src\assets\beers.jpg");

@@ -78,11 +78,12 @@ export default {
       .app-container {
         display: flex;
         flex-direction: column;
-        max-width: 100%;
+        width: 120vw;
+        height: 120vh;
       }
       .nav-bar{
         width: 100%;
-        height: 200px;
+        height: 150px;
         padding: 10px;
       }
 
