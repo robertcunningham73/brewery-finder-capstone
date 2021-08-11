@@ -50,7 +50,7 @@ export default {
 
   .page-content {
     padding-top: 25px;
-    /* flex: 1 0 auto; */
+    flex: 1 0 auto;
     text-align: center;
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
     /* margin-left: 10em; */
@@ -66,10 +66,19 @@ export default {
       height: auto;
     }
 
+    a:link{
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: underline;
+    }
+
     @media screen and (max-width: 600px){
       .app-container {
-       display: flex;
+        display: flex;
         flex-direction: column;
+        max-width: 100%;
       }
       .nav-bar{
         width: 100%;

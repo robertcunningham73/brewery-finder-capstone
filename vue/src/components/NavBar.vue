@@ -41,23 +41,14 @@ export default {
   
   a {
     height: 60px;
-    color: #183A37;
     font-size: 26px;
   } 
 
-  a:link{
-    text-decoration: none;
-  }
-
-  a:hover{
-    text-decoration: underline;
-  }
-
-  div.all-beers-button{
+  /* div.all-beers-button{
     height: 60px;
     color: #183A37;
     font-size: 26px;
-  }
+  } */
 
 #nav-logo{
   display: flex;
@@ -82,9 +73,15 @@ export default {
    #logout{
      bottom: 10px;
      left: 100px;
+     /* stick to bottom of the viewport rather than bottom of the nav bar */
   } 
   #nav-text{
     top:0;
+    /* align text horizontally */
+  }
+  #nav-logo{
+    height: 125px;
+    width: 125px;
   }
 }
 

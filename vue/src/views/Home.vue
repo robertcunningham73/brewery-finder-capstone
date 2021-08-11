@@ -16,6 +16,7 @@ export default {
 };
 </script>
 <style>
+
 /* .home{
   background-image: url("C:\Users\Student\workspace\phl-4-final-capstone-green-001\vue\src\assets\beers.jpg");
 }  */
