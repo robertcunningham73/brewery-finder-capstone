@@ -2,7 +2,7 @@
   <div class="content">
     <brewery-list />
     <div id="brewery-list-img">
-      <img :src="require(`@/assets/casks.jpg`)"/>
+      <!-- <img :src="require(`@/assets/casks.jpg`)"/> -->
     </div>
   </div>
   
