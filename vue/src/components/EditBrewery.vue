@@ -44,72 +44,79 @@
         </div>
         <div class="edit-brewery-hours" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <div class="hours">
-                <label for="monday-open">Mon Open: </label>
+                <label for="monday-open" class="open-labels">Mon Open: </label>
                 <input type="time" v-model="hoursArray[0]" />
                 
                 <label for="monday-close">Mon close: </label>
                 <input type="time" v-model="hoursArray[1]" />
                 <button
-                v-on:click.prevent="hoursArray[0] = 0, hoursArray[1] = 0, showMonClose = false"
-                v-show="showMonClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[0] = 0, hoursArray[1] = 0, showMonClose = false"
+                    v-show="showMonClose == true"
                 >Mon Closed</button>
             </div>
             <div class="hours">
-                <label for="tuesday-open">Tue Open: </label>
+                <label for="tuesday-open" class="open-labels">Tue Open: </label>
                 <input type="time" v-model="hoursArray[2]"/>
-                <label for="tuesday-close">Tue Close: </label>
+                <label for="tuesday-close" class="close-lables">Tue Close: </label>
                 <input type="time" v-model="hoursArray[3]"/>
                 <button
-                v-on:click.prevent="hoursArray[2] = 0, hoursArray[3] = 0, showTuesClose = false"
-                v-show="showTuesClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[2] = 0, hoursArray[3] = 0, showTuesClose = false"
+                    v-show="showTuesClose == true"
                 >Tue Closed</button>
             </div>
             <div class="hours">
-                <label for="wednesday-open">Wed Open: </label>
+                <label for="wednesday-open" class="open-labels">Wed Open: </label>
                 <input type="time" v-model="hoursArray[4]"/>
-                <label for="wednesday-close">Wed Close: </label>
+                <label for="wednesday-close" class="close-lables">Wed Close: </label>
                 <input type="time" v-model="hoursArray[5]"/>
                 <button
-                v-on:click.prevent="hoursArray[4] = 0, hoursArray[5] = 0, showWedClose = false"
-                v-show="showWedClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[4] = 0, hoursArray[5] = 0, showWedClose = false"
+                    v-show="showWedClose == true"
                 >Wed Closed</button>
             </div>
             <div class="hours">
-                <label for="thurday-open">Thu Open: </label>
+                <label for="thurday-open" class="open-labels">Thu Open: </label>
                 <input type="time" v-model="hoursArray[6]"/>
-                <label for="thursday-close">Thu Close: </label>
+                <label for="thursday-close" class="close-lables">Thu Close: </label>
                 <input type="time" v-model="hoursArray[7]"/>
                 <button
-                v-on:click.prevent="hoursArray[6] = 0, hoursArray[7] = 0, showThursClose = false"
-                v-show="showThursClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[6] = 0, hoursArray[7] = 0, showThursClose = false"
+                    v-show="showThursClose == true"
                 >Thu Closed</button>
             </div>
             <div class="hours">
-                <label for="friday-open">Fri Open: </label>
+                <label for="friday-open" class="open-labels">Fri Open: </label>
                 <input type="time" v-model="hoursArray[8]"/>
-                <label for="friday-close">Fri Close: </label>
+                <label for="friday-close" class="close-lables">Fri Close: </label>
                 <input type="time" v-model="hoursArray[9]"/>
                 <button
-                v-on:click.prevent="hoursArray[8] = 0, hoursArray[9] = 0, showFriClose = false"
-                v-show="showFriClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[8] = 0, hoursArray[9] = 0, showFriClose = false"
+                    v-show="showFriClose == true"
                 >Fri Closed</button>
             </div>
             <div class="hours"> 
-                <label for="saturday-open">Sat Open: </label>
+                <label for="saturday-open" class="open-labels">Sat Open: </label>
                 <input type="time" v-model="hoursArray[10]"/>
-                <label for="saturday-close">Sat Close: </label>
+                <label for="saturday-close" class="close-lables">Sat Close: </label>
                 <input type="time" v-model="hoursArray[11]"/>
                 <button
-                v-on:click.prevent="hoursArray[10] = 0, hoursArray[11] = 0, showSatClose = false"
-                v-show="showSatClose == true"
+                    class="closed-buttons"
+                    v-on:click.prevent="hoursArray[10] = 0, hoursArray[11] = 0, showSatClose = false"
+                    v-show="showSatClose == true"
                 >Sat Closed</button>
             </div>
             <div class="hours">
-                <label for="sunday-open">Sun Open: </label>
+                <label for="sunday-open" class="open-labels">Sun Open: </label>
                 <input type="time" v-model="hoursArray[12]"/>
-                <label for="sunday-closed">Sun Close: </label>
+                <label for="sunday-closed" class="close-lables">Sun Close: </label>
                 <input type="time" v-model="hoursArray[13]"/>
             <button
+                class="closed-buttons"
                 v-on:click.prevent="hoursArray[12] = 0, hoursArray[13] = 0, showSunClose = false"
                 v-show="showSunClose == true"
                 >Sun Closed</button>
@@ -183,8 +190,8 @@ export default {
             }
             imageObject.path = this.imagePath;
             this.updatedBrewery.images = this.store.state.activeBrewery.images;
-            this.updatedBrewery.images.push(imageObject);
-            this.updatedBrewery.hours = this.hoursArray.toString(); */
+            this.updatedBrewery.images.push(imageObject);*/
+            this.updatedBrewery.hours = this.hoursArray.toString(); 
             
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
