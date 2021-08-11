@@ -37,7 +37,7 @@
       <a href=""><br>Forgot password?</a>
       
     </form>
-    <div class ="img-beers">
+    <div class ="img-login">
       <img :src="require(`@/assets/beers.jpg`)"/>
      </div>
   </div>
@@ -105,6 +105,15 @@ export default {
 #login a{
   color: #183A37
 }
-
+.img-login{
+  height:  40vh;
+  width: 60vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-right: 15px;
+}
   
 </style>
