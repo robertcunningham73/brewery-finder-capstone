@@ -4,40 +4,45 @@
             <label for="add-brewery-image">Add image path</label>
             <input type="text" v-model="imagePath">
         </div>
-        
-        <div class="edit-brewery-name" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewer-id" v-show="this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'">
+            <label for="edit-brewer">Edit Brewer</label>
+            <select v-model="updatedBrewery.brewerId">
+                <option v-for="user in users" :key="user.id" :value="user.id">{{user.username}}</option>
+            </select>
+        </div>
+        <div class="edit-brewery-name" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="name">Brewery Name: </label>
             <input type="text" v-model="updatedBrewery.name" />
         </div>
-        <div class="edit-brewery-address" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-address" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="address">Street Address: </label>
             <input type="text" v-model="updatedBrewery.address" />
         </div>
-        <div class="edit-brewery-city" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-city" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="city">City: </label>
             <input type="text" v-model="updatedBrewery.city" />
         </div>
-        <div class="edit-brewery-state" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-state" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="state">State Initials:</label>
             <input type="text" v-model="updatedBrewery.state" />
         </div> 
-        <div class="edit-brewery-zip" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-zip" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="zip">Zip: </label>
             <input type="text" v-model="updatedBrewery.zip" />
         </div>
-        <div class="edit-brewery-phone-number" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-phone-number" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="phone">Phone Number: </label>
             <input type="text" v-model="updatedBrewery.phone" />
         </div>
-        <div class="edit-brewery-email" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-email" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="email">Email Address: </label>
             <input type="text" v-model="updatedBrewery.email" />
         </div>
-        <div class="edit-brewery-history" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-history" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <label for="history">History: </label>
             <textarea type="text" v-model="updatedBrewery.history" />
         </div>
-        <div class="edit-brewery-hours" v-show="this.$store.state.user.authorities[0].name == 'ROLE_BREWER'">
+        <div class="edit-brewery-hours" v-show="this.$store.state.user.id === this.$store.state.activeBrewery.brewerId">
             <div class="hours">
                 <label for="monday-open">Mon Open: </label>
                 <input type="time" v-model="hoursArray[0]" />
@@ -111,8 +116,8 @@
         </div>
     </div>
     <div class="brewery-activation-status">
-        <button v-if="this.$store.state.activeBrewery.active == true" v-on:click="updateState">Deactivate brewery</button>
-        <button v-if="this.$store.state.activeBrewery.active == false" v-on:click="updateState">Activate brewery</button>
+        <button v-if="this.updatedBrewery.active == true" v-on:click.prevent="updateState">Deactivate brewery</button>
+        <button v-if="this.updatedBrewery.active == false" v-on:click.prevent="updateState">Activate brewery</button>
     </div>
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>
@@ -123,6 +128,7 @@
 </template>
 
 <script>
+import AuthService from '../services/AuthService';
 import beerService from '../services/BeerService';
 
 
@@ -153,29 +159,32 @@ export default {
             showFriClose: true,
             showSatClose: true,
             showSunClose: true,
-            imagePath: ""
+            imagePath: "",
+            users: ""
         };
     },
    created() {
+       AuthService.getUsers().then(response => {
+            if(response.status == 200){
+                this.users = response.data;
+            }
+        });
         beerService.getBrewery(this.$route.params.id).then(response => {
         this.$store.commit("SET_ACTIVE_BREWERY", response.data);
         this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
         this.updatedBrewery = this.$store.state.activeBrewery;
-    });
-        
-
-        
+    });    
     }, 
     methods: {
         updateBrewery(){
-            let imageObject = {
+            /* let imageObject = {
                 breweryId: this.$store.state.activeBrewery.breweryId,
                 path: ""
             }
             imageObject.path = this.imagePath;
             this.updatedBrewery.images = this.store.state.activeBrewery.images;
             this.updatedBrewery.images.push(imageObject);
-            this.updatedBrewery.hours = this.hoursArray.toString();
+            this.updatedBrewery.hours = this.hoursArray.toString(); */
             
             beerService.updateBrewery(this.updatedBrewery)
             .then(response => {
@@ -189,10 +198,10 @@ export default {
             this.$parent.showEditBreweryForm = false;
         },
         updateState(){
-            if(this.$store.state.beer.active == true){
-            this.$store.state.beer.active = false;
+            if(this.updatedBrewery.active == true){
+            this.updatedBrewery.active = false;
           }else{
-            this.$store.state.beer.active = true;
+            this.updatedBrewery.active = true;
           }
         }
     }
