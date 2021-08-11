@@ -202,6 +202,7 @@ export default {
   margin: 0 auto;
   padding-bottom: 15px;
 }
+
 @media screen and (max-width: 600){
 .brewery-images{
  height:  30vh;

@@ -7,7 +7,7 @@
     </div>
   </div>
    <div class="beer-list-img">
-      <img :src="require(`@/assets/casks.jpg`)"/>
+      <img :src="require(`@/assets/beer_flight.jpg`)"/>
     </div>
   </div>
 </template>
@@ -39,6 +39,11 @@ export default {
   justify-content: center;
   margin: 0 auto;
   padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.list-beers a{
+  color: #183A37
 }
 
 @media screen and (max-width: 600px){

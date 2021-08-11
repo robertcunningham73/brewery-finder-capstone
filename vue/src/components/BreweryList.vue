@@ -19,9 +19,9 @@
       </div>
 
   <h1>All Breweries</h1>
-   <div
+   <div class="brew-list-text"
      v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.breweryId" v-show="brewery.active || $store.state.user.authorities[0].name == 'ROLE_ADMIN' || $store.state.user.id === $store.state.activeBrewery.brewerId">
-        <router-link v-bind:to="{ name: 'brewery', params:{id: brewery.breweryId}}" >{{ brewery.name }}</router-link>
+        <router-link v-bind:to="{ name: 'brewery', params:{id: brewery.breweryId}}" >{{ brewery.name }}<br></router-link>
     </div>
     <div id ="brewery-list-img">
       <img :src="require(`@/assets/casks.jpg`)"/>
@@ -58,7 +58,8 @@ export default {
 
 <style scoped>
 .brewery-list a{ 
-  color: #183A37;
+  font-size: 22px;
+  font-weight: bold;
 }
 #brewery-list-img{
   /* height:  300px;
@@ -69,9 +70,8 @@ export default {
   align-content: center;
   justify-content: center;
   margin: 0 auto;
-  padding-top: 15px;
+  padding-top: 20px;
 }
-
 
 
 

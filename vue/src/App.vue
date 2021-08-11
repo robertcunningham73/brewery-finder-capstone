@@ -68,6 +68,9 @@ export default {
     a:hover{
     text-decoration: underline;
     }
+    a{
+      color:#183A37;
+    }
 
     @media screen and (max-width: 600px){
       .app-container {
