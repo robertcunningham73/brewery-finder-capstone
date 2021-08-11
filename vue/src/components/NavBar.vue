@@ -37,6 +37,7 @@ export default {
   .nav-bar a{
     color: #EFD6AC;
     padding: 0px 24px;
+    margin-left: 5px;
   }
   
   a {
@@ -63,7 +64,7 @@ export default {
   /* position: absolute; */
   bottom: 50px;
   left: 20px;
-  padding-top: 400px;
+  padding-top: 300px;
 }
 
 @media screen and (max-width: 600px){

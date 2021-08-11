@@ -65,12 +65,17 @@ export default {
   /* height:  300px;
   width: 600px; */
   height: 20vh;
-  width: 50vw;
+  width: 45vw;
   display: flex;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
   padding-top: 20px;
+}
+@media screen and (max-width: 600){
+  #brewery-list-img{
+    display: none;
+  }
 }
 
 

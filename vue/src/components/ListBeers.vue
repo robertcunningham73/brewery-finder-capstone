@@ -43,7 +43,8 @@ export default {
 }
 
 .list-beers a{
-  color: #183A37
+  font-size: 22px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px){

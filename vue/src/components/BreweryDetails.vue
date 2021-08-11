@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container brewery-details">
+  <div class="brewery-details">
     <div class="edit-brewery-button">
       <button
         id="show-edit-brewery-button"
