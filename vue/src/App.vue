@@ -2,11 +2,6 @@
   <div class="app-container" id="app">
       <nav-bar class="nav-bar"/>
       <router-view class="page-content"/>
-
-  
-   <!-- <div class ="img-beers">
-      <img :src="require(`@/assets/beers.jpg`)"/>
-     </div>  -->
      </div> 
 </template>
 
@@ -37,7 +32,7 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   
   .nav-bar {

@@ -1,5 +1,5 @@
 <template>
-  <div class="brewery-details">
+  <div class="app-container brewery-details">
     <div class="edit-brewery-button">
       <button
         id="show-edit-brewery-button"
@@ -62,14 +62,18 @@
       <p>Saturday: {{printSaturdayHours()}}</p>
       <p>Sunday: {{printSundayHours()}}</p>
     </div>
+   <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
+      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
+      <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
+    </div> 
     <div id="contact-info"><h2>Contact Us:</h2>
       <a :href="'tel:' + this.$store.state.activeBrewery.phone">{{this.$store.state.activeBrewery.phone}}</a> |
       <a :href="'mailto:' + this.$store.state.activeBrewery.email">{{this.$store.state.activeBrewery.email}}</a>
     </div>
-    <!-- <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
+   <!-- <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
       <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
       <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
-    </div> -->
+    </div> --> 
   </div>
 </template>
 
@@ -188,6 +192,42 @@ export default {
 <style>
 #contact-info a {
   font-size: 20px;
+}
+.brewery-images{
+  height:  300px;
+  width: 600px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+@media screen and (max-width: 600){
+.brewery-images{
+ height:  30vh;
+  width: 60vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+
+ /*  height:  200px;
+  width: 400px;
+   display: flex; 
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
+ */
+img{
+  max-width: 100%;
+  max-height: 100%; 
+ 
+}
 }
 
 </style>
