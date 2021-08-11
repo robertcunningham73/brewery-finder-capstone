@@ -63,7 +63,8 @@
       <p>Sunday: {{printSundayHours()}}</p>
     </div>
     <div id="contact-info"><h2>Contact Us:</h2>
-      <h3>{{this.$store.state.activeBrewery.phone}} | {{this.$store.state.activeBrewery.email}}</h3>
+      <a :href="'tel:' + this.$store.state.activeBrewery.phone">{{this.$store.state.activeBrewery.phone}}</a> |
+      <a :href="'mailto:' + this.$store.state.activeBrewery.email">{{this.$store.state.activeBrewery.email}}</a>
     </div>
     <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
       <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" />
@@ -185,5 +186,8 @@ export default {
 </script>
 
 <style>
+#contact-info a {
+  font-size: 20px;
+}
 
 </style>

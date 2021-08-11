@@ -34,6 +34,7 @@
       /><br>
       <button type="submit">Sign in</button>
       <router-link :to="{ name: 'register' }"><br>Need an account?</router-link>
+      <a href=""><br>Forgot password?</a>
       
     </form>
   </div>
