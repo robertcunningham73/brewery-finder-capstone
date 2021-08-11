@@ -19,11 +19,14 @@ export default {
 </script>
 
 <style>
-brewery-list.img{
-  height:  100%;
-  width: 125%;
-  position: relative;
-  top: 0;
+brewery-list-img{
+  height:  300px;
+  width: 600px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
 }
 
 

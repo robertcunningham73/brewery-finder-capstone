@@ -82,6 +82,7 @@ export default {
   #nav-logo{
     height: 125px;
     width: 125px;
+    display: block;
   }
 }
 

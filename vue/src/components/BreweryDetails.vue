@@ -66,11 +66,11 @@
       <a :href="'tel:' + this.$store.state.activeBrewery.phone">{{this.$store.state.activeBrewery.phone}}</a> |
       <a :href="'mailto:' + this.$store.state.activeBrewery.email">{{this.$store.state.activeBrewery.email}}</a>
     </div>
-    <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
-      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" />
+    <!-- <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
+      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> -->
       <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

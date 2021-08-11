@@ -86,7 +86,9 @@ export default {
         padding: 10px;
       }
 
-    
+      h1{
+        font-size: 24px;
+      }
     }
 
 /*   @media only screen and (min-width: 700px) {

@@ -23,9 +23,9 @@
      v-for="brewery in this.$store.state.breweries" v-bind:key="brewery.breweryId" v-show="(brewery.active && $store.state.user.authorities[0].name == 'ROLE_USER') || $store.state.user.authorities[0].name != 'ROLE_USER'">
         <router-link v-bind:to="{ name: 'brewery', params:{id: brewery.breweryId}}" >{{ brewery.name }}</router-link>
     </div>
-    <!-- <div id ="brewery-list-img">
+    <div id ="brewery-list-img">
       <img :src="require(`@/assets/casks.jpg`)"/>
-    </div> -->
+    </div>
 </div>
   
 </template>
@@ -60,11 +60,16 @@ export default {
 .brewery-list a{ 
   color: #183A37;
 }
-
-.brewery-list{
- 
-  z-index: 1;
+#brewery-list-img{
+  height:  300px;
+  width: 600px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
 }
+
 
 
 

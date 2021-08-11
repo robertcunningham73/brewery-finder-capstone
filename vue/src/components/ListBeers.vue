@@ -6,7 +6,7 @@
       <router-link v-bind:to="{ name: 'beer', params:{id: beer.beerId}}" >{{ beer.name }}</router-link>
     </div>
   </div>
-   <div id="brewery-list-img">
+   <div class="beer-list-img">
       <img :src="require(`@/assets/casks.jpg`)"/>
     </div>
   </div>
@@ -31,5 +31,20 @@ export default {
 </script>
 
 <style>
+.beer-list-img{
+  height:  300px;
+  width: 600px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
 
+@media screen and (max-width: 600px){
+  .brewery-list-img{
+    height: auto;
+    width: auto;
+  }
+}
 </style>

@@ -102,6 +102,9 @@ export default {
     padding-top: 10px;
     
   }
+#login a{
+  color: #183A37
+}
 
   
 </style>
