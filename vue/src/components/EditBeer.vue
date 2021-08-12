@@ -17,8 +17,8 @@
         <input type="text" v-model="updatedBeer.beerType" />
     </div> 
     <div class="beer-activation-status">
-        <button v-if="this.$store.state.beer.active == true" v-on:click.prevent="updateState">Deactivate</button>
-        <button v-if="this.$store.state.beer.active == false" v-on:click.prevent="updateState">Activate</button>
+        <button v-if="this.updatedBeer.active == true" v-on:click.prevent="updateState">Deactivate</button>
+        <button v-if="this.updatedBeer.active == false" v-on:click.prevent="updateState">Activate</button>
     </div>
     <div class="actions">
         <button v-on:click.prevent="resetForm" type="cancel" >Cancel</button>

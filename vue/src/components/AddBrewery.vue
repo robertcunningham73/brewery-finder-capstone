@@ -1,8 +1,14 @@
 <template>
     <form v-on:submit="addBrewery">
+    <div class="set-brewerId">
+        <label for="brewer">Brewer (Required): </label>
+        <select id="select-brewer" v-model="newBrewery.brewerId">
+            <option v-for="user in users" :key="user.id" :value="user.id">{{user.username}}</option>
+        </select>
+    </div>
      <div class="new-brewery-name">
         <label for="name">Brewery Name (Required): </label>
-        <input type="text" v-model="newBrewery.name" />
+        <input type="text" id="text-name" v-model="newBrewery.name" />
     </div>
     <div class="new-brewery-address">
         <label for="address">Street Address: </label>
@@ -27,12 +33,6 @@
     <div class="new-brewery-email">
         <label for="email">Email Address: </label>
         <input type="text" v-model="newBrewery.email" />
-    </div>
-    <div class="set-brewerId">
-        <label for="brewer">Brewer (Required): </label>
-        <select v-model="newBrewery.brewerId">
-            <option v-for="user in users" :key="user.id" :value="user.id">{{user.username}}</option>
-        </select>
     </div>
     <div class="new-brewery-history">
         <label for="history">History: </label>

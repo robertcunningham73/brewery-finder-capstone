@@ -80,11 +80,11 @@ label{
 justify-content: center;
 }
 
-textarea{
+#text-name{
   background-color: #EFD6AC;
   border-radius: 3px;
 }
-select{
+#select-brewer{
   background-color: #EFD6AC;
   border-radius: 3px;
 }
