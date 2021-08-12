@@ -50,7 +50,7 @@
                 <th scope="col"></th>
             </tr>
             <tr>
-                <td>Monday</td>
+                <td>Mon</td>
                 <td><input type="time" v-model="hoursArray[0]" /></td>
                 <td><input type="time" v-model="hoursArray[1]" /></td>
                 <td><button
@@ -60,7 +60,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Tuesday</td>
+                <td>Tue</td>
                 <td><input type="time" v-model="hoursArray[2]" /></td>
                 <td><input type="time" v-model="hoursArray[3]" /></td>
                 <td><button
@@ -70,7 +70,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Wednesday</td>
+                <td>Wed</td>
                 <td><input type="time" v-model="hoursArray[4]" /></td>
                 <td><input type="time" v-model="hoursArray[5]" /></td>
                 <td><button
@@ -80,7 +80,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Thursday</td>
+                <td>Thu</td>
                 <td><input type="time" v-model="hoursArray[6]" /></td>
                 <td><input type="time" v-model="hoursArray[7]" /></td>
                 <td><button
@@ -90,7 +90,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Friday</td>
+                <td>Fri</td>
                 <td><input type="time" v-model="hoursArray[8]" /></td>
                 <td><input type="time" v-model="hoursArray[9]" /></td>
                 <td><button
@@ -100,7 +100,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Saturday</td>
+                <td>Sat</td>
                 <td><input type="time" v-model="hoursArray[10]" /></td>
                 <td><input type="time" v-model="hoursArray[11]" /></td>
                 <td><button
@@ -110,7 +110,7 @@
                 >Closed</button></td>
             </tr>
             <tr>
-                <td>Sunday</td>
+                <td>Sun</td>
                 <td><input type="time" v-model="hoursArray[12]" /></td>
                 <td><input type="time" v-model="hoursArray[13]" /></td>
                 <td><button
@@ -233,5 +233,11 @@ export default {
 
 #imagePath-input {
     background-color: gray;
+}
+
+@media screen and (max-width: 600px) {
+    .edit-brewery-hours {
+        max-width: 100%;
+    }
 }
 </style>
