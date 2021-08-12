@@ -1,6 +1,8 @@
 <template>
   <div class="app-container" id="app">
-      <nav-bar class="nav-bar"/>
+      <nav-bar class="nav-bar">
+        <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
+      </nav-bar>
       <router-view class="page-content"/>
      </div> 
 </template>
@@ -32,11 +34,11 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
   }
   
   .nav-bar {
-    width: 200px;
+    width: 100%;
     padding-top: 25px;
     background: #183A37;
     /* position: fixed; */
@@ -71,6 +73,7 @@ export default {
     a{
       color:#183A37;
     }
+
 
     @media screen and (max-width: 600px){
       .app-container {

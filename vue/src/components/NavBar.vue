@@ -8,10 +8,8 @@
     <div class="all-beers-button" v-if="$store.state.token != ''">
       <router-link class="nav-router" :to="{name: 'beerList'}">All Beers</router-link>
     </div>
-    <div id="logout">
       <router-link class="nav-router" id="logout-link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div> 
-    </div>
   </nav>
 </template>
 
@@ -25,14 +23,20 @@ export default {
 
 <style scoped>
 
+#nav-text{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 4;
+  justify-content: flex-end;
+}
+
   #left-bar{
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   /* height: 100%; */
-  z-index: 1;
   }
+  
 
   .nav-bar a{
     color: #EFD6AC;
@@ -60,27 +64,26 @@ export default {
   padding-bottom: 0;
 }
 
-#logout{
-  /* position: absolute; */
+/* #logout{
+  position: absolute;
   bottom: 50px;
   left: 20px;
   padding-top: 300px;
-}
+} */
 
 @media screen and (max-width: 600px){
   #left-bar{
     display: flex;
     flex-direction: row;
   }
-   #logout{
+   /* #logout{
      display: flex;
      justify-content: flex-start;
      padding-top: 60px;
      font-size: smaller;
-     /* bottom: 10px;
-     left: 100px; */
-     /* stick to bottom of the viewport rather than bottom of the nav bar */
-  } 
+     bottom: 10px;
+     left: 100px;
+  }  */
   #nav-text{
     top:0;
     padding-left: 55px;
