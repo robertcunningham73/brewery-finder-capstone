@@ -63,17 +63,15 @@
       <p>Sunday: {{printSundayHours()}}</p>
     </div>
    <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
-      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
+     <div id="img-brew-det">
+       <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
       <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
     </div> 
+     </div>
     <div id="contact-info"><h2>Contact Us:</h2>
       <a :href="'tel:' + this.$store.state.activeBrewery.phone">{{this.$store.state.activeBrewery.phone}}</a> |
       <a :href="'mailto:' + this.$store.state.activeBrewery.email">{{this.$store.state.activeBrewery.email}}</a>
     </div>
-   <!-- <div class=brewery-images v-for="(image, index) in this.images" v-bind:key="image.imagePath">
-      <img :src="require(`@/assets/${image.imagePath}`)" alt="brewery-images" /> 
-      <button v-if="$store.state.user.authorities[0].name != 'ROLE_USER'" @click="deleteImage(index)">Delete</button>
-    </div> --> 
   </div>
 </template>
 
@@ -194,13 +192,14 @@ export default {
   font-size: 20px;
 }
 .brewery-images{
-  height:  300px;
-  width: 600px;
   display: flex;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
   padding-bottom: 15px;
+}
+#img-brew-det{
+  max-width: 100%;
 }
 
 @media screen and (max-width: 600){

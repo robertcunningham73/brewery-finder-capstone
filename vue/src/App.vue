@@ -19,7 +19,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
 
    html {
+    width: 100%;
     height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
   }
 
   body {
@@ -35,13 +39,13 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
   
   .nav-bar {
     width: 100%;
     padding-top: 25px;
     background: #183A37;
-    /* position: fixed; */
     font-family: 'Gravitas One', cursive;
   }
 
@@ -50,7 +54,7 @@ export default {
     flex: 1 0 auto;
     text-align: center;
     background: linear-gradient(rgb(224,159,62), rgb(158,42,43));
-    /* margin-left: 10em; */
+    
     }
 
     h1{
@@ -74,13 +78,16 @@ export default {
       color:#183A37;
     }
 
+    #img-sign{
+      height: 200px;
+      width: 200px;
+    }
 
     @media screen and (max-width: 600px){
       .app-container {
         display: flex;
         flex-direction: column;
-        width: 120vw;
-        height: 120vh;
+        max-width: 100%;
       }
       .nav-bar{
         width: 100%;
@@ -91,6 +98,7 @@ export default {
       h1{
         font-size: 24px;
       }
+
     }
 
 /*   @media only screen and (min-width: 700px) {

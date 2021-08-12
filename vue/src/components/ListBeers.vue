@@ -7,7 +7,9 @@
     </div>
   </div>
    <div class="beer-list-img">
-      <img :src="require(`@/assets/beer_flight.jpg`)"/>
+     <div id="img-beer-list">
+       <img :src="require(`@/assets/beer_flight.jpg`)"/>
+     </div>
     </div>
   </div>
 </template>
@@ -32,14 +34,16 @@ export default {
 
 <style>
 .beer-list-img{
-  height:  300px;
-  width: 600px;
   display: flex;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
   padding-bottom: 15px;
   padding-top: 15px;
+}
+
+#img-beer-list{
+  max-width: 100%;
 }
 
 .list-beers a{

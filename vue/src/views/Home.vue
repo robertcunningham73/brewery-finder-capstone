@@ -31,12 +31,12 @@ export default {
   max-width: 100%;
 }
 
-@media screen and(max-width: 840px){
+/* @media screen and(max-width: 840px){
   img{
     height: 20vh;
     width: 30vw;
-  }
-}
+  } 
+}*/
 
 /* .home{
   background-image: url("C:\Users\Student\workspace\phl-4-final-capstone-green-001\vue\src\assets\beers.jpg");

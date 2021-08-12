@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-bar" id="left-bar">
     <div id="nav-logo">
-      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
+      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token == ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
     </div>
     <div id="nav-text">
       <router-link class="nav-router" :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
@@ -28,13 +28,13 @@ export default {
   flex-direction: row;
   flex-grow: 4;
   justify-content: flex-end;
+  height: 30px;
 }
 
   #left-bar{
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  /* height: 100%; */
   }
   
 
@@ -71,6 +71,31 @@ export default {
   padding-top: 300px;
 } */
 
+@media screen and (max-width: 840px){
+  img{
+    height: 140px;
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  img{
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  #nav-text{
+    /* top:0;
+    padding-left: 55px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+}
+
 @media screen and (max-width: 600px){
   #left-bar{
     display: flex;
@@ -84,10 +109,7 @@ export default {
      bottom: 10px;
      left: 100px;
   }  */
-  #nav-text{
-    top:0;
-    padding-left: 55px;
-  }
+  
   #nav-logo{
     height: 125px;
     width: 125px;
