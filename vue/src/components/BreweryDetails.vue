@@ -191,6 +191,11 @@ export default {
 <style>
 #contact-info a {
   font-size: 20px;
+  color: #EFD6AC;
+}
+
+#contact-info h2 {
+  color: #EFD6AC;
 }
 .brewery-images{
   display: flex;
@@ -220,6 +225,7 @@ img{
   max-height: 100%; 
  
 }
+
 }
 
 </style>

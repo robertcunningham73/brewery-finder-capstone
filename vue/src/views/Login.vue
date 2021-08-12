@@ -38,7 +38,9 @@
       
     </form>
     <div class ="img-login">
-      <img :src="require(`@/assets/beers.jpg`)"/>
+      <div class="img-div">
+        <img :src="require(`@/assets/beers.jpg`)"/>
+      </div>
      </div>
   </div>
 </div>
@@ -106,14 +108,15 @@ export default {
   color: #183A37
 }
 .img-login{
-  height:  40vh;
-  width: 60vh;
   display: flex;
   align-content: center;
   justify-content: center;
   margin: 0 auto;
   padding-top: 10px;
-  padding-right: 15px;
+}
+
+.img-div {
+  max-width: 100%;
 }
   
 </style>

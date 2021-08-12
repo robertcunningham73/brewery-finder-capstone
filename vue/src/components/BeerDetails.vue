@@ -62,7 +62,6 @@ export default {
  .img-beer{
   height:  200px;
   width: 200px;
-  /* display: flex; */
   align-content: center;
   justify-content: center;
   margin: 0 auto;
@@ -72,20 +71,6 @@ export default {
 img{
   max-width: 100%;
   max-height: 100%;
- 
 }
-/*trying many things to get page to enlarge*/
-  /*  @media only screen and (min-width: 1000px) {
-    .app-container {
-        width: 150%;
-        height: 200px;
-
-      }
-      .nav-bar{
-        width: 100%;
-        height: 200px;
-        
- 
-  }  */
 
 </style>

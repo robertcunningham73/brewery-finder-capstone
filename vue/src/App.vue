@@ -100,44 +100,4 @@ export default {
       }
 
     }
-
-/*   @media only screen and (min-width: 700px) {
-  .app-container {
-   display: flex;
-        flex-direction: column;
-         width: 200%;
-    height: 200%;
-    display: flex;
-    flex-direction: row;
-}
-} */
-  
-
-  /* .nav-container {
-    grid-area: left-display;
-    text-align: center;
-  }
-  
-  .container{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: 
-        "left-display right-display";
-    text-align: center;
-  }
-
-  #nav {
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    overflow-x: hidden;
-    background: linear-gradient(#183A37, #335c67);
-    border-top-right-radius: 15px;
-    border: transparent;
-    z-index: 1;
-      } */
 </style>

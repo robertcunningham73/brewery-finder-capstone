@@ -46,7 +46,6 @@ export default {
       this.newReview.userId = this.$store.state.user.id;
       this.$store.state.beer.reviews.push(this.newReview);
       this.resetForm();
-      //TODO: set up add
       const beer = {
         beerId: this.$store.state.beer.beerId, 
         name: this.$store.state.beer.name, 
@@ -60,9 +59,7 @@ export default {
       beerService.updateBeer(beer, this.$store.state.activeBrewery.breweryId)
       .then(response => {
         if(response.status == 200){
-          //TODO: create Mutation that adds review to reviews store collection
           this.$store.commit("SET_ACTIVE_BEER", beer);
-          //this.$store.commit("SET_BEER_LIST", response.data);
         }
       });
       

@@ -46,14 +46,4 @@ table, td{
   padding: 5px 10px;
 }
 
-/* .review-content{
-  display: flex;
-  justify-content: flex-end;
-  
-}
-
-#review-form{
-  margin-right: 20%;
-} */
-
 </style>
