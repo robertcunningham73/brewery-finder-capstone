@@ -41,10 +41,10 @@
         {{this.$store.state.activeBrewery.zip}}
       </h3>
     </div>
-    <div id="history"><h2>History</h2>
-      <h3>
+    <div id="history"><h2>History:</h2>
+      <p>
         {{this.$store.state.activeBrewery.history}}
-      </h3>
+      </p>
     </div>
     <div class="beer-list" >
       <h2>Brewery's Available Beers:</h2>
@@ -91,6 +91,16 @@ export default {
      images: []
      }
    },
+   computed: {
+     currentBrewery() {
+       return this.$store.state.activeBrewery.hours;
+     }
+   },
+   watch: {
+     currentBrewery: function() {
+       this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+     }
+   },
   created(){
     beerService.getBeerByBrewery(this.$route.params.id).then(response =>{
       this.$store.commit("SET_BEER_LIST", response.data);
@@ -103,13 +113,6 @@ export default {
     });
   },
   methods: {
-    /* showBeer() {
-        if (!this.$store.state.beer.active && this.$store.state.user.authorities[0].name == 'ROLE_USER') {
-          return false;
-        } else {
-          return true;
-        }
-    }, */
     printMondayHours(){
       let mondayHours = '';
       if(this.hoursArray[0] == 0 || this.hoursArray[1] == 0){
@@ -183,8 +186,6 @@ export default {
     }
   }
 }
-
-
 </script>
 
 <style>
@@ -214,15 +215,6 @@ export default {
   padding-right: 15px;
 }
 
-
- /*  height:  200px;
-  width: 400px;
-   display: flex; 
-  align-content: center;
-  justify-content: center;
-  margin: 0 auto;
-  padding-bottom: 15px;
- */
 img{
   max-width: 100%;
   max-height: 100%; 

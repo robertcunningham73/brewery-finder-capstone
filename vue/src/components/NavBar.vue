@@ -2,6 +2,7 @@
   <nav class="nav-bar" id="left-bar">
     <div id="nav-logo">
       <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token == ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
+      <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''"><img :src="require(`@/assets/bf-logo-teal.png`)"/></router-link>
     </div>
     <div id="nav-text">
       <router-link class="nav-router" :to="{name: 'breweries'}" v-if="$store.state.token != ''">Breweries</router-link>
@@ -49,12 +50,6 @@ export default {
     font-size: 26px;
   } 
 
-  /* div.all-beers-button{
-    height: 60px;
-    color: #183A37;
-    font-size: 26px;
-  } */
-
 #nav-logo{
   display: flex;
   justify-content: flex-start;
@@ -63,13 +58,6 @@ export default {
   width: 200px;
   padding-bottom: 0;
 }
-
-/* #logout{
-  position: absolute;
-  bottom: 50px;
-  left: 20px;
-  padding-top: 300px;
-} */
 
 @media screen and (max-width: 840px){
   img{
@@ -87,8 +75,6 @@ export default {
 
 @media screen and (max-width: 800px){
   #nav-text{
-    /* top:0;
-    padding-left: 55px; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -101,14 +87,6 @@ export default {
     display: flex;
     flex-direction: row;
   }
-   /* #logout{
-     display: flex;
-     justify-content: flex-start;
-     padding-top: 60px;
-     font-size: smaller;
-     bottom: 10px;
-     left: 100px;
-  }  */
   
   #nav-logo{
     height: 125px;
