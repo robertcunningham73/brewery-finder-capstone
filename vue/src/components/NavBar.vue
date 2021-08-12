@@ -58,7 +58,7 @@ export default {
 #nav-logo{
   display: flex;
   justify-content: flex-start;
-  align-content: flex-start;
+  align-content: flex-start; 
   height: 200px;
   width: 200px;
   padding-bottom: 0;
