@@ -53,7 +53,12 @@ export default {
     beerService.getBeer(this.$route.params.id).then(response =>{
       this.$store.commit("SET_ACTIVE_BEER", response.data);
       this.imagePath = this.$store.state.beer.imagePath;
-    })
+    });
+    beerService.getBreweryByBeerId(this.$route.params.id).then(response => {
+      this.$store.commit("SET_ACTIVE_BREWERY", response.data);
+      this.images = this.$store.state.activeBrewery.images;
+      this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
+    });
   },
    
 }

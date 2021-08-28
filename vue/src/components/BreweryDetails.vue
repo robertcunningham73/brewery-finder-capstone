@@ -109,7 +109,6 @@ export default {
       this.$store.commit("SET_ACTIVE_BREWERY", response.data);
       this.images = this.$store.state.activeBrewery.images;
       this.hoursArray = this.$store.state.activeBrewery.hours.split(",");
-      
     });
   },
   methods: {
