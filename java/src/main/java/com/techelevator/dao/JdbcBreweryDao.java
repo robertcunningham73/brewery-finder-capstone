@@ -50,6 +50,19 @@ public class JdbcBreweryDao implements BreweryDao{
     }
 
     @Override
+    public Brewery getBreweryByBeerId(int beerId) {
+        Brewery brewery = new Brewery();
+
+        String sqlBreweryId = "SELECT b.brewery_id FROM breweries b JOIN beer_inventory bi ON b.brewery_id = bi.brewery_id " +
+                "WHERE bi.beer_id = ?;";
+        Integer breweryId = jdbcTemplate.queryForObject(sqlBreweryId, Integer.class, beerId);
+
+        brewery = getBreweryById(breweryId);
+
+        return brewery;
+    }
+
+    @Override
     public void addBrewery(Brewery brewery) {
         String sql = "INSERT into breweries (brewery_name, brewery_address, brewery_city, brewery_state, brewery_zip, " +
                 "brewery_phone, brewery_email, brewery_hours, brewery_history, brewer_id, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";

@@ -7,13 +7,11 @@ import java.util.List;
 
 public interface BreweryDao {
 
-    List<Brewery> getAllBreweries();
+    public List<Brewery> getAllBreweries();
 
-    Brewery getBreweryById(int breweryId);
+    public Brewery getBreweryById(int breweryId);
 
-    //Brewery getBreweryByName(String name);
-
-    //int findIdByName(String name);
+    public Brewery getBreweryByBeerId(int beerId);
 
     public void updateBrewery(Brewery brewery);
 

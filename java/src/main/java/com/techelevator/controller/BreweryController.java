@@ -20,6 +20,9 @@ public class BreweryController {
     @RequestMapping(path="/breweries/{id}", method = RequestMethod.GET)
     public Brewery get(@PathVariable int id) { return breweryDao.getBreweryById(id); }
 
+    @RequestMapping(path="/breweries/beer/{id}", method = RequestMethod.GET)
+    public Brewery getBreweryByBeerId(@PathVariable int id) { return breweryDao.getBreweryByBeerId(id); }
+
     @RequestMapping(path="/breweries/{id}", method = RequestMethod.PUT)
     public void update(@RequestBody Brewery brewery, @PathVariable int id) { breweryDao.updateBrewery(brewery); }
 
